@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package one_scout;
+
+message game {
+  optional string team_number = 1;
+  optional int32 num_of_balls = 2;
+  optional string climb_level = 3;
+}

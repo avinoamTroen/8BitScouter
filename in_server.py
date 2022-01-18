@@ -16,7 +16,10 @@ def main():
     ''' Accept connection from client '''
     (client_socket, client_address) = server_socket.accept()  # accept connection from a client
 
+    ''' Get data and decode data '''
     data = client_socket.recv(MAX_MSG_SIZE).decode()
+
+    ''' Do things with the data '''
     print(data)
 
 
