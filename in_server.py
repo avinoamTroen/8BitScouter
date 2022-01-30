@@ -1,6 +1,7 @@
 # Avinoam Troen
 import socket
 from utils import *
+from my_proto_pb2 import *
 
 
 def main():
@@ -17,10 +18,14 @@ def main():
     (client_socket, client_address) = server_socket.accept()  # accept connection from a client
 
     ''' Get data and decode data '''
-    data = client_socket.recv(MAX_MSG_SIZE).decode()
+    fake_game = game()
+    fake_game.ParseFromString(client_socket.recv(MAX_MSG_SIZE))
+
+    fake_game_1 = OneScout.from_proto(fake_game)
 
     ''' Do things with the data '''
-    print(data)
+    print(fake_game)
+    print(fake_game_1.round)
 
 
 if __name__ == '__main__':

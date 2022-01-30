@@ -3,7 +3,28 @@ syntax = "proto3";
 package one_scout;
 
 message game {
+  // identifiers + pre game info
   optional string team_number = 1;
-  optional int32 num_of_balls = 2;
-  optional string climb_level = 3;
+  optional string comp = 2;
+  optional string round = 3;
+  optional string alliance_color = 4;
+
+
+  // autonomous
+  optional int32 intake_auto = 5;
+  optional int32 bottom_auto = 6;
+  optional int32 top_auto = 7;
+
+  // tele-op
+  optional int32 intake_tele = 8;
+  optional int32 bottom_tele = 9;
+  optional int32 top_tele = 10;
+
+  // endgame
+  optional int32 climb_level = 11;
+
+  // post-game
+  optional int32 driving = 12;
+  optional int32 defense = 13;
+  optional string free_text = 14;
 }

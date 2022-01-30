@@ -2,6 +2,7 @@
 import socket  # import socket module to enable working over sockets
 from utils import IPADDR, PORT, MAX_MSG_SIZE  # shared consts for connection details
 from my_proto_pb2 import game
+from utils import OneScout
 
 """
 
@@ -37,9 +38,9 @@ def main():
     my_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # init new socket and its protocol
     my_socket.connect((IPADDR, PORT))  # connect to the server via address and port
 
-    ''' Work with the socket... send and receive messages - main game loop here '''
-    
-    thing = "thing".encode()
+    ''' Work with the socket... send and receive messages '''
+    fake_game = OneScout(auto_intake=5)
+    thing = fake_game.proto_version.SerializeToString()
     my_socket.send(thing)
     # print server response
     response = my_socket.recv(MAX_MSG_SIZE).decode()
