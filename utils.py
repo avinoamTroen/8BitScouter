@@ -33,7 +33,7 @@ class OneScout:
 
     @classmethod
     def from_proto(cls, proto_version):
-        p = proto_version # p is just shorter
+        p = proto_version  # p is just shorter
         return cls(team_name=p.team_number, comp=p.comp, round=p.round, alliance=p.alliance_color,
                    auto_intake=p.intake_auto, auto_bottom=p.bottom_auto, auto_top=p.top_auto, tele_intake=p.intake_tele,
                    tele_bottom=p.bottom_tele, tele_top=p.top_tele, endgame_climbed=p.climb_level, driving=p.driving,
@@ -60,5 +60,3 @@ class OneScout:
         p_self.driving = self.driving
         p_self.defense = self.defense
         p_self.free_text = self.free_text
-
-
