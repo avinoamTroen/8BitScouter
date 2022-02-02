@@ -9,7 +9,7 @@ export default function App() {
 	return (
 		<SafeAreaView style={styles.container}>
 			<View style={styles.stam}></View>
-			<Text style={styles.stam}>Hello world!</Text>
+			<Text style={styles.stam}>|          Hello  world!       |</Text>
 			<View style={styles.stam2}></View>
 		</SafeAreaView>
 	);
@@ -24,13 +24,13 @@ const styles = StyleSheet.create({
 	},
 	stam: {
 		flex: 0.5,
-		backgroundColor: '#9af',
+		backgroundColor: '#fff',
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
 	stam2: {
 		flex: 0.5,
-		backgroundColor: '#fff',
+		backgroundColor: '#fa3',
 		alignItems: 'center',
 		justifyContent: 'center',
 	},

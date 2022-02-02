@@ -1,3 +1,6 @@
+// in order to compile javascript run the following:
+// protoc --proto_path=. --js_out=import_style=commonjs,binary:. ./my_proto.proto
+
 syntax = "proto3";
 
 package one_scout;
