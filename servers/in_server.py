@@ -19,8 +19,8 @@ def main():
 
     ''' Get data and decode data '''
     fake_game = game()
-    fake_game.ParseFromString(client_socket.recv(MAX_MSG_SIZE))
-
+    #fake_game.ParseFromString(client_socket.recv(MAX_MSG_SIZE))
+    print(client_socket.recv(MAX_MSG_SIZE).decode())
     fake_game_1 = OneScout.from_proto(fake_game)
 
     ''' Do things with the data '''

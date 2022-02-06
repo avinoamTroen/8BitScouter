@@ -21,5 +21,8 @@
   "devDependencies": {
     "@babel/core": "^7.12.9"
   },
+  "react-native": {
+    "net": "react-native-tcp-socket"
+  },
   "private": true
 }
