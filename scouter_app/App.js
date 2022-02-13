@@ -1,7 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Button, Alert } from 'react-native';
-import { one_scout } from 'app/my_proto_pb'
 
 function MyComp(props) {
 	return <SafeAreaView><Text>{props.txt}</Text></SafeAreaView>
@@ -11,21 +10,56 @@ export default function App() {
 	const [renderExample, setRenderExample] = useState(false)
 	const [title, setTitle] = useState("I am a yelling title")
 
+	const [ballsIn, setBallsIn] = useState(0);
+	const [ballsMissed, setBallsMissed] = useState(0);
+	buttonAdderBallsIn = () => {
+		setBallsIn(ballsIn + 1);
+	};
+
+	buttonSubBallsIn = () => {
+		setBallsIn(ballsIn - 1);
+	};
+
+	buttonAdderBallsMissed = () => {
+		setBallsMissed(ballsMissed + 1);
+	};
+
+	buttonSubBallsMissed = () => {
+		setBallsMissed(ballsMissed - 1);
+	};
 	return (
 		<SafeAreaView style={styles.container}>
-			<View style={styles.stam}></View>
-			<Text style={styles.stam}>|          Hello ??/?/?? world!       |</Text>
-			<View style={styles.stam2}>
-				<Button title='press me' onPress={
-					() => {
-						setRenderExample(!renderExample)
-						setTitle(title + "!")
-					}
-				}></Button>
+			<View style={styles.top}>
+				<Text style={styles.header}>Balls In: {ballsIn}</Text>
+				<View style={{ flex: 1, flexDirection: 'row', }}>
+					<Button style={{ flex: 3, }}
+						onPress={buttonAdderBallsIn}
+						title='+'
+					/>
+					<Button style={{ flex: 1, }}
+						onPress={buttonSubBallsIn}
+						title='-'
+					/>
+				</View>
 			</View>
-			{renderExample && <Text>{title}</Text>}
-		</SafeAreaView>
+
+			<View style={styles.bottom}>
+				<Text style={styles.header}>Balls Missed: {ballsMissed}</Text>
+				<View style={{ flex: 1, flexDirection: 'row', }}>
+					<Button style={{ flex: 3, }}
+						onPress={buttonAdderBallsMissed}
+						title='+'
+					/>
+					<Button style={{ flex: 1, }}
+						onPress={buttonSubBallsMissed}
+						title='-'
+					/>
+				</View>
+			</View>
+		</SafeAreaView >
 	);
+
+
 }
 
 const styles = StyleSheet.create({
@@ -33,18 +67,38 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: '#882',
 		alignItems: 'center',
-		justifyContent: 'center',
+		justifyContent: 'flex-start',
 	},
-	stam: {
-		flex: 0.5,
+	header: {
+		flex: 0.2,
+		width: '100%',
+		backgroundColor: '#0a0',
+		alignItems: 'flex-end',
+		justifyContent: 'flex-start',
+		textAlign: 'center',
+		textAlignVertical: "center",
+		fontWeight: 'bold',
+		fontSize: 20,
+		marginTop: 0,
+	},
+	button: {
+		flex: 1,
 		backgroundColor: '#00f',
 		alignItems: 'center',
 		justifyContent: 'flex-start',
 	},
-	stam2: {
-		flex: 0.5,
-		backgroundColor: '#f00',
-		alignItems: 'flex-start',
+	top: {
+		flex: 5,
+		width: '100%',
+		backgroundColor: 'dodgerblue',
+		alignItems: 'center',
+		justifyContent: 'flex-start',
+	},
+	bottom: {
+		flex: 5,
+		width: '100%',
+		backgroundColor: 'tomato',
+		alignItems: 'center',
 		justifyContent: 'flex-start',
 	},
 });
