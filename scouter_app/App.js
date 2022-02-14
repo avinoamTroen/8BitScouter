@@ -1,5 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
+import Navigator from './app/routes/homeStack';
+import './Global';
 import {
 	StyleSheet,
 	Text,
@@ -10,16 +12,23 @@ import {
 	TouchableOpacity
 } from 'react-native';
 
+const Schema = require('./app/my_proto_pb')
+const game1 = new Schema.game()
+
 function MyComp(props) {
 	return <SafeAreaView><Text>{props.txt}</Text></SafeAreaView>
 }
 
 export default function App() {
-	const [renderExample, setRenderExample] = useState(false)
-	const [title, setTitle] = useState("I am a yelling title")
+	return (
+		<Navigator />
+	);
 
+	/* const [renderExample, setRenderExample] = useState(false)
+	const [title, setTitle] = useState("I am a yelling title")
 	const [ballsIn, setBallsIn] = useState(0);
 	const [ballsMissed, setBallsMissed] = useState(0);
+	//	const tst = proto.one_scout.game
 	buttonAdderBallsIn = () => {
 		setBallsIn(ballsIn + 1);
 	};
@@ -94,7 +103,7 @@ export default function App() {
 		</SafeAreaView >
 	);
 
-
+*/
 }
 
 const styles = StyleSheet.create({
