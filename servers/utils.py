@@ -1,6 +1,8 @@
 IPADDR = "127.0.0.1"
 PORT = 3173
+HOST_NAME = "localhost"
 MAX_MSG_SIZE = 1024
+PATH_FOR_INPUT = '/input_server/one_scout/json'
 import my_proto_pb2
 
 

@@ -2,11 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ffa2e38f-5726-4121-baf3-eb23530beee2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scouter_app/.expo/packager-info.json" beforeDir="false" afterPath="$PROJECT_DIR$/scouter_app/.expo/packager-info.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scouter_app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/scouter_app/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scouter_app/app/oneScout.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scouter_app/app/screens/auto.js" beforeDir="false" afterPath="$PROJECT_DIR$/scouter_app/app/screens/auto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scouter_app/app/screens/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/scouter_app/app/screens/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scouter_app/app/screens/teleop.js" beforeDir="false" afterPath="$PROJECT_DIR$/scouter_app/app/screens/teleop.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scouter_app/app/send_things.js" beforeDir="false" afterPath="$PROJECT_DIR$/scouter_app/app/send_things.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scouter_app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/scouter_app/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scouter_app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/scouter_app/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scouter_app/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/scouter_app/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servers/in_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/servers/in_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servers/tester_space.py" beforeDir="false" afterPath="$PROJECT_DIR$/servers/tester_space.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servers/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/servers/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,31 +41,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
-  <component name="RunManager" selected="Python.in_server (1)">
-    <configuration name="create_db" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="8bit_scouting" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/create_db.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.in_server (2)">
     <configuration name="in_server (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="8bit_scouting" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -70,6 +57,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/in_server.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="in_server (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\avino\AppData\Local\Microsoft\WindowsApps\python3.7.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/servers" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/servers/in_server.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -120,6 +128,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="tester_space (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\avino\AppData\Local\Microsoft\WindowsApps\python3.7.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/servers" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/servers/tester_space.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="tester_space" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="8bit_scouting" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -141,34 +170,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="utils" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="8bit_scouting" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.in_server (2)" />
+        <item itemvalue="Python.tester_space (1)" />
         <item itemvalue="Python.in_server (1)" />
         <item itemvalue="Python.random_data_generating_client_4_in_server" />
         <item itemvalue="Python.tester_space" />
-        <item itemvalue="Python.utils" />
-        <item itemvalue="Python.create_db" />
       </list>
     </recent_temporary>
   </component>

@@ -1,28 +1,33 @@
-import TcpSocket from 'react-native-tcp-socket';
+// //Obj of data to send in future like a dummyDb
+// const data = { username: 'example' };
 
-// Create socket
-const options = {
-    host: "127.0.0.1",
-    port: 3173,
+// //POST request with body equal on data in JSON format
+// fetch('https://example.com/profile', {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': 'application/json',
+//   },
+//   body: JSON.stringify(data),
+// })
+// .then((response) => response.json())
+// //Then with the data from the response in JSON...
+// .then((data) => {
+//   console.log('Success:', data);
+// })
+// //Then with the error genereted...
+// .catch((error) => {
+//   console.error('Error:', error);
+// });
+
+// //	
+export default (things) => {
+    fetch('http://10.74.100.62:5000/input_server/one_scout/json', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(things)
+    })
+        .then(response => response.ok)
+        .then(data => console.log(data));
 }
-
-const client = TcpSocket.createConnection(options, () => {
-    console.log("test")
-    // Write on the socket
-    client.write('Hello server!');
-
-    // Close socket
-    client.destroy();
-});
-
-client.on('data', function (data) {
-    console.log('message was received', data);
-});
-
-client.on('error', function (error) {
-    console.log(error);
-});
-
-client.on('close', function () {
-    console.log('Connection closed!');
-});

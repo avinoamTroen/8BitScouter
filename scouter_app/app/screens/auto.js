@@ -1,12 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import {
     StyleSheet,
     Text,
     View,
     SafeAreaView,
-    Button,
-    Alert,
     TouchableOpacity
 } from 'react-native';
 import React from 'react';
@@ -15,7 +12,6 @@ import React from 'react';
 export default function Auto({ navigation }) {
     const [ballsIn, setBallsIn] = useState(0);
     const [ballsMissed, setBallsMissed] = useState(0);
-
 
     goToTele = () => {
         navigation.navigate('TeleOp');

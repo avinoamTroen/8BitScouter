@@ -5,22 +5,13 @@ import {
     Text,
     View,
     SafeAreaView,
-    Button,
-    Alert,
     TouchableOpacity
 } from 'react-native';
 import React from 'react';
 
-const Schema = require('../my_proto_pb')
-const game1 = new Schema.game()
-
 export default function TeleOp({ navigation }) {
-
-    const [renderExample, setRenderExample] = useState(false)
-    const [title, setTitle] = useState("I am a yelling title")
     const [ballsIn, setBallsIn] = useState(0);
     const [ballsMissed, setBallsMissed] = useState(0);
-    //	const tst = proto.one_scout.game
 
     goToAuto = () => {
         navigation.navigate('Auto');
@@ -32,7 +23,6 @@ export default function TeleOp({ navigation }) {
 
     buttonAdderBallsIn = () => {
         setBallsIn(ballsIn + 1);
-        game1.setTopTele(ballsIn)
     };
 
     buttonSubBallsIn = () => {
@@ -51,7 +41,6 @@ export default function TeleOp({ navigation }) {
         let res = ballsMissed - 1
         if (res < 0) {
             res = 0
-            res = game1.getTopTele()
         }
         setBallsMissed(res);
     };
