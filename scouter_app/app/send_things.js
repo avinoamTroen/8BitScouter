@@ -21,7 +21,7 @@
 
 // //	
 export default (things) => {
-    fetch('http://10.74.100.62:5000/input_server/one_scout/json', {
+    fetch('http://192.168.1.110:5000/input_server/one_scout/json', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

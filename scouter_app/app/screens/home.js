@@ -2,7 +2,7 @@ import send_things from '../send_things';
 import React from 'react';
 import { useState } from 'react';
 import { View, Text, Button, } from 'react-native';
-// import store from '../redux_stuff/store';
+import store from '../redux_stuff/store';
 
 export default function Home({ navigation }) {
     const [title, setTitle] = useState();
@@ -30,7 +30,13 @@ export default function Home({ navigation }) {
         setTitle(res);
     }
     const runTestConnection2 = () => {
-        send_things({ a: 'a' });
+        const initialState = {
+            compName: "",
+            roundName: "",
+            teamName: "",
+            points: 0,
+        }
+        send_things(store.getState());
     }
 
 
