@@ -1,10 +1,7 @@
 IPADDR = "127.0.0.1"
 PORT = 3173
 HOST_NAME = "localhost"
-MAX_MSG_SIZE = 1024
 PATH_FOR_INPUT = '/input_server/one_scout/json'
-import my_proto_pb2
-
 
 class OneScout:
     def __init__(self, team_name="7845", comp="test", round="0", alliance="BLUE", auto_intake=0,
