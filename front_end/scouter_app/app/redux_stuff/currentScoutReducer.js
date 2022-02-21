@@ -2,10 +2,10 @@ import { produce } from 'immer';
 import * as actionTypes from './actionTypes';
 
 const initialState = {
-    compName: "",
-    roundName: "",
-    teamName: "",
-    points: 0,
+    compName: "testComp",
+    roundName: "12test",
+    teamName: "5487t",
+    points: 7,
 }
 
 export default function currentScoutReducer(state = initialState, action) {
