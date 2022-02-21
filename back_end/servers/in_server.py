@@ -2,8 +2,8 @@
 from utils import *
 from flask import Flask, request
 import json
-from input_data_to_mysql import insert_record_oneScout
-import mysql_utils
+# from mysql_stuff.input_data_to_mysql import insert_record_oneScout
+# from mysql_stuff import mysql_utils
 
 
 # the main page director
