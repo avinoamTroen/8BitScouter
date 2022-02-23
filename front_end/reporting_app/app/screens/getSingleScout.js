@@ -1,10 +1,16 @@
 import React from 'react';
 import { useState } from 'react';
 import { View, Text, Button, StyleSheet, SafeAreaView, TextInput } from 'react-native';
+import get_single_scout from '../communication_with_server/get_one_scout'
 
 export default function goHome({ navigation }) {
     const goHome = () => {
         navigation.navigate('Home');
+    }
+    const print_get_single_scout = () => {
+        console.log('about to call function')
+        get_single_scout('testComp', '12test', '7845t')().then(obj => { if (obj.canUse) { console.log(obj.payload) } else { console.log('there was some kind of error') } });
+        console.log('called function')
     }
 
     const [text, onChangeText] = React.useState("Useless - Text");
@@ -40,7 +46,7 @@ export default function goHome({ navigation }) {
                     keyboardType="numeric"
                 />
             </SafeAreaView>
-
+            <Button title='testing get_one_scout' onPress={print_get_single_scout}></Button>
 
         </View>
     );

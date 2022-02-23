@@ -23,20 +23,14 @@ export default function Home({ navigation }) {
     }
 
 
-    const runTestConnection1 = () => {
+    const runTestConnection1 = async () => {
         const thing = { a: 'a', b: 'b', c: 78, d: 50.0, e: 'explanation' }
-        let res = 5;
-        res = send_things(thing);
-        setTitle(res);
+        res = await send_things(thing)
+        if (res.successful) { setTitle(res.msg); console.log('home: successful'); }
+        else { setTitle("error: " + res.msg) }
     }
-    const runTestConnection2 = () => {
-        const initialState = {
-            compName: "",
-            roundName: "",
-            teamName: "",
-            points: 0,
-        }
-        send_things(store.getState());
+    const runTestConnection2 = async () => {
+        res = await send_things(store.getState());
     }
 
 

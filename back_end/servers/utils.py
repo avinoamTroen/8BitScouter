@@ -2,6 +2,7 @@ IPADDR = "127.0.0.1"
 PORT = 3173
 HOST_NAME = "localhost"
 PATH_FOR_INPUT = '/input_server/one_scout/json'
+PATH_FOR_SCOUT_OUTPUT = '/output_server/one_scout/json'
 
 class OneScout:
     def __init__(self, team_name="7845", comp="test", round="0", alliance="BLUE", auto_intake=0,

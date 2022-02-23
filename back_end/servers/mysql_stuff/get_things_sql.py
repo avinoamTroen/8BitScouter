@@ -10,14 +10,17 @@ my_db = mysql.connector.connect(
 )
 
 
-def get_record(db, comp, round, team):
+def get_record(db, comp, round_number, team):
     my_cursor = db.cursor()
-    sql = f"SELECT team_number_str, points FROM oneScouts WHERE team_number_str = '{team}' and comp_name = '{comp}' and " \
-          f"round_number_str = '{round}' "
+    sql = f"SELECT points FROM oneScouts WHERE team_number_str = '{team}' and comp_name = '{comp}' and " \
+          f"round_number_str = '{round_number}' "
 
     my_cursor.execute(sql)
 
     my_result = my_cursor.fetchone()
+
+    # need to empty my_cursor
+    my_cursor.fetchall()
     return my_result
 
 
@@ -28,7 +31,7 @@ def main():
     for x in my_result:
         print(x)
     print('>>>>>>>>>>>>>>>>>>>>>>>>')
-    d = {'team_name': my_result[0], 'points': my_result[1]}
+    d = {'team_name': my_result[0]}
     print(d)
     print(type(d))
     print('<<<<<<<<<<<<<<<<<<<<<<<<<<<<')

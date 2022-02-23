@@ -4,7 +4,7 @@ import * as actionTypes from './actionTypes';
 const initialState = {
     compName: "testComp",
     roundName: "12test",
-    teamName: "5487t",
+    teamName: "7845t",
     points: 7,
 }
 
