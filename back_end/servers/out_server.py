@@ -28,4 +28,4 @@ def input_one_scout():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
+    app.run(host="0.0.0.0", port=OUTPUT_SERVER_PORT, debug=True)

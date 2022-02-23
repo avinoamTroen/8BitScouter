@@ -1,4 +1,4 @@
-import send_things from '../send_things';
+import sendOneScout from '../send_things';
 import React from 'react';
 import { useState } from 'react';
 import { View, Text, Button, } from 'react-native';
@@ -25,12 +25,12 @@ export default function Home({ navigation }) {
 
     const runTestConnection1 = async () => {
         const thing = { a: 'a', b: 'b', c: 78, d: 50.0, e: 'explanation' }
-        res = await send_things(thing)
+        res = await sendOneScout(thing)
         if (res.successful) { setTitle(res.msg); console.log('home: successful'); }
         else { setTitle("error: " + res.msg) }
     }
     const runTestConnection2 = async () => {
-        res = await send_things(store.getState());
+        res = await sendOneScout(store.getState());
     }
 
 
