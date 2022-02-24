@@ -35,6 +35,7 @@ export default function Home({ navigation }) {
     }
     const printDate = () => {
         console.log(getCurrentDateTime())
+        console.log(typeof getCurrentDateTime())
     }
 
 
