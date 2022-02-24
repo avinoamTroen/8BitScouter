@@ -1,4 +1,4 @@
-import { INPUT_SERVER_IP_AND_PORT, PATH_TO_INPUT_ONE_SCOUT_JSON } from './utils'
+import { INPUT_SERVER_IP_AND_PORT, PATH_TO_INPUT_ONE_SCOUT_JSON } from './utils/utils'
 
 
 export default sendOneScout = async (oneScout) => {

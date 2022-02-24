@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { View, Text, Button, } from 'react-native';
 import store from '../redux_stuff/store';
+import getCurrentDateTime from '../utils/myDateTime';
 
 export default function Home({ navigation }) {
     const [title, setTitle] = useState();
@@ -32,6 +33,9 @@ export default function Home({ navigation }) {
     const runTestConnection2 = async () => {
         res = await sendOneScout(store.getState());
     }
+    const printDate = () => {
+        console.log(getCurrentDateTime())
+    }
 
 
     return (
@@ -45,6 +49,7 @@ export default function Home({ navigation }) {
             <Button title='1) send post message to server' onPress={runTestConnection1} />
             <Text>txt = {title}</Text>
             <Button title='2) send post currentScout to server' onPress={runTestConnection2} />
+            <Button title='3) printDate' onPress={printDate} />
 
         </View>
     );
