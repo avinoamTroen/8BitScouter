@@ -1,4 +1,4 @@
-import { OUTPUT_SERVER_IP_AND_PORT, PATH_TO_OUTPUT_GET_ONE_SCOUT_JSON } from '../utils'
+import { OUTPUT_SERVER_IP_AND_PORT, PATH_TO_OUTPUT_GET_ONE_SCOUT_JSON } from '../utils/utils'
 export default function get_single_scout(compName, roundNumberStr, teamNumberStr) {
     const paramsObj = { compName, roundNumberStr, teamNumberStr };
     console.log(paramsObj)

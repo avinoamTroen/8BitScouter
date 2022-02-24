@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { View, Text, Button, StyleSheet, SafeAreaView, TextInput } from 'react-native';
-import get_single_scout from '../communication_with_server/get_one_scout'
+import get_single_scout from '../networking/get_one_scout'
 
 export default function goHome({ navigation }) {
     const goHome = () => {

@@ -1,8 +1,8 @@
-import sendOneScout from '../send_things';
+import sendOneScout from '../networking/send_things';
 import React from 'react';
 import { useState } from 'react';
 import { View, Text, Button, } from 'react-native';
-import store from '../redux_stuff/store';
+import store from '../my_redux/store';
 import getCurrentDateTime from '../utils/myDateTime';
 
 export default function Home({ navigation }) {
