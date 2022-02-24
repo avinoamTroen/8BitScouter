@@ -1,33 +1,53 @@
-lines = """set actions
+lines = """case actionTypes.ballsInUpperAuto_SET:
+    return produce(state, stateCopy => {
+        stateCopy.ballsInUpperAuto = action.payload.ballsInUpperAuto;
+        return stateCopy;
+    });
+case actionTypes.ballsInLowerAuto_SET:
+    return produce(state, stateCopy => {
+        stateCopy.ballsInLowerAuto = action.payload.ballsInLowerAuto;
+        return stateCopy;
+    });
+case actionTypes.ballsMissedAuto_SET:
+    return produce(state, stateCopy => {
+        stateCopy.ballsMissedAuto = action.payload.ballsMissedAuto;
+        return stateCopy;
+    });
+case actionTypes.ballsInUpperTele_SET:
+    return produce(state, stateCopy => {
+        stateCopy.ballsInUpperTele = action.payload.ballsInUpperTele;
+        return stateCopy;
+    });
+case actionTypes.ballsInLowerTele_SET:
+    return produce(state, stateCopy => {
+        stateCopy.ballsInLowerTele = action.payload.ballsInLowerTele;
+        return stateCopy;
+    });
+case actionTypes.ballsMissedTele_SET:
+    return produce(state, stateCopy => {
+        stateCopy.ballsMissedTele = action.payload.ballsMissedTele;
+        return stateCopy;
+    });
 """.splitlines()
 
 
-def find_2nd(string, substring):
-    return string.find(substring, string.find(substring) + 1)
+cases = []
+current = ""
+for i, line in enumerate(lines):
+    current += line + "\n"
+    if (i+1)%5 == 0:
+        cases.append(current[:-1])
+        current = ""
+
+for case in cases:
+    copyCase = case
+    copyCase = copyCase.replace("= action", "+= action").replace("SET", "INC")
+    copyCase = copyCase[:copyCase.find("payload") + 8] + "numToIncrement" + copyCase[copyCase.find(";"):]
+    print(copyCase)
+
+    case = case.replace("= action", "+= action").replace("SET", "DEC")
+    case = case[:case.find("payload") + 8] + "numToDecrement" + case[case.find(";"):]
+    print(case)
+    print("")
 
 
-# must be in correct format with one line empty between actions
-for first_line, second_line, third_line in zip(lines[0::4], lines[1::4], lines[2::4]):
-    t = first_line.replace("set", "inc")
-    t = t[:t.find("(") + 1] + " numToIncrement = 1 " + t[t.find(")"):]
-
-    l = second_line.replace("SET", "INC")
-    l = l[:find_2nd(l, ":") + 1] + " { numToIncrement } }" + l[l.find(";"):]
-
-    x = third_line
-    print(t)
-    print(l)
-    print(x)
-
-    t = first_line.replace("set", "dec")
-    t = t[:t.find("(") + 1] + " numToDecrement = 1 " + t[t.find(")"):]
-
-    l = second_line.replace("SET", "DEC")
-    l = l[:find_2nd(l, ":") + 1] + " { numToDecrement } }" + l[l.find(";"):]
-
-    x = third_line
-    print(t)
-    print(l)
-    print(x)
-
-    print("\n")

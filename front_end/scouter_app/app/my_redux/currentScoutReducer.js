@@ -50,6 +50,8 @@ const currentScoutInitialState = {
 export default function currentScoutReducer(state = currentScoutInitialState, action) {
     switch (action.type) {
         // generic setters for all properties of currentScout
+
+        // meta data
         case actionTypes.compName_SET:
             return produce(state, stateCopy => {
                 stateCopy.compName = action.payload.compName;
@@ -90,6 +92,8 @@ export default function currentScoutReducer(state = currentScoutInitialState, ac
                 stateCopy.driverStation = action.payload.driverStation;
                 return stateCopy;
             });
+
+        // autonomous
         case actionTypes.startPlace_SET:
             return produce(state, stateCopy => {
                 stateCopy.startPlace = action.payload.startPlace;
@@ -140,6 +144,8 @@ export default function currentScoutReducer(state = currentScoutInitialState, ac
                 stateCopy.autoFreeText = action.payload.autoFreeText;
                 return stateCopy;
             });
+
+        // tele-op
         case actionTypes.ballsInUpperTele_SET:
             return produce(state, stateCopy => {
                 stateCopy.ballsInUpperTele = action.payload.ballsInUpperTele;
@@ -155,6 +161,8 @@ export default function currentScoutReducer(state = currentScoutInitialState, ac
                 stateCopy.ballsMissedTele = action.payload.ballsMissedTele;
                 return stateCopy;
             });
+
+        // end game
         case actionTypes.levelClimbed_SET:
             return produce(state, stateCopy => {
                 stateCopy.levelClimbed = action.payload.levelClimbed;
@@ -170,6 +178,8 @@ export default function currentScoutReducer(state = currentScoutInitialState, ac
                 stateCopy.climbTime = action.payload.climbTime;
                 return stateCopy;
             });
+
+        // post game
         case actionTypes.defensiveDefenseLevel_SET:
             return produce(state, stateCopy => {
                 stateCopy.defensiveDefenseLevel = action.payload.defensiveDefenseLevel;
@@ -225,7 +235,78 @@ export default function currentScoutReducer(state = currentScoutInitialState, ac
                 stateCopy.systemNoFunction = action.payload.systemNoFunction;
                 return stateCopy;
             });
-        // increment and de-increment action cases
+
+
+        // ** increment and de-increment action cases **
+
+        // auto
+        case actionTypes.ballsInUpperAuto_INC:
+            return produce(state, stateCopy => {
+                stateCopy.ballsInUpperAuto += action.payload.numToIncrement;
+                return stateCopy;
+            });
+        case actionTypes.ballsInUpperAuto_DEC:
+            return produce(state, stateCopy => {
+                stateCopy.ballsInUpperAuto += action.payload.numToDecrement;
+                return stateCopy;
+            });
+
+        case actionTypes.ballsInLowerAuto_INC:
+            return produce(state, stateCopy => {
+                stateCopy.ballsInLowerAuto += action.payload.numToIncrement;
+                return stateCopy;
+            });
+        case actionTypes.ballsInLowerAuto_DEC:
+            return produce(state, stateCopy => {
+                stateCopy.ballsInLowerAuto += action.payload.numToDecrement;
+                return stateCopy;
+            });
+
+        case actionTypes.ballsMissedAuto_INC:
+            return produce(state, stateCopy => {
+                stateCopy.ballsMissedAuto += action.payload.numToIncrement;
+                return stateCopy;
+            });
+        case actionTypes.ballsMissedAuto_DEC:
+            return produce(state, stateCopy => {
+                stateCopy.ballsMissedAuto += action.payload.numToDecrement;
+                return stateCopy;
+            });
+
+        // tele-op
+        case actionTypes.ballsInUpperTele_INC:
+            return produce(state, stateCopy => {
+                stateCopy.ballsInUpperTele += action.payload.numToIncrement;
+                return stateCopy;
+            });
+        case actionTypes.ballsInUpperTele_DEC:
+            return produce(state, stateCopy => {
+                stateCopy.ballsInUpperTele += action.payload.numToDecrement;
+                return stateCopy;
+            });
+
+        case actionTypes.ballsInLowerTele_INC:
+            return produce(state, stateCopy => {
+                stateCopy.ballsInLowerTele += action.payload.numToIncrement;
+                return stateCopy;
+            });
+        case actionTypes.ballsInLowerTele_DEC:
+            return produce(state, stateCopy => {
+                stateCopy.ballsInLowerTele += action.payload.numToDecrement;
+                return stateCopy;
+            });
+
+        case actionTypes.ballsMissedTele_INC:
+            return produce(state, stateCopy => {
+                stateCopy.ballsMissedTele += action.payload.numToIncrement;
+                return stateCopy;
+            });
+        case actionTypes.ballsMissedTele_DEC:
+            return produce(state, stateCopy => {
+                stateCopy.ballsMissedTele += action.payload.numToDecrement;
+                return stateCopy;
+            });
+
 
         // default returns state - if gets bad action and at the beginning when initialized
         default:

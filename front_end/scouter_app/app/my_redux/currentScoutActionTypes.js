@@ -44,7 +44,7 @@ export const systemNoFunction_SET = 'systemNoFunction_set';
 
 
 // ** increment and decrement **
-// explanation of meaning: inc = increased by 1, dec = decreased by 1
+// explanation of meaning: inc = increased  (default is 1), dec = decreased (default is 1)
 // use _INC and _DEC suffixes
 
 // autonomous
