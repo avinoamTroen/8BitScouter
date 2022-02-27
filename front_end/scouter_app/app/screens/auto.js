@@ -7,6 +7,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 import React from 'react';
+import SwipableContainer from '../myComponents/SwipableContainer';
 
 
 export default function Auto({ navigation }) {
@@ -17,8 +18,8 @@ export default function Auto({ navigation }) {
         navigation.navigate('TeleOp');
     };
 
-    goToHome = () => {
-        navigation.navigate('Home');
+    goToPreGame = () => {
+        navigation.navigate('PreGame');
     };
 
     buttonAdderBallsIn = () => {
@@ -46,71 +47,74 @@ export default function Auto({ navigation }) {
     };
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.topMenu}><Text style={styles.topMenu}>top menu</Text></View>
+            <SwipableContainer
+                leftFunc={goToPreGame}
+                rightFunc={goToTele}>
+                <View style={styles.topMenu}><Text style={styles.topMenu}>top menu</Text></View>
 
-            <View style={styles.top}>
-                <Text style={styles.header}>Balls In: {ballsIn}</Text>
-                <View style={{ flex: 1, flexDirection: 'row', }}>
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={buttonAdderBallsIn}
-                    >
-                        <Text style={styles.bigText}>+</Text>
-                    </TouchableOpacity>
+                <View style={styles.top}>
+                    <Text style={styles.header}>Balls In: {ballsIn}</Text>
+                    <View style={{ flex: 1, flexDirection: 'row', }}>
+                        <TouchableOpacity
+                            style={styles.button}
+                            onPress={buttonAdderBallsIn}
+                        >
+                            <Text style={styles.bigText}>+</Text>
+                        </TouchableOpacity>
 
-                    <View style={styles.border}></View>
+                        <View style={styles.border}></View>
 
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={buttonSubBallsIn}
-                    >
-                        <Text style={styles.bigText}>-</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-
-            <View style={styles.bottom}>
-                <Text style={styles.header}>Balls Missed: {ballsMissed}</Text>
-                <View style={{ flex: 1, flexDirection: 'row', }}>
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={buttonAdderBallsMissed}
-                    >
-                        <Text style={styles.bigText}>+</Text>
-                    </TouchableOpacity>
-
-                    <View style={styles.border}></View>
-
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={buttonSubBallsMissed}
-                    >
-                        <Text style={styles.bigText}>-</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-
-            <View style={styles.bottomMenu}>
-                <View>
-                    <TouchableOpacity
-                        style={{ color: 'tomato' }}
-                        onPress={goToHome}
-                    >
-                        <Text style={{ fontSize: 50, }}> {"<"} </Text>
-                    </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.button}
+                            onPress={buttonSubBallsIn}
+                        >
+                            <Text style={styles.bigText}>-</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
 
-                <View>
-                    <TouchableOpacity
-                        style={{ color: 'tomato' }}
-                        onPress={goToTele}
-                    >
-                        <Text style={{ fontSize: 50, }}> {">"} </Text>
-                    </TouchableOpacity>
+                <View style={styles.bottom}>
+                    <Text style={styles.header}>Balls Missed: {ballsMissed}</Text>
+                    <View style={{ flex: 1, flexDirection: 'row', }}>
+                        <TouchableOpacity
+                            style={styles.button}
+                            onPress={buttonAdderBallsMissed}
+                        >
+                            <Text style={styles.bigText}>+</Text>
+                        </TouchableOpacity>
+
+                        <View style={styles.border}></View>
+
+                        <TouchableOpacity
+                            style={styles.button}
+                            onPress={buttonSubBallsMissed}
+                        >
+                            <Text style={styles.bigText}>-</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
 
-            </View>
+                <View style={styles.bottomMenu}>
+                    <View>
+                        <TouchableOpacity
+                            style={{ color: 'tomato' }}
+                            onPress={goToPreGame}
+                        >
+                            <Text style={{ fontSize: 50, }}> {"<"} </Text>
+                        </TouchableOpacity>
+                    </View>
 
+                    <View>
+                        <TouchableOpacity
+                            style={{ color: 'tomato' }}
+                            onPress={goToTele}
+                        >
+                            <Text style={{ fontSize: 50, }}> {">"} </Text>
+                        </TouchableOpacity>
+                    </View>
+
+                </View>
+            </SwipableContainer>
         </SafeAreaView >
     );
 }
@@ -121,7 +125,7 @@ export default function Auto({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#882',
+        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'flex-start',
     },

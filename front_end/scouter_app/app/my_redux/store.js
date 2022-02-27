@@ -1,6 +1,6 @@
-import { createStore } from 'redux';
+import { combineReducers, createStore } from 'redux';
 import currentScoutReducer from './currentScoutReducer';
-
-const store = createStore(currentScoutReducer);
+const rootReducer = combineReducers({ currentScout: currentScoutReducer })
+const store = createStore(rootReducer);
 
 export default store;

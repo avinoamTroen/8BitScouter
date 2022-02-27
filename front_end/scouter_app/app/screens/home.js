@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { View, Text, Button, } from 'react-native';
 import store from '../my_redux/store';
 import getCurrentDateTime from '../utils/myDateTime';
+import { Swipeable } from 'react-native-gesture-handler';
 
 export default function Home({ navigation }) {
     const [title, setTitle] = useState();
@@ -38,20 +39,27 @@ export default function Home({ navigation }) {
         console.log(typeof getCurrentDateTime())
     }
 
-
     return (
-        <View >
-            <Button title='Pre Game' onPress={goToPreGame} />
-            <Button title='Auto' onPress={goToAuto} />
-            <Button title='Tele' onPress={goToTele} />
-            <Button title='End Game' onPress={goToEndGame} />
-            <Button title='Post Game' onPress={goToPostGame} />
+        <Swipeable
+            renderLeftActions={() => <View><Text>left</Text></View>}
+            renderRightActions={() => <View><Text>right</Text></View>}
 
-            <Button title='1) send post message to server' onPress={runTestConnection1} />
-            <Text>txt = {title}</Text>
-            <Button title='2) send post currentScout to server' onPress={runTestConnection2} />
-            <Button title='3) printDate' onPress={printDate} />
+            onSwipeableLeftOpen={() => console.log("Test swipe left")}
+            onSwipeableRightOpen={() => console.log("Test swipe right")}>
 
-        </View>
+            <View >
+                <Button title='Pre Game' onPress={goToPreGame} />
+                <Button title='Auto' onPress={goToAuto} />
+                <Button title='Tele' onPress={goToTele} />
+                <Button title='End Game' onPress={goToEndGame} />
+                <Button title='Post Game' onPress={goToPostGame} />
+
+                <Button title='1) send post message to server' onPress={runTestConnection1} />
+                <Text>txt = {title}</Text>
+                <Button title='2) send post currentScout to server' onPress={runTestConnection2} />
+                <Button title='3) printDate' onPress={printDate} />
+
+            </View>
+        </Swipeable>
     );
 }
