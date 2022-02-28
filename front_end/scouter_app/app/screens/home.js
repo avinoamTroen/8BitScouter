@@ -1,7 +1,7 @@
 import sendOneScout from '../networking/send_things';
 import React from 'react';
 import { useState } from 'react';
-import { View, Text, Button, } from 'react-native';
+import { View, Text, Button, TouchableOpacity } from 'react-native';
 import store from '../my_redux/store';
 import getCurrentDateTime from '../utils/myDateTime';
 import { Swipeable } from 'react-native-gesture-handler';
@@ -58,6 +58,8 @@ export default function Home({ navigation }) {
                 <Text>txt = {title}</Text>
                 <Button title='2) send post currentScout to server' onPress={runTestConnection2} />
                 <Button title='3) printDate' onPress={printDate} />
+                <TouchableOpacity onPress={() => console.log(store.getState())}><Text>press to print state</Text></TouchableOpacity>
+
 
             </View>
         </Swipeable>

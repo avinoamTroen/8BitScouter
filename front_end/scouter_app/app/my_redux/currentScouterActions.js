@@ -27,7 +27,7 @@ export function setWhenCaptured(newWhenCaptured) {
     return { type: actionTypes.whenCaptured_SET, payload: { whenCaptured: newWhenCaptured } };
 }
 
-export function stScoueterTeamNumber(newScouterTeamNumber) {
+export function setScouterTeamNumber(newScouterTeamNumber) {
     return { type: actionTypes.scouterTeamNumber_SET, payload: { scouterTeamNumber: newScouterTeamNumber } };
 }
 
