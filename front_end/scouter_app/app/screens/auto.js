@@ -47,74 +47,50 @@ export default function Auto({ navigation }) {
     };
     return (
         <SafeAreaView style={styles.container}>
-            <SwipableContainer
-                leftFunc={goToPreGame}
-                rightFunc={goToTele}>
-                <View style={styles.topMenu}><Text style={styles.topMenu}>top menu</Text></View>
 
-                <View style={styles.top}>
-                    <Text style={styles.header}>Balls In: {ballsIn}</Text>
-                    <View style={{ flex: 1, flexDirection: 'row', }}>
-                        <TouchableOpacity
-                            style={styles.button}
-                            onPress={buttonAdderBallsIn}
-                        >
-                            <Text style={styles.bigText}>+</Text>
-                        </TouchableOpacity>
+            <View style={styles.top}>
+                <Text style={styles.header}>Balls In: {ballsIn}</Text>
+                <View style={{ flex: 1, flexDirection: 'row', }}>
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={buttonAdderBallsIn}
+                    >
+                        <Text style={styles.bigText}>+</Text>
+                    </TouchableOpacity>
 
-                        <View style={styles.border}></View>
+                    <View style={styles.border}></View>
 
-                        <TouchableOpacity
-                            style={styles.button}
-                            onPress={buttonSubBallsIn}
-                        >
-                            <Text style={styles.bigText}>-</Text>
-                        </TouchableOpacity>
-                    </View>
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={buttonSubBallsIn}
+                    >
+                        <Text style={styles.bigText}>-</Text>
+                    </TouchableOpacity>
                 </View>
+            </View>
 
-                <View style={styles.bottom}>
-                    <Text style={styles.header}>Balls Missed: {ballsMissed}</Text>
-                    <View style={{ flex: 1, flexDirection: 'row', }}>
-                        <TouchableOpacity
-                            style={styles.button}
-                            onPress={buttonAdderBallsMissed}
-                        >
-                            <Text style={styles.bigText}>+</Text>
-                        </TouchableOpacity>
+            <View style={styles.bottom}>
+                <Text style={styles.header}>Balls Missed: {ballsMissed}</Text>
+                <View style={{ flex: 1, flexDirection: 'row', }}>
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={buttonAdderBallsMissed}
+                    >
+                        <Text style={styles.bigText}>+</Text>
+                    </TouchableOpacity>
 
-                        <View style={styles.border}></View>
+                    <View style={styles.border}></View>
 
-                        <TouchableOpacity
-                            style={styles.button}
-                            onPress={buttonSubBallsMissed}
-                        >
-                            <Text style={styles.bigText}>-</Text>
-                        </TouchableOpacity>
-                    </View>
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={buttonSubBallsMissed}
+                    >
+                        <Text style={styles.bigText}>-</Text>
+                    </TouchableOpacity>
                 </View>
+            </View>
 
-                <View style={styles.bottomMenu}>
-                    <View>
-                        <TouchableOpacity
-                            style={{ color: 'tomato' }}
-                            onPress={goToPreGame}
-                        >
-                            <Text style={{ fontSize: 50, }}> {"<"} </Text>
-                        </TouchableOpacity>
-                    </View>
 
-                    <View>
-                        <TouchableOpacity
-                            style={{ color: 'tomato' }}
-                            onPress={goToTele}
-                        >
-                            <Text style={{ fontSize: 50, }}> {">"} </Text>
-                        </TouchableOpacity>
-                    </View>
-
-                </View>
-            </SwipableContainer>
         </SafeAreaView >
     );
 }
