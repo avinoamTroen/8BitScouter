@@ -4,6 +4,7 @@ import SwipableContainer from '../myComponents/SwipableContainer';
 import store from '../my_redux/store';
 import { setScouterTeamNumber, setScouterName, setCompName, setMatchType, setMatchNumber, setTeamNumber } from '../my_redux/currentScouterActions'
 import TitledChoiceList from '../myComponents/ChoiceList';
+import { Formats } from '../styles';
 
 export default function preGame({ navigation }) {
     // navigation 
@@ -168,6 +169,12 @@ export default function preGame({ navigation }) {
 
                 />
             </View>
+
+            <TouchableOpacity
+                style={Formats.nextButton}
+                onPress={goToAuto}
+            ><Text style={Formats.nextButtonText}>Next</Text></TouchableOpacity>
+
 
         </View>
     );
