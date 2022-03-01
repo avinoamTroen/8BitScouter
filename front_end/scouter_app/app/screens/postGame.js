@@ -14,12 +14,14 @@ export default function postGame({ navigation }) {
         navigation.navigate('EndGame');
     }
     return (
-        <View >
+        <View style={{ flex: 1 }} >
             <TopNav
                 goBack={goBack}
                 goToHome={goToHome}
             />
-            <Text style={{ flex: 1 }}>Game details will appear here</Text>
+            <View style={Formats.EnglishLineContainer}>
+                <Text style={{ flex: 1 }}>Game details will appear here</Text>
+            </View>
             <TouchableOpacity
                 style={Formats.nextButton}
                 onPress={goToNext}

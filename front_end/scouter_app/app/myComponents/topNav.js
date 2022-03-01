@@ -9,7 +9,7 @@ import { Formats } from '../styles'
 
 export default function TopNav(props) {
     return (
-        <View style={{ flexDirection: 'row', width: '100%', height: 40, borderWidth: 3, borderColor: 'black' }}>
+        <View style={{ flexDirection: 'row', width: '100%', height: 51, borderWidth: 3, borderColor: 'black' }}>
             <TouchableOpacity
                 style={Formats.backButton}
                 onPress={props.goBack}
