@@ -36,10 +36,6 @@ export default function preGame({ navigation }) {
     }
     const scouterTeams = getScouterTeams()
     const scouterNames = getScouterNames()
-    // set up local state stuff
-    const [scouterTeamNumberL, setScouterTeamNumberL] = useState(store.getState().currentScout.scouterTeamNumber)
-    const [scouterNameL, setScouterNameL] = useState(store.getState().currentScout.scouterName)
-
 
     // ***Middle Row***
 
@@ -70,11 +66,6 @@ export default function preGame({ navigation }) {
     const compNames = getCompNames()
     const matchTypes = getMatchTypes()
     const matchNumbers = getMatchNumbers()
-    // set up local state stuff
-    const [compNameL, setCompNameL] = useState(store.getState().currentScout.compName)
-    const [matchTypeL, setMatchTypeL] = useState(store.getState().currentScout.matchType)
-    const [matchNumberL, setMatchNumberL] = useState(store.getState().currentScout.matchNumber)
-
 
     // ***Bottom row***
 
@@ -89,82 +80,56 @@ export default function preGame({ navigation }) {
         ]
     }
     const teamNumbers = getTeamNumbers()
-    // set up local state stuff
-    const [teamNumberL, setTeamNumberL] = useState(store.getState().currentScout.teamNumber)
-
 
     return (
         <View style={{ flex: 1 }}>
             <View style={styles.EnglishLineContainer}>
                 <TitledChoiceList
                     title={'My Team Number'}
-                    selectedValue={scouterTeamNumberL}
                     array={scouterTeams}
-                    onValueChange={(itemValue, itemIndex) => {
-                        store.dispatch(setScouterTeamNumber(itemValue));
-                        setScouterTeamNumberL(itemValue)
-                    }}
-
+                    setCurrentChoice={(newChoice) => store.dispatch(setTeamNumber(newChoice))}
+                    getCurrentChoice={() => { return (store.getState().currentScout.teamNumber) }}
                 />
 
                 <TitledChoiceList
                     title={'My Name'}
-                    selectedValue={scouterNameL}
                     array={scouterNames}
-                    onValueChange={(itemValue, itemIndex) => {
-                        store.dispatch(setScouterName(itemValue));
-                        setScouterNameL(itemValue)
-                    }}
-
+                    setCurrentChoice={(newChoice) => store.dispatch(setScouterName(newChoice))}
+                    getCurrentChoice={() => { return (store.getState().currentScout.scouterName) }}
                 />
+
             </View>
 
 
             <View style={styles.EnglishLineContainer}>
                 <TitledChoiceList
-                    title={'Competition Name'}
-                    selectedValue={compNameL}
+                    title={'Competition name'}
                     array={compNames}
-                    onValueChange={(itemValue, itemIndex) => {
-                        store.dispatch(setCompName(itemValue));
-                        setCompNameL(itemValue)
-                    }}
-
+                    setCurrentChoice={(newChoice) => store.dispatch(setCompName(newChoice))}
+                    getCurrentChoice={() => { return (store.getState().currentScout.compName) }}
                 />
-
                 <TitledChoiceList
                     title={'Match Type'}
-                    selectedValue={matchTypeL}
                     array={matchTypes}
-                    onValueChange={(itemValue, itemIndex) => {
-                        store.dispatch(setMatchType(itemValue));
-                        setMatchTypeL(itemValue)
-                    }}
-
+                    setCurrentChoice={(newChoice) => store.dispatch(setMatchType(newChoice))}
+                    getCurrentChoice={() => { return (store.getState().currentScout.matchType) }}
                 />
-
                 <TitledChoiceList
                     title={'Match Number'}
-                    selectedValue={matchNumberL}
                     array={matchNumbers}
-                    onValueChange={(itemValue, itemIndex) => {
-                        store.dispatch(setMatchNumber(itemValue));
-                        setMatchNumberL(itemValue)
-                    }}
-
+                    setCurrentChoice={(newChoice) => store.dispatch(setMatchNumber(newChoice))}
+                    getCurrentChoice={() => { return (store.getState().currentScout.matchNumber) }}
                 />
+
+
             </View>
 
             <View style={styles.EnglishLineContainer}>
                 <TitledChoiceList
                     title={'I am scouting Team Number'}
-                    selectedValue={teamNumberL}
                     array={teamNumbers}
-                    onValueChange={(itemValue, itemIndex) => {
-                        store.dispatch(setTeamNumber(itemValue));
-                        setTeamNumberL(itemValue)
-                    }}
-
+                    setCurrentChoice={(newChoice) => store.dispatch(setTeamNumber(newChoice))}
+                    getCurrentChoice={() => { return (store.getState().currentScout.teamNumber) }}
                 />
             </View>
 

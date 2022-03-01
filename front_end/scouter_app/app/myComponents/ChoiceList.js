@@ -3,16 +3,22 @@ import { View, StyleSheet, Text } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
 export const ChoiceList = (props) => {
+    const [localCurrentChoice, setLocalCurrentChoice] = useState(props.getCurrentChoice())
+    const onValueChange = (itemValue, itemIndex) => {
+        props.setCurrentChoice(itemValue);
+        setLocalCurrentChoice(props.getCurrentChoice())
+    }
     pickerItemArray = props.array.map((item) => {
         return (
             <Picker.Item label={item.toString()} value={item} key={item} />
         )
     })
+
     return (
         <Picker
-            selectedValue={props.selectedValue}
+            selectedValue={localCurrentChoice}
             style={{ height: 150, width: '100%' }}
-            onValueChange={props.onValueChange}
+            onValueChange={onValueChange}
         >
             {pickerItemArray}
         </Picker>
@@ -26,9 +32,10 @@ const TitledChoiceList = (props) => {
             style={styles.choiceListContainer}>
             <Text style={styles.choiceListTitle}>{props.title}</Text>
             <ChoiceList
-                selectedValue={props.selectedValue}
+                getCurrentChoice={props.getCurrentChoice}
+                setCurrentChoice={props.setCurrentChoice}
                 array={props.array}
-                onValueChange={props.onValueChange}
+
             />
         </View>
     )
