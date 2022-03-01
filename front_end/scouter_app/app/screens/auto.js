@@ -12,7 +12,7 @@ import SwipableContainer from '../myComponents/SwipableContainer';
 import { setBallsInUpperAuto, setBallsInLowerAuto, setBallsMissedAuto } from '../my_redux/currentScouterActions';
 import store from '../my_redux/store';
 import { Formats } from '../styles'
-import TopNav from '../myComponents/topNav';
+import TopNav from '../myComponents/TopNav';
 
 export default function Auto({ navigation }) {
 

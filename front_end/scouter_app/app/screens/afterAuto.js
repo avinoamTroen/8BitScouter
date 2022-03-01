@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
-import SwipableContainer from '../myComponents/SwipableContainer';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import store from '../my_redux/store';
-import TitledChoiceList from '../myComponents/ChoiceList';
 import { Formats } from '../styles';
-import TopNav from '../myComponents/topNav';
+import TopNav from '../myComponents/TopNav';
 import TitledSwitch from '../myComponents/TitledSwitch';
-import { setAutoMalfunction, setPassedLine, setBallsHumanShotAuto, setBallsHumanScoredAuto } from '../my_redux/currentScouterActions'
+import TitledTextInput from '../myComponents/TitledTextInput';
+import { setAutoMalfunction, setPassedLine, setBallsHumanShotAuto, setBallsHumanScoredAuto, setAutoFreeText } from '../my_redux/currentScouterActions'
 
 export default function AfterAuto({ navigation }) {
     // navigation 
@@ -19,6 +18,7 @@ export default function AfterAuto({ navigation }) {
     const goBack = () => {
         navigation.navigate('Auto');
     }
+
 
 
 
@@ -58,9 +58,12 @@ export default function AfterAuto({ navigation }) {
                 />
             </View>
 
-            <View style={styles.EnglishLineContainer}>
-
-            </View>
+            <TitledTextInput
+                setText={(newText) => store.dispatch(setAutoFreeText(newText))}
+                getText={() => store.getState().currentScout.autoFreeText}
+                placeholder="write here..."
+                title="Free Text On Auto"
+            />
 
             <TouchableOpacity
                 style={Formats.nextButton}

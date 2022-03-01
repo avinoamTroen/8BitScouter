@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import TopNav from '../myComponents/topNav';
+import TopNav from '../myComponents/TopNav';
 import { Formats } from '../styles';
 
 export default function postGame({ navigation }) {

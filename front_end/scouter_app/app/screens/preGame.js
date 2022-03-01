@@ -4,7 +4,7 @@ import store from '../my_redux/store';
 import { setScouterTeamNumber, setScouterName, setCompName, setMatchType, setMatchNumber, setTeamNumber } from '../my_redux/currentScouterActions'
 import TitledChoiceList from '../myComponents/ChoiceList';
 import { Formats } from '../styles';
-import TopNav from '../myComponents/topNav'
+import TopNav from '../myComponents/TopNav'
 
 export default function preGame({ navigation }) {
     // navigation 
@@ -98,7 +98,7 @@ export default function preGame({ navigation }) {
                     title={'My Team Number'}
                     array={scouterTeams}
                     setCurrentChoice={(newChoice) => store.dispatch(setScouterTeamNumber(newChoice))}
-                    getCurrentChoice={() => { return (store.getState().currentScout.teamNumber) }}
+                    getCurrentChoice={() => { return (store.getState().currentScout.scouterTeamNumber) }}
                 />
 
                 <TitledChoiceList
