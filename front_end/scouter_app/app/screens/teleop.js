@@ -12,18 +12,28 @@ import SwipableContainer from '../myComponents/SwipableContainer';
 import { setBallsInUpperTele, setBallsInLowerTele, setBallsMissedTele } from '../my_redux/currentScouterActions';
 import store from '../my_redux/store';
 import { Formats } from '../styles'
+import TopNav from '../myComponents/topNav';
 
 export default function Tele({ navigation }) {
 
     goToNext = () => {
         navigation.navigate('EndGame');
     };
+    const goToHome = () => {
+        navigation.navigate('Home');
+    }
+    const goBack = () => {
+        navigation.navigate('AfterAuto');
+    }
 
 
 
     return (
         <SafeAreaView style={styles.container}>
-
+            <TopNav
+                goBack={goBack}
+                goToHome={goToHome}
+            />
             <CoumterTracker
                 getCurrentCount={() => { return (store.getState().currentScout.ballsInUpperTele) }}
                 setCurrentCount={(res) => store.dispatch(setBallsInUpperTele(res))}

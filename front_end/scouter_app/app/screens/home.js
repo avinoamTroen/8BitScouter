@@ -14,6 +14,9 @@ export default function Home({ navigation }) {
     const goToAuto = () => {
         navigation.navigate('Auto');
     }
+    const goToAfterAuto = () => {
+        navigation.navigate('AfterAuto');
+    }
     const goToTele = () => {
         navigation.navigate('TeleOp');
     }
@@ -50,6 +53,7 @@ export default function Home({ navigation }) {
             <View >
                 <Button title='Pre Game' onPress={goToPreGame} />
                 <Button title='Auto' onPress={goToAuto} />
+                <Button title='AfterAuto' onPress={goToAfterAuto} />
                 <Button title='Tele' onPress={goToTele} />
                 <Button title='End Game' onPress={goToEndGame} />
                 <Button title='Post Game' onPress={goToPostGame} />

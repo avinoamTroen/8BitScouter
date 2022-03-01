@@ -7,6 +7,7 @@ import Auto from '../screens/auto';
 import TeleOp from '../screens/teleop';
 import EndGame from '../screens/endGame';
 import PostGame from '../screens/postGame';
+import AfterAuto from '../screens/afterAuto'
 
 // put all screens from homestack here
 // this file takes care of the main navigation (the stack from the homeScreen) - probably the only stack
@@ -19,6 +20,9 @@ const screens = {
     },
     Auto: {
         screen: Auto,
+    },
+    AfterAuto: {
+        screen: AfterAuto,
     },
     TeleOp: {
         screen: TeleOp,

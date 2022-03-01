@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'dodgerblue',
         borderColor: 'black',
-        borderWidth: 3,
+        borderWidth: 2,
         alignItems: 'center'
 
     }

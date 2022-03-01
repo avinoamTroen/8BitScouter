@@ -12,19 +12,28 @@ import SwipableContainer from '../myComponents/SwipableContainer';
 import { setBallsInUpperAuto, setBallsInLowerAuto, setBallsMissedAuto } from '../my_redux/currentScouterActions';
 import store from '../my_redux/store';
 import { Formats } from '../styles'
+import TopNav from '../myComponents/topNav';
 
 export default function Auto({ navigation }) {
-    const [ballsIn, setBallsIn] = useState(0);
-    const [ballsMissed, setBallsMissed] = useState(0);
 
     goToNext = () => {
-        navigation.navigate('TeleOp');
+        navigation.navigate('AfterAuto');
     };
+    goBack = () => {
+        navigation.navigate('PreGame');
+    };
+    goToHome = () => {
+        navigation.navigate('Home');
+    };
+
 
 
     return (
         <SafeAreaView style={styles.container}>
-
+            <TopNav
+                goBack={goBack}
+                goToHome={goToHome}
+            />
             <CoumterTracker
                 getCurrentCount={() => { return (store.getState().currentScout.ballsInUpperAuto) }}
                 setCurrentCount={(res) => store.dispatch(setBallsInUpperAuto(res))}
@@ -44,7 +53,8 @@ export default function Auto({ navigation }) {
             <TouchableOpacity
                 style={Formats.nextButton}
                 onPress={goToNext}
-            ><Text style={Formats.nextButtonText}>Next</Text></TouchableOpacity>
+            ><Text style={Formats.nextButtonText}>Next</Text>
+            </TouchableOpacity>
         </SafeAreaView >
     );
 }

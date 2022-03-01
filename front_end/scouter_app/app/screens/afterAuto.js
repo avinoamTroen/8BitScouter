@@ -5,18 +5,18 @@ import store from '../my_redux/store';
 import { setScouterTeamNumber, setScouterName, setCompName, setMatchType, setMatchNumber, setTeamNumber } from '../my_redux/currentScouterActions'
 import TitledChoiceList from '../myComponents/ChoiceList';
 import { Formats } from '../styles';
-import TopNav from '../myComponents/topNav'
+import TopNav from '../myComponents/topNav';
 
-export default function preGame({ navigation }) {
+export default function AfterAuto({ navigation }) {
     // navigation 
     const goToNext = () => {
-        navigation.navigate('Auto');
+        navigation.navigate('TeleOp');
     }
     const goToHome = () => {
         navigation.navigate('Home');
     }
     const goBack = () => {
-        navigation.navigate('Home');
+        navigation.navigate('PreGame');
     }
 
 
