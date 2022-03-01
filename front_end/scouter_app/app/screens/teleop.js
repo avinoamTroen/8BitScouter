@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import {
     StyleSheet,
@@ -8,109 +7,43 @@ import {
     TouchableOpacity
 } from 'react-native';
 import React from 'react';
+import CoumterTracker from '../myComponents/CounterTracker';
+import SwipableContainer from '../myComponents/SwipableContainer';
+import { setBallsInUpperTele, setBallsInLowerTele, setBallsMissedTele } from '../my_redux/currentScouterActions';
+import store from '../my_redux/store';
+import { Formats } from '../styles'
 
-export default function TeleOp({ navigation }) {
-    const [ballsIn, setBallsIn] = useState(0);
-    const [ballsMissed, setBallsMissed] = useState(0);
+export default function Tele({ navigation }) {
 
-    goToAuto = () => {
-        navigation.navigate('Auto');
+    goToNext = () => {
+        navigation.navigate('EndGame');
     };
 
-    goToHome = () => {
-        navigation.navigate('Home');
-    };
 
-    buttonAdderBallsIn = () => {
-        setBallsIn(ballsIn + 1);
-    };
 
-    buttonSubBallsIn = () => {
-        let res = ballsIn - 1
-        if (res < 0) {
-            res = 0
-        }
-        setBallsIn(res);
-    };
-
-    buttonAdderBallsMissed = () => {
-        setBallsMissed(ballsMissed + 1);
-    };
-
-    buttonSubBallsMissed = () => {
-        let res = ballsMissed - 1
-        if (res < 0) {
-            res = 0
-        }
-        setBallsMissed(res);
-    };
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.topMenu}><Text style={styles.topMenu}>top menu</Text></View>
 
-            <View style={styles.top}>
-                <Text style={styles.header}>Balls In: {ballsIn}</Text>
-                <View style={{ flex: 1, flexDirection: 'row', }}>
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={buttonAdderBallsIn}
-                    >
-                        <Text style={styles.bigText}>+</Text>
-                    </TouchableOpacity>
+            <CoumterTracker
+                getCurrentCount={() => { return (store.getState().currentScout.ballsInUpperTele) }}
+                setCurrentCount={(res) => store.dispatch(setBallsInUpperTele(res))}
+                title={'Balls in Upper Hub - Tele'}
+            />
+            <CoumterTracker
+                getCurrentCount={() => { return (store.getState().currentScout.ballsInLowerTele) }}
+                setCurrentCount={(res) => store.dispatch(setBallsInLowerTele(res))}
+                title={'Balls in Lower Hub - Tele'}
+            />
+            <CoumterTracker
+                getCurrentCount={() => { return (store.getState().currentScout.ballsMissedTele) }}
+                setCurrentCount={(res) => store.dispatch(setBallsMissedTele(res))}
+                title={'Balls Missed - Tele'}
+            />
 
-                    <View style={styles.border}></View>
-
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={buttonSubBallsIn}
-                    >
-                        <Text style={styles.bigText}>-</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-
-            <View style={styles.bottom}>
-                <Text style={styles.header}>Balls Missed: {ballsMissed}</Text>
-                <View style={{ flex: 1, flexDirection: 'row', }}>
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={buttonAdderBallsMissed}
-                    >
-                        <Text style={styles.bigText}>+</Text>
-                    </TouchableOpacity>
-
-                    <View style={styles.border}></View>
-
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={buttonSubBallsMissed}
-                    >
-                        <Text style={styles.bigText}>-</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-
-            <View style={styles.bottomMenu}>
-                <View>
-                    <TouchableOpacity
-                        style={{ color: 'tomato' }}
-                        onPress={goToAuto}
-                    >
-                        <Text style={{ fontSize: 50, }}> {"<"} </Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View>
-                    <TouchableOpacity
-                        style={{ color: 'tomato' }}
-                        onPress={goToHome}
-                    >
-                        <Text style={{ fontSize: 50, }}> {">"} </Text>
-                    </TouchableOpacity>
-                </View>
-
-            </View>
-
+            <TouchableOpacity
+                style={Formats.nextButton}
+                onPress={goToNext}
+            ><Text style={Formats.nextButtonText}>Next</Text></TouchableOpacity>
         </SafeAreaView >
     );
 }
@@ -121,7 +54,7 @@ export default function TeleOp({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#882',
+        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'flex-start',
     },
@@ -156,10 +89,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#aaa',
         alignItems: 'center',
         justifyContent: 'center',
-        textAlign: 'center',
-        textAlignVertical: "center",
-        fontWeight: 'bold',
-        fontSize: 25,
         marginTop: 0,
     },
     bigText: {
@@ -167,6 +96,9 @@ const styles = StyleSheet.create({
         textAlignVertical: "center",
         fontWeight: 'bold',
         fontSize: 100,
+    },
+    midText: {
+        fontSize: 20,
     },
     button: {
         flex: 0.4,
@@ -193,4 +125,3 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
 });
-

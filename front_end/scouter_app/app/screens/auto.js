@@ -7,90 +7,44 @@ import {
     TouchableOpacity
 } from 'react-native';
 import React from 'react';
+import CoumterTracker from '../myComponents/CounterTracker';
 import SwipableContainer from '../myComponents/SwipableContainer';
-
+import { setBallsInUpperAuto, setBallsInLowerAuto, setBallsMissedAuto } from '../my_redux/currentScouterActions';
+import store from '../my_redux/store';
+import { Formats } from '../styles'
 
 export default function Auto({ navigation }) {
     const [ballsIn, setBallsIn] = useState(0);
     const [ballsMissed, setBallsMissed] = useState(0);
 
-    goToTele = () => {
+    goToNext = () => {
         navigation.navigate('TeleOp');
     };
 
-    goToPreGame = () => {
-        navigation.navigate('PreGame');
-    };
 
-    buttonAdderBallsIn = () => {
-        setBallsIn(ballsIn + 1);
-    };
-
-    buttonSubBallsIn = () => {
-        let res = ballsIn - 1
-        if (res < 0) {
-            res = 0
-        }
-        setBallsIn(res);
-    };
-
-    buttonAdderBallsMissed = () => {
-        setBallsMissed(ballsMissed + 1);
-    };
-
-    buttonSubBallsMissed = () => {
-        let res = ballsMissed - 1
-        if (res < 0) {
-            res = 0
-        }
-        setBallsMissed(res);
-    };
     return (
         <SafeAreaView style={styles.container}>
 
-            <View style={styles.top}>
-                <Text style={styles.header}>Balls In: {ballsIn}</Text>
-                <View style={{ flex: 1, flexDirection: 'row', }}>
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={buttonAdderBallsIn}
-                    >
-                        <Text style={styles.bigText}>+</Text>
-                    </TouchableOpacity>
+            <CoumterTracker
+                getCurrentCount={() => { return (store.getState().currentScout.ballsInUpperAuto) }}
+                setCurrentCount={(res) => store.dispatch(setBallsInUpperAuto(res))}
+                title={'Balls in Upper Hub - Auto'}
+            />
+            <CoumterTracker
+                getCurrentCount={() => { return (store.getState().currentScout.ballsInLowerAuto) }}
+                setCurrentCount={(res) => store.dispatch(setBallsInLowerAuto(res))}
+                title={'Balls in Lower Hub - Auto'}
+            />
+            <CoumterTracker
+                getCurrentCount={() => { return (store.getState().currentScout.ballsMissedAuto) }}
+                setCurrentCount={(res) => store.dispatch(setBallsMissedAuto(res))}
+                title={'Balls Missed - Auto'}
+            />
 
-                    <View style={styles.border}></View>
-
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={buttonSubBallsIn}
-                    >
-                        <Text style={styles.bigText}>-</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-
-            <View style={styles.bottom}>
-                <Text style={styles.header}>Balls Missed: {ballsMissed}</Text>
-                <View style={{ flex: 1, flexDirection: 'row', }}>
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={buttonAdderBallsMissed}
-                    >
-                        <Text style={styles.bigText}>+</Text>
-                    </TouchableOpacity>
-
-                    <View style={styles.border}></View>
-
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={buttonSubBallsMissed}
-                    >
-                        <Text style={styles.bigText}>-</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-
-
+            <TouchableOpacity
+                style={Formats.nextButton}
+                onPress={goToNext}
+            ><Text style={Formats.nextButtonText}>Next</Text></TouchableOpacity>
         </SafeAreaView >
     );
 }

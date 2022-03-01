@@ -8,12 +8,10 @@ import { Formats } from '../styles';
 
 export default function preGame({ navigation }) {
     // navigation 
-    const goToAuto = () => {
+    const goToNext = () => {
         navigation.navigate('Auto');
     }
-    const goToHome = () => {
-        navigation.navigate('Home');
-    }
+
 
 
     // ***Top Row***
@@ -172,7 +170,7 @@ export default function preGame({ navigation }) {
 
             <TouchableOpacity
                 style={Formats.nextButton}
-                onPress={goToAuto}
+                onPress={goToNext}
             ><Text style={Formats.nextButtonText}>Next</Text></TouchableOpacity>
 
 
