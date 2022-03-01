@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
-import SwipableContainer from '../myComponents/SwipableContainer';
 import store from '../my_redux/store';
 import { setScouterTeamNumber, setScouterName, setCompName, setMatchType, setMatchNumber, setTeamNumber } from '../my_redux/currentScouterActions'
 import TitledChoiceList from '../myComponents/ChoiceList';
@@ -98,7 +97,7 @@ export default function preGame({ navigation }) {
                 <TitledChoiceList
                     title={'My Team Number'}
                     array={scouterTeams}
-                    setCurrentChoice={(newChoice) => store.dispatch(setTeamNumber(newChoice))}
+                    setCurrentChoice={(newChoice) => store.dispatch(setScouterTeamNumber(newChoice))}
                     getCurrentChoice={() => { return (store.getState().currentScout.teamNumber) }}
                 />
 
