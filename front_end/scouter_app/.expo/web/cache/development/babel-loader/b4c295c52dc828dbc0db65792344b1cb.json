@@ -1,1 +1,36 @@
-{"ast":null,"code":"import StyleSheet from \"react-native-web/dist/exports/StyleSheet\";\nexport var styles = StyleSheet.create({\n  nextButton: {\n    backgroundColor: 'red',\n    width: '100%',\n    height: 51,\n    alignItems: 'center',\n    borderColor: 'black',\n    borderWidth: 3\n  },\n  backButton: {\n    flex: 1,\n    backgroundColor: 'yellow',\n    alignItems: 'center',\n    borderWidth: 1\n  },\n  homeButton: {\n    flex: 1,\n    backgroundColor: 'gold',\n    alignItems: 'center',\n    borderWidth: 1\n  },\n  nextButtonText: {\n    fontSize: 20,\n    fontWeight: \"bold\"\n  },\n  EnglishLineContainer: {\n    alignItems: 'center',\n    flexDirection: 'row',\n    flex: 1\n  }\n});","map":{"version":3,"sources":["C:/Users/avino/OneDrive/Desktop/8bit_scouting/front_end/scouter_app/app/styles/formats.js"],"names":["styles","StyleSheet","create","nextButton","backgroundColor","width","height","alignItems","borderColor","borderWidth","backButton","flex","homeButton","nextButtonText","fontSize","fontWeight","EnglishLineContainer","flexDirection"],"mappings":";AAEA,OAAO,IAAMA,MAAM,GAAGC,UAAU,CAACC,MAAX,CAAkB;AACpCC,EAAAA,UAAU,EAAE;AACRC,IAAAA,eAAe,EAAE,KADT;AAERC,IAAAA,KAAK,EAAE,MAFC;AAGRC,IAAAA,MAAM,EAAE,EAHA;AAIRC,IAAAA,UAAU,EAAE,QAJJ;AAKRC,IAAAA,WAAW,EAAE,OALL;AAMRC,IAAAA,WAAW,EAAE;AANL,GADwB;AASpCC,EAAAA,UAAU,EAAE;AACRC,IAAAA,IAAI,EAAE,CADE;AAERP,IAAAA,eAAe,EAAE,QAFT;AAGRG,IAAAA,UAAU,EAAE,QAHJ;AAIRE,IAAAA,WAAW,EAAE;AAJL,GATwB;AAepCG,EAAAA,UAAU,EAAE;AACRD,IAAAA,IAAI,EAAE,CADE;AAERP,IAAAA,eAAe,EAAE,MAFT;AAGRG,IAAAA,UAAU,EAAE,QAHJ;AAIRE,IAAAA,WAAW,EAAE;AAJL,GAfwB;AAqBpCI,EAAAA,cAAc,EAAE;AACZC,IAAAA,QAAQ,EAAE,EADE;AAEZC,IAAAA,UAAU,EAAE;AAFA,GArBoB;AAyBpCC,EAAAA,oBAAoB,EAAE;AAClBT,IAAAA,UAAU,EAAE,QADM;AAElBU,IAAAA,aAAa,EAAE,KAFG;AAGlBN,IAAAA,IAAI,EAAE;AAHY;AAzBc,CAAlB,CAAf","sourcesContent":["import { StyleSheet } from \"react-native\"\r\n\r\nexport const styles = StyleSheet.create({\r\n    nextButton: {\r\n        backgroundColor: 'red',\r\n        width: '100%',\r\n        height: 51,\r\n        alignItems: 'center',\r\n        borderColor: 'black',\r\n        borderWidth: 3\r\n    },\r\n    backButton: {\r\n        flex: 1,\r\n        backgroundColor: 'yellow',\r\n        alignItems: 'center',\r\n        borderWidth: 1\r\n    },\r\n    homeButton: {\r\n        flex: 1,\r\n        backgroundColor: 'gold',\r\n        alignItems: 'center',\r\n        borderWidth: 1\r\n    },\r\n    nextButtonText: {\r\n        fontSize: 20,\r\n        fontWeight: \"bold\"\r\n    },\r\n    EnglishLineContainer: {\r\n        alignItems: 'center',\r\n        flexDirection: 'row',\r\n        flex: 1\r\n    }\r\n\r\n})\r\n"]},"metadata":{},"sourceType":"module"}
+{
+  "ast": null,
+  "code": "import StyleSheet from \"react-native-web/dist/exports/StyleSheet\";\nexport var styles = StyleSheet.create({\n  nextButton: {\n    backgroundColor: 'red',\n    width: '100%',\n    height: 51,\n    alignItems: 'center',\n    borderColor: 'black',\n    borderWidth: 3\n  },\n  backButton: {\n    flex: 1,\n    backgroundColor: 'yellow',\n    alignItems: 'center',\n    borderWidth: 1\n  },\n  NavigatorButton: {\n    flex: 1,\n    backgroundColor: 'gold',\n    alignItems: 'center',\n    borderWidth: 1\n  },\n  nextButtonText: {\n    fontSize: 20,\n    fontWeight: \"bold\"\n  },\n  EnglishLineContainer: {\n    alignItems: 'center',\n    flexDirection: 'row',\n    flex: 1\n  }\n});",
+  "map": {
+    "version": 3,
+    "sources": [
+      "C:/Users/avino/OneDrive/Desktop/8bit_scouting/front_end/scouter_app/app/styles/formats.js"
+    ],
+    "names": [
+      "styles",
+      "StyleSheet",
+      "create",
+      "nextButton",
+      "backgroundColor",
+      "width",
+      "height",
+      "alignItems",
+      "borderColor",
+      "borderWidth",
+      "backButton",
+      "flex",
+      "NavigatorButton",
+      "nextButtonText",
+      "fontSize",
+      "fontWeight",
+      "EnglishLineContainer",
+      "flexDirection"
+    ],
+    "mappings": ";AAEA,OAAO,IAAMA,MAAM,GAAGC,UAAU,CAACC,MAAX,CAAkB;AACpCC,EAAAA,UAAU,EAAE;AACRC,IAAAA,eAAe,EAAE,KADT;AAERC,IAAAA,KAAK,EAAE,MAFC;AAGRC,IAAAA,MAAM,EAAE,EAHA;AAIRC,IAAAA,UAAU,EAAE,QAJJ;AAKRC,IAAAA,WAAW,EAAE,OALL;AAMRC,IAAAA,WAAW,EAAE;AANL,GADwB;AASpCC,EAAAA,UAAU,EAAE;AACRC,IAAAA,IAAI,EAAE,CADE;AAERP,IAAAA,eAAe,EAAE,QAFT;AAGRG,IAAAA,UAAU,EAAE,QAHJ;AAIRE,IAAAA,WAAW,EAAE;AAJL,GATwB;AAepCG,EAAAA,UAAU,EAAE;AACRD,IAAAA,IAAI,EAAE,CADE;AAERP,IAAAA,eAAe,EAAE,MAFT;AAGRG,IAAAA,UAAU,EAAE,QAHJ;AAIRE,IAAAA,WAAW,EAAE;AAJL,GAfwB;AAqBpCI,EAAAA,cAAc,EAAE;AACZC,IAAAA,QAAQ,EAAE,EADE;AAEZC,IAAAA,UAAU,EAAE;AAFA,GArBoB;AAyBpCC,EAAAA,oBAAoB,EAAE;AAClBT,IAAAA,UAAU,EAAE,QADM;AAElBU,IAAAA,aAAa,EAAE,KAFG;AAGlBN,IAAAA,IAAI,EAAE;AAHY;AAzBc,CAAlB,CAAf",
+    "sourcesContent": [
+      "import { StyleSheet } from \"react-native\"\r\n\r\nexport const styles = StyleSheet.create({\r\n    nextButton: {\r\n        backgroundColor: 'red',\r\n        width: '100%',\r\n        height: 51,\r\n        alignItems: 'center',\r\n        borderColor: 'black',\r\n        borderWidth: 3\r\n    },\r\n    backButton: {\r\n        flex: 1,\r\n        backgroundColor: 'yellow',\r\n        alignItems: 'center',\r\n        borderWidth: 1\r\n    },\r\n    NavigatorButton: {\r\n        flex: 1,\r\n        backgroundColor: 'gold',\r\n        alignItems: 'center',\r\n        borderWidth: 1\r\n    },\r\n    nextButtonText: {\r\n        fontSize: 20,\r\n        fontWeight: \"bold\"\r\n    },\r\n    EnglishLineContainer: {\r\n        alignItems: 'center',\r\n        flexDirection: 'row',\r\n        flex: 1\r\n    }\r\n\r\n})\r\n"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

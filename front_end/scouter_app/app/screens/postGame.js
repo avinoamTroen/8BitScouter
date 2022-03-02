@@ -10,11 +10,11 @@ import TitledTextInput from '../myComponents/TitledTextInput';
 import TitledSwitch from '../myComponents/TitledSwitch';
 
 export default function postGame({ navigation }) {
-    const goToNext = () => {
+    const finishOneScout = () => {
         navigation.navigate('Home');
     }
-    const goToHome = () => {
-        navigation.navigate('Home');
+    const goToNavigator = () => {
+        navigation.navigate('Navigator');
     }
     const goBack = () => {
         navigation.navigate('EndGame');
@@ -24,7 +24,7 @@ export default function postGame({ navigation }) {
         <View style={{ flex: 1 }} >
             <TopNav
                 goBack={goBack}
-                goToHome={goToHome}
+                goToNavigator={goToNavigator}
             />
             <ScrollView style={{ flex: 1, backgroundColor: 'grey', height: 1000 }}>
                 <TitledScale
@@ -86,9 +86,9 @@ export default function postGame({ navigation }) {
                 </View>
                 <TouchableOpacity
                     style={Formats.nextButton}
-                    onPress={goToNext}
+                    onPress={finishOneScout}
                 >
-                    <Text style={Formats.nextButtonText}>Next</Text>
+                    <Text style={Formats.nextButtonText}>Send</Text>
                 </TouchableOpacity>
             </ScrollView>
 

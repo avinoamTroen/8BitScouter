@@ -1,1 +1,17 @@
-{"ast":null,"code":"import React from 'react';\nimport StyleSheet from \"react-native-web/dist/exports/StyleSheet\";\nimport View from \"react-native-web/dist/exports/View\";\nimport Text from \"react-native-web/dist/exports/Text\";\nimport { jsx as _jsx } from \"react/jsx-runtime\";\nexport default function Home() {\n  return _jsx(View, {\n    children: _jsx(Text, {\n      children: \"Home Screen\"\n    })\n  });\n}","map":{"version":3,"sources":["C:/Users/avino/PycharmProjects/8bit_scouting/scouter_app/app/screens/home.js"],"names":["React","Home"],"mappings":"AACA,OAAOA,KAAP,MAAkB,OAAlB;;;;;AAGA,eAAe,SAASC,IAAT,GAAgB;AAC3B,SACI,KAAC,IAAD;AAAA,cACI,KAAC,IAAD;AAAA;AAAA;AADJ,IADJ;AAKH","sourcesContent":["\r\nimport React from 'react';\r\nimport { StyleSheet, View, Text, } from 'react-native';\r\n\r\nexport default function Home() {\r\n    return (\r\n        <View >\r\n            <Text >Home Screen</Text>\r\n        </View>\r\n    );\r\n}"]},"metadata":{},"sourceType":"module"}
+{
+  "ast": null,
+  "code": "import React from 'react';\nimport StyleSheet from \"react-native-web/dist/exports/StyleSheet\";\nimport View from \"react-native-web/dist/exports/View\";\nimport Text from \"react-native-web/dist/exports/Text\";\nimport { jsx as _jsx } from \"react/jsx-runtime\";\nexport default function Navigator() {\n  return _jsx(View, {\n    children: _jsx(Text, {\n      children: \"Navigator Screen\"\n    })\n  });\n}",
+  "map": {
+    "version": 3,
+    "sources": [
+      "C:/Users/avino/PycharmProjects/8bit_scouting/scouter_app/app/screens/Navigator.js"
+    ],
+    "names": ["React", "Navigator"],
+    "mappings": "AACA,OAAOA,KAAP,MAAkB,OAAlB;;;;;AAGA,eAAe,SAASC,IAAT,GAAgB;AAC3B,SACI,KAAC,IAAD;AAAA,cACI,KAAC,IAAD;AAAA;AAAA;AADJ,IADJ;AAKH",
+    "sourcesContent": [
+      "\r\nimport React from 'react';\r\nimport { StyleSheet, View, Text, } from 'react-native';\r\n\r\nexport default function Navigator() {\r\n    return (\r\n        <View >\r\n            <Text >Navigator Screen</Text>\r\n        </View>\r\n    );\r\n}"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

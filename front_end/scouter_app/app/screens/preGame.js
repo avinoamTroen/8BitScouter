@@ -12,11 +12,11 @@ export default function preGame({ navigation }) {
     const goToNext = () => {
         navigation.navigate('Auto');
     }
-    const goToHome = () => {
-        navigation.navigate('Home');
+    const goToNavigator = () => {
+        navigation.navigate('Navigator');
     }
     const goBack = () => {
-        navigation.navigate('Home');
+        navigation.navigate('Navigator');
     }
 
 
@@ -92,7 +92,7 @@ export default function preGame({ navigation }) {
         <View style={{ flex: 1 }}>
             <TopNav
                 goBack={goBack}
-                goToHome={goToHome}
+                goToNavigator={goToNavigator}
             />
             <View style={styles.EnglishLineContainer}>
                 <TitledChoiceList

@@ -22,8 +22,8 @@ export default function Auto({ navigation }) {
     goBack = () => {
         navigation.navigate('PreGame');
     };
-    goToHome = () => {
-        navigation.navigate('Home');
+    goToNavigator = () => {
+        navigation.navigate('Navigator');
     };
 
 
@@ -32,7 +32,7 @@ export default function Auto({ navigation }) {
         <SafeAreaView style={styles.container}>
             <TopNav
                 goBack={goBack}
-                goToHome={goToHome}
+                goToNavigator={goToNavigator}
             />
             <CoumterTracker
                 getCurrentCount={() => { return (store.getState().currentScout.ballsInUpperAuto) }}

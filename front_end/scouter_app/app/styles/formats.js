@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         borderWidth: 1
     },
-    homeButton: {
+    NavigatorButton: {
         flex: 1,
         backgroundColor: 'gold',
         alignItems: 'center',
@@ -29,6 +29,15 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         flex: 1
-    }
+    },
+    NavigationButton: {
+        width: '100%',
+        flex: 1,
+        backgroundColor: 'gold',
+        borderWidth: 2,
+        alignItems: 'center',
+        alignContent: 'center',
+        justifyContent: 'center'
+    },
 
 })

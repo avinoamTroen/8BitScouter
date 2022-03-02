@@ -12,8 +12,8 @@ export default function endGame({ navigation }) {
     const goToNext = () => {
         navigation.navigate('PostGame');
     }
-    const goToHome = () => {
-        navigation.navigate('Home');
+    const goToNavigator = () => {
+        navigation.navigate('Navigator');
     }
     const goBack = () => {
         navigation.navigate('TeleOp');
@@ -28,7 +28,7 @@ export default function endGame({ navigation }) {
         <View style={{ flex: 1 }}>
             <TopNav
                 goBack={goBack}
-                goToHome={goToHome}
+                goToNavigator={goToNavigator}
             />
             <View style={Formats.EnglishLineContainer}>
                 <TitledChoiceList

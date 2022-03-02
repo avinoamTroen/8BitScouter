@@ -19,8 +19,8 @@ export default function Tele({ navigation }) {
     goToNext = () => {
         navigation.navigate('EndGame');
     };
-    const goToHome = () => {
-        navigation.navigate('Home');
+    const goToNavigator = () => {
+        navigation.navigate('Navigator');
     }
     const goBack = () => {
         navigation.navigate('AfterAuto');
@@ -32,7 +32,7 @@ export default function Tele({ navigation }) {
         <SafeAreaView style={styles.container}>
             <TopNav
                 goBack={goBack}
-                goToHome={goToHome}
+                goToNavigator={goToNavigator}
             />
             <CoumterTracker
                 getCurrentCount={() => { return (store.getState().currentScout.ballsInUpperTele) }}

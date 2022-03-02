@@ -1,1 +1,32 @@
-{"ast":null,"code":"import StyleSheet from \"react-native-web/dist/exports/StyleSheet\";\nimport Text from \"react-native-web/dist/exports/Text\";\nimport View from \"react-native-web/dist/exports/View\";\nimport TouchableOpacity from \"react-native-web/dist/exports/TouchableOpacity\";\nimport React from 'react';\nimport { Formats } from \"../styles\";\nimport { jsx as _jsx } from \"react/jsx-runtime\";\nimport { jsxs as _jsxs } from \"react/jsx-runtime\";\nexport default function TopNav(props) {\n  return _jsxs(View, {\n    style: {\n      flexDirection: 'row',\n      width: '100%',\n      height: 51,\n      borderWidth: 3,\n      borderColor: 'black'\n    },\n    children: [_jsx(TouchableOpacity, {\n      style: Formats.backButton,\n      onPress: props.goBack,\n      children: _jsx(Text, {\n        style: Formats.nextButtonText,\n        children: \"Previous\"\n      })\n    }), _jsx(TouchableOpacity, {\n      style: Formats.homeButton,\n      onPress: props.goToHome,\n      children: _jsx(Text, {\n        style: Formats.nextButtonText,\n        children: \"Home\"\n      })\n    })]\n  });\n}","map":{"version":3,"sources":["C:/Users/avino/OneDrive/Desktop/8bit_scouting/front_end/scouter_app/app/myComponents/TopNav.js"],"names":["React","Formats","TopNav","props","flexDirection","width","height","borderWidth","borderColor","backButton","goBack","nextButtonText","homeButton","goToHome"],"mappings":";;;;AAMA,OAAOA,KAAP,MAAkB,OAAlB;AACA,SAASC,OAAT;;;AAEA,eAAe,SAASC,MAAT,CAAgBC,KAAhB,EAAuB;AAClC,SACI,MAAC,IAAD;AAAM,IAAA,KAAK,EAAE;AAAEC,MAAAA,aAAa,EAAE,KAAjB;AAAwBC,MAAAA,KAAK,EAAE,MAA/B;AAAuCC,MAAAA,MAAM,EAAE,EAA/C;AAAmDC,MAAAA,WAAW,EAAE,CAAhE;AAAmEC,MAAAA,WAAW,EAAE;AAAhF,KAAb;AAAA,eACI,KAAC,gBAAD;AACI,MAAA,KAAK,EAAEP,OAAO,CAACQ,UADnB;AAEI,MAAA,OAAO,EAAEN,KAAK,CAACO,MAFnB;AAAA,gBAGC,KAAC,IAAD;AAAM,QAAA,KAAK,EAAET,OAAO,CAACU,cAArB;AAAA;AAAA;AAHD,MADJ,EAOI,KAAC,gBAAD;AACI,MAAA,KAAK,EAAEV,OAAO,CAACW,UADnB;AAEI,MAAA,OAAO,EAAET,KAAK,CAACU,QAFnB;AAAA,gBAGC,KAAC,IAAD;AAAM,QAAA,KAAK,EAAEZ,OAAO,CAACU,cAArB;AAAA;AAAA;AAHD,MAPJ;AAAA,IADJ;AAeH","sourcesContent":["import {\r\n    StyleSheet,\r\n    Text,\r\n    View,\r\n    TouchableOpacity\r\n} from 'react-native';\r\nimport React from 'react';\r\nimport { Formats } from '../styles'\r\n\r\nexport default function TopNav(props) {\r\n    return (\r\n        <View style={{ flexDirection: 'row', width: '100%', height: 51, borderWidth: 3, borderColor: 'black' }}>\r\n            <TouchableOpacity\r\n                style={Formats.backButton}\r\n                onPress={props.goBack}\r\n            ><Text style={Formats.nextButtonText}>Previous</Text>\r\n            </TouchableOpacity>\r\n\r\n            <TouchableOpacity\r\n                style={Formats.homeButton}\r\n                onPress={props.goToHome}\r\n            ><Text style={Formats.nextButtonText}>Home</Text>\r\n            </TouchableOpacity>\r\n        </View>\r\n    )\r\n}"]},"metadata":{},"sourceType":"module"}
+{
+  "ast": null,
+  "code": "import StyleSheet from \"react-native-web/dist/exports/StyleSheet\";\nimport Text from \"react-native-web/dist/exports/Text\";\nimport View from \"react-native-web/dist/exports/View\";\nimport TouchableOpacity from \"react-native-web/dist/exports/TouchableOpacity\";\nimport React from 'react';\nimport { Formats } from \"../styles\";\nimport { jsx as _jsx } from \"react/jsx-runtime\";\nimport { jsxs as _jsxs } from \"react/jsx-runtime\";\nexport default function TopNav(props) {\n  return _jsxs(View, {\n    style: {\n      flexDirection: 'row',\n      width: '100%',\n      height: 51,\n      borderWidth: 3,\n      borderColor: 'black'\n    },\n    children: [_jsx(TouchableOpacity, {\n      style: Formats.backButton,\n      onPress: props.goBack,\n      children: _jsx(Text, {\n        style: Formats.nextButtonText,\n        children: \"Previous\"\n      })\n    }), _jsx(TouchableOpacity, {\n      style: Formats.NavigatorButton,\n      onPress: props.goToNavigator,\n      children: _jsx(Text, {\n        style: Formats.nextButtonText,\n        children: \"Navigator\"\n      })\n    })]\n  });\n}",
+  "map": {
+    "version": 3,
+    "sources": [
+      "C:/Users/avino/OneDrive/Desktop/8bit_scouting/front_end/scouter_app/app/myComponents/TopNav.js"
+    ],
+    "names": [
+      "React",
+      "Formats",
+      "TopNav",
+      "props",
+      "flexDirection",
+      "width",
+      "height",
+      "borderWidth",
+      "borderColor",
+      "backButton",
+      "goBack",
+      "nextButtonText",
+      "NavigatorButton",
+      "goToNavigator"
+    ],
+    "mappings": ";;;;AAMA,OAAOA,KAAP,MAAkB,OAAlB;AACA,SAASC,OAAT;;;AAEA,eAAe,SAASC,MAAT,CAAgBC,KAAhB,EAAuB;AAClC,SACI,MAAC,IAAD;AAAM,IAAA,KAAK,EAAE;AAAEC,MAAAA,aAAa,EAAE,KAAjB;AAAwBC,MAAAA,KAAK,EAAE,MAA/B;AAAuCC,MAAAA,MAAM,EAAE,EAA/C;AAAmDC,MAAAA,WAAW,EAAE,CAAhE;AAAmEC,MAAAA,WAAW,EAAE;AAAhF,KAAb;AAAA,eACI,KAAC,gBAAD;AACI,MAAA,KAAK,EAAEP,OAAO,CAACQ,UADnB;AAEI,MAAA,OAAO,EAAEN,KAAK,CAACO,MAFnB;AAAA,gBAGC,KAAC,IAAD;AAAM,QAAA,KAAK,EAAET,OAAO,CAACU,cAArB;AAAA;AAAA;AAHD,MADJ,EAOI,KAAC,gBAAD;AACI,MAAA,KAAK,EAAEV,OAAO,CAACW,UADnB;AAEI,MAAA,OAAO,EAAET,KAAK,CAACU,QAFnB;AAAA,gBAGC,KAAC,IAAD;AAAM,QAAA,KAAK,EAAEZ,OAAO,CAACU,cAArB;AAAA;AAAA;AAHD,MAPJ;AAAA,IADJ;AAeH",
+    "sourcesContent": [
+      "import {\r\n    StyleSheet,\r\n    Text,\r\n    View,\r\n    TouchableOpacity\r\n} from 'react-native';\r\nimport React from 'react';\r\nimport { Formats } from '../styles'\r\n\r\nexport default function TopNav(props) {\r\n    return (\r\n        <View style={{ flexDirection: 'row', width: '100%', height: 51, borderWidth: 3, borderColor: 'black' }}>\r\n            <TouchableOpacity\r\n                style={Formats.backButton}\r\n                onPress={props.goBack}\r\n            ><Text style={Formats.nextButtonText}>Previous</Text>\r\n            </TouchableOpacity>\r\n\r\n            <TouchableOpacity\r\n                style={Formats.NavigatorButton}\r\n                onPress={props.goToNavigator}\r\n            ><Text style={Formats.nextButtonText}>Navigator</Text>\r\n            </TouchableOpacity>\r\n        </View>\r\n    )\r\n}"
+    ]
+  },
+  "metadata": {},
+  "sourceType": "module"
+}

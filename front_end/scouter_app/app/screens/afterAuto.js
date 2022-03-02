@@ -12,8 +12,8 @@ export default function AfterAuto({ navigation }) {
     const goToNext = () => {
         navigation.navigate('TeleOp');
     }
-    const goToHome = () => {
-        navigation.navigate('Home');
+    const goToNavigator = () => {
+        navigation.navigate('Navigator');
     }
     const goBack = () => {
         navigation.navigate('Auto');
@@ -27,7 +27,7 @@ export default function AfterAuto({ navigation }) {
         <View style={{ flex: 1 }}>
             <TopNav
                 goBack={goBack}
-                goToHome={goToHome}
+                goToNavigator={goToNavigator}
             />
 
             <View style={styles.EnglishLineContainer}>

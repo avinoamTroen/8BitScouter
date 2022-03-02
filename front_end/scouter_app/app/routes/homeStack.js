@@ -1,19 +1,23 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 
-import Home from '../screens/home';
+import Navigator from '../screens/navigator';
 import PreGame from '../screens/preGame';
 import Auto from '../screens/auto';
 import TeleOp from '../screens/teleop';
 import EndGame from '../screens/endGame';
 import PostGame from '../screens/postGame';
-import AfterAuto from '../screens/afterAuto'
+import AfterAuto from '../screens/afterAuto';
+import Home from '../screens/home.js';
 
-// put all screens from homestack here
-// this file takes care of the main navigation (the stack from the homeScreen) - probably the only stack
+// put all screens from Navigatorstack here
+// this file takes care of the main navigation (the stack from the NavigatorScreen) - probably the only stack
 const screens = {
     Home: {
         screen: Home,
+    },
+    Navigator: {
+        screen: Navigator,
     },
     PreGame: {
         screen: PreGame,
@@ -36,7 +40,7 @@ const screens = {
 
 };
 
-// home stack navigator screens
-const HomeStack = createStackNavigator(screens);
+// Navigator stack navigator screens
+const NavigatorStack = createStackNavigator(screens);
 
-export default createAppContainer(HomeStack);
+export default createAppContainer(NavigatorStack);

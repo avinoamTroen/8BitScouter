@@ -17,9 +17,9 @@ export default function TopNav(props) {
             </TouchableOpacity>
 
             <TouchableOpacity
-                style={Formats.homeButton}
-                onPress={props.goToHome}
-            ><Text style={Formats.nextButtonText}>Home</Text>
+                style={Formats.NavigatorButton}
+                onPress={props.goToNavigator}
+            ><Text style={Formats.nextButtonText}>Navigator</Text>
             </TouchableOpacity>
         </View>
     )
