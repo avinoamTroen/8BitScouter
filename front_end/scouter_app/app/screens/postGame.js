@@ -3,6 +3,8 @@ import { View, Text, TouchableOpacity, FlatList } from 'react-native';
 import TopNav from '../myComponents/TopNav';
 import { Formats } from '../styles';
 import TitledScale from '../myComponents/TitledScale';
+import store from '../my_redux/store';
+import { setDefensiveDefenseLevel } from '../my_redux/currentScouterActions';
 
 export default function postGame({ navigation }) {
     const goToNext = () => {
@@ -23,8 +25,10 @@ export default function postGame({ navigation }) {
             />
             <View style={{ flex: 1, backgroundColor: 'grey' }}>
                 <TitledScale
-                    arr={[-1, 0, 1, 2, 3]}
-                    title={'test run'}
+                    title={'Defensive Defense Level'}
+                    max={7}
+                    setCurrentChoice={(newChoice) => store.dispatch(setDefensiveDefenseLevel(newChoice))}
+                    getCurrentChoice={() => { return (store.getState().currentScout.defensiveDefenseLevel) }}
                 />
             </View>
 
