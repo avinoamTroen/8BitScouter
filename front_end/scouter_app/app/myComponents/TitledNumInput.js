@@ -4,10 +4,11 @@ import { View, StyleSheet, Text, TextInput } from "react-native";
 const TitledNumInput = (props) => {
     const [num, localSetNum] = useState(props.getNum().toString());
     const onChangeNum = (newNum) => {
-        if (typeof parseFloat(newNum) != "number") {
-            console.log('titled num: not number')
+        numType = typeof parseFloat(newNum)
+        // NaN (Not a Number) is the is the only value not equal to itself so the scond condition will return true if newNum is NaN
+        if (numType != "number" || isNaN(newNum) || newNum == "") {
             props.setNum(0);
-            localSetNum('')
+            localSetNum('0')
         }
         else {
             newNum = parseFloat(newNum)

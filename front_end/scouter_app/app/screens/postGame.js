@@ -1,10 +1,13 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import TopNav from '../myComponents/TopNav';
 import { Formats } from '../styles';
 import TitledScale from '../myComponents/TitledScale';
 import store from '../my_redux/store';
-import { setDefensiveDefenseLevel, setoffensiveDefenseLevel, setWasDefendedLevel, setGoodTeamMateLevel, setWasBroken, setGeneralImpression, setOffensiveDefenseLevel } from '../my_redux/currentScouterActions';
+import { setDefensiveDefenseLevel, setOffensiveDefenseLevel, setWasDefendedLevel, setGoodTeamMateLevel, setWasBroken, setGeneralImpression } from '../my_redux/currentScouterActions';
+import { setFreeText, setRobotNoFunction, setSystemNoFunction } from '../my_redux/currentScouterActions';
+import TitledTextInput from '../myComponents/TitledTextInput';
+import TitledSwitch from '../myComponents/TitledSwitch';
 
 export default function postGame({ navigation }) {
     const goToNext = () => {
@@ -23,7 +26,7 @@ export default function postGame({ navigation }) {
                 goBack={goBack}
                 goToHome={goToHome}
             />
-            <View style={{ flex: 1, backgroundColor: 'grey' }}>
+            <ScrollView style={{ flex: 1, backgroundColor: 'grey', height: 1000 }}>
                 <TitledScale
                     title={'Defensive Defense Level'}
                     max={7}
@@ -60,14 +63,36 @@ export default function postGame({ navigation }) {
                     setCurrentChoice={(newChoice) => store.dispatch(setGeneralImpression(newChoice))}
                     getCurrentChoice={() => { return (store.getState().currentScout.generalImpression) }}
                 />
-            </View>
+                <View style={Formats.EnglishLineContainer}>
+                    <TitledSwitch
+                        title={'Robot Did Not Function'}
+                        setTruth={(isTrue) => store.dispatch(setRobotNoFunction(isTrue))}
+                        getTruth={() => store.getState().currentScout.robotNoFunction}
+                    />
+                    <TitledSwitch
+                        title={'A System of the Robot Failed'}
+                        setTruth={(isTrue) => store.dispatch(setSystemNoFunction(isTrue))}
+                        getTruth={() => store.getState().currentScout.systemNoFunction}
+                    />
+                </View>
+                <View style={{ minHeight: 300 }}>
+                    <TitledTextInput
+                        setText={(newText) => store.dispatch(setFreeText(newText))}
+                        getText={() => store.getState().currentScout.freeText}
+                        placeholder="write here..."
+                        title="Free Text On This Scout"
+                        maxLength={499}
+                    />
+                </View>
+                <TouchableOpacity
+                    style={Formats.nextButton}
+                    onPress={goToNext}
+                >
+                    <Text style={Formats.nextButtonText}>Next</Text>
+                </TouchableOpacity>
+            </ScrollView>
 
-            <TouchableOpacity
-                style={Formats.nextButton}
-                onPress={goToNext}
-            >
-                <Text style={Formats.nextButtonText}>Next</Text>
-            </TouchableOpacity>
+
         </View>
     );
 }

@@ -7,16 +7,20 @@ const TitledTextInput = (props) => {
         props.setText(newText);
         setText(props.getText());
     }
+    const flipped = props.flipped ? { flexDirection: 'row' } : { flexDirection: 'column' }
+    let multiline = true;
+    if (props.multiline === false) { multiline = false; }
     return (
         <View
-            style={styles.textInputContainer}>
+            style={[styles.textInputContainer, flipped]}>
             <Text style={styles.textInputTitle}>{props.title}</Text>
             <TextInput
                 style={styles.input}
                 onChangeText={onChangeText}
                 value={text}
                 placeholder={props.placeholder}
-                multiline={true}
+                multiline={multiline}
+                maxLength={props.maxLength}
             />
         </View>
     )
@@ -34,7 +38,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'green',
         borderColor: 'black',
         borderWidth: 2,
-        alignItems: 'center'
+        alignItems: 'center',
+        flexDirection: 'column'
 
     },
     input: {

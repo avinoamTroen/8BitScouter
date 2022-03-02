@@ -17,7 +17,7 @@ export const ChoiceList = (props) => {
     return (
         <Picker
             selectedValue={localCurrentChoice}
-            style={{ height: 150, width: '100%' }}
+            style={{ width: '100%' }}
             onValueChange={onValueChange}
         >
             {pickerItemArray}

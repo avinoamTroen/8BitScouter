@@ -32,16 +32,15 @@ export default function AfterAuto({ navigation }) {
 
             <View style={styles.EnglishLineContainer}>
                 <TitledSwitch
-                    title={'Robot Went Crazy'}
-                    setTruth={(isTrue) => store.dispatch(setAutoMalfunction(isTrue))}
-                    getTruth={() => store.getState().currentScout.autoMalfunction}
-                />
-                <TitledSwitch
                     title={'Robot Passed Line'}
                     setTruth={(isTrue) => store.dispatch(setPassedLine(isTrue))}
                     getTruth={() => store.getState().currentScout.passedLine}
                 />
-
+                <TitledSwitch
+                    title={'Robot Went Crazy'}
+                    setTruth={(isTrue) => store.dispatch(setAutoMalfunction(isTrue))}
+                    getTruth={() => store.getState().currentScout.autoMalfunction}
+                />
             </View>
 
 
@@ -58,12 +57,16 @@ export default function AfterAuto({ navigation }) {
                 />
             </View>
 
-            <TitledTextInput
-                setText={(newText) => store.dispatch(setAutoFreeText(newText))}
-                getText={() => store.getState().currentScout.autoFreeText}
-                placeholder="write here..."
-                title="Free Text On Auto"
-            />
+            <View style={{ minHeight: 300 }}>
+                <TitledTextInput
+                    setText={(newText) => store.dispatch(setAutoFreeText(newText))}
+                    getText={() => store.getState().currentScout.autoFreeText}
+                    placeholder="write here..."
+                    title="Free Text On Auto"
+                    maxLength={499}
+                />
+            </View>
+
 
             <TouchableOpacity
                 style={Formats.nextButton}

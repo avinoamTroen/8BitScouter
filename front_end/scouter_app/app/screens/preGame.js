@@ -4,7 +4,8 @@ import store from '../my_redux/store';
 import { setScouterTeamNumber, setScouterName, setCompName, setMatchType, setMatchNumber, setTeamNumber } from '../my_redux/currentScouterActions'
 import TitledChoiceList from '../myComponents/ChoiceList';
 import { Formats } from '../styles';
-import TopNav from '../myComponents/TopNav'
+import TopNav from '../myComponents/TopNav';
+import TitledTextInput from '../myComponents/TitledTextInput';
 
 export default function preGame({ navigation }) {
     // navigation 
@@ -100,16 +101,18 @@ export default function preGame({ navigation }) {
                     setCurrentChoice={(newChoice) => store.dispatch(setScouterTeamNumber(newChoice))}
                     getCurrentChoice={() => { return (store.getState().currentScout.scouterTeamNumber) }}
                 />
-
-                <TitledChoiceList
-                    title={'My Name'}
-                    array={scouterNames}
-                    setCurrentChoice={(newChoice) => store.dispatch(setScouterName(newChoice))}
-                    getCurrentChoice={() => { return (store.getState().currentScout.scouterName) }}
-                />
-
             </View>
+            <View style={{ minHeight: 80 }}>
+                <TitledTextInput
+                    setText={(newText) => store.dispatch(setScouterName(newText))}
+                    getText={() => store.getState().currentScout.scouterName}
+                    placeholder="write here..."
+                    title="My Name"
+                    maxLength={30}
+                    multiline={false}
+                    flipped={true}
 
+                /></View>
 
             <View style={styles.EnglishLineContainer}>
                 <TitledChoiceList
@@ -118,6 +121,10 @@ export default function preGame({ navigation }) {
                     setCurrentChoice={(newChoice) => store.dispatch(setCompName(newChoice))}
                     getCurrentChoice={() => { return (store.getState().currentScout.compName) }}
                 />
+            </View>
+
+            <View style={styles.EnglishLineContainer}>
+
                 <TitledChoiceList
                     title={'Match Type'}
                     array={matchTypes}
