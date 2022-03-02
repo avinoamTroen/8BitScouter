@@ -31,12 +31,18 @@ const TitledChoiceList = (props) => {
         <View
             style={styles.choiceListContainer}>
             <Text style={styles.choiceListTitle}>{props.title}</Text>
-            <ChoiceList
-                getCurrentChoice={props.getCurrentChoice}
-                setCurrentChoice={props.setCurrentChoice}
-                array={props.array}
+            <View style={{ flex: 1, flexDirection: 'row' }}>
+                <View style={{ flex: 1 }}></View>
+                <View style={{ flex: 4 }}>
+                    <ChoiceList
+                        getCurrentChoice={props.getCurrentChoice}
+                        setCurrentChoice={props.setCurrentChoice}
+                        array={props.array}
 
-            />
+                    />
+                </View>
+                <View style={{ flex: 1 }}></View>
+            </View>
         </View>
     )
 }
