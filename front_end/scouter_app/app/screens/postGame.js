@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, FlatList } from 'react-native';
 import TopNav from '../myComponents/TopNav';
 import { Formats } from '../styles';
+import TitledScale from '../myComponents/TitledScale';
 
 export default function postGame({ navigation }) {
     const goToNext = () => {
@@ -14,11 +15,6 @@ export default function postGame({ navigation }) {
         navigation.navigate('EndGame');
     }
 
-    const Item = ({ title }) => (
-        <View>
-            <Text >{title}</Text>
-        </View>)
-
     return (
         <View style={{ flex: 1 }} >
             <TopNav
@@ -26,9 +22,9 @@ export default function postGame({ navigation }) {
                 goToHome={goToHome}
             />
             <View style={{ flex: 1, backgroundColor: 'grey' }}>
-                <FlatList
-                    data={[-1, 0, 1, 2, 3]}
-                    renderItem={(item) => <Text>{item.toString()}</Text>}
+                <TitledScale
+                    arr={[-1, 0, 1, 2, 3]}
+                    title={'test run'}
                 />
             </View>
 
