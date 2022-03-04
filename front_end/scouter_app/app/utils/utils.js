@@ -1,5 +1,5 @@
 // info to help conncect to the right server
-export const SERVER_IP_ADDRESS = '10.74.100.47'
+export const SERVER_IP_ADDRESS = '192.168.68.59'
 export const INPUT_SERVER_PORT = '3173'
 
 export const INPUT_SERVER_IP_AND_PORT = "http://" + SERVER_IP_ADDRESS + ":" + INPUT_SERVER_PORT + "/";

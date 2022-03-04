@@ -1,5 +1,5 @@
 import { produce } from 'immer';
-import * as actionTypes from './currentScoutActionTypes';
+import * as actionTypes from './sendQueueActionTypes';
 
 // This part of the store handles the queue of ready oneScout to send
 const scoutSendingQueue = [];
@@ -8,12 +8,15 @@ export default function sendQueueReducer(state = scoutSendingQueue, action) {
         // generic setters for all properties of currentScout
 
         // meta data
-        case actionTypes.addScout:
+        case actionTypes.Queue_ADDED:
+            console.log('starting addScout - reducer')
             return produce(state, stateCopy => {
-                stateCopy.push(action.payload.scout);
+                stateCopy.push(action.payload.newScout);
+                console.log(stateCopy)
+                console.log('statecopy - reducer')
                 return stateCopy;
             });
-        case actionTypes.removeScout:
+        case actionTypes.Queue_REMOVED:
             return produce(state, stateCopy => {
                 stateCopy.shift();
                 return stateCopy;

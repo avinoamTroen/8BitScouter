@@ -15,11 +15,14 @@ import sendScouts from '../networking/sendScouts';
 
 export default function postGame({ navigation }) {
     const finishOneScout = () => {
+        console.log('starting finishOneScout - post ')
         // add time stamp!!
         store.dispatch(setWhenCaptured(getCurrentDateTime()))
         // save one scout to que and init send
         store.dispatch(addQueue(store.getState().currentScout))
+        console.log('about to send scouts- post')
         sendScouts()
+        console.log('done sending scouts -post')
         // clear current scout
         store.dispatch(clearedCurrentScout())
         // go to home screen

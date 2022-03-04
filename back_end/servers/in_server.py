@@ -21,8 +21,8 @@ def input_one_scout():
         print(thing, json_data[thing])
     print('\n|done|\n')
     try:
-        val = (json_data['teamName'], json_data['compName'], json_data['roundName'], json_data['points'])
-        insert_record_oneScout(my_db, val)
+        """        val = (json_data['teamName'], json_data['compName'], json_data['roundName'], json_data['points'])
+        insert_record_oneScout(my_db, val)"""
         print('did sql stuff')
         # it would seem we always need to return a something here
         return ''
