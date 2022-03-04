@@ -21,7 +21,18 @@ def input_one_scout():
         print(thing, json_data[thing])
     print('\n|done|\n')
     try:
-        """        val = (json_data['teamName'], json_data['compName'], json_data['roundName'], json_data['points'])
+        """val = (json_data['compName'], json_data['matchType'], json_data['matchNumber'], json_data['teamNumber'], 
+        json_data['scouterName'], json_data['whenCaptured'], json_data['scouterTeamNumber'], json_data[
+        'driverStation'], json_data['startPlace'], json_data['ballsInUpperAuto'], json_data['ballsInLowerAuto'], 
+        json_data['ballsMissedAuto'], json_data['passedLine'], json_data['ballsHumanShotAuto'], json_data[
+        'ballsHumanScoredAuto'], json_data['whichBallsCollected'], json_data['autoMalfunction'], json_data[
+        'autoFreeText'], json_data['ballsInUpperTele'], json_data['ballsInLowerTele'], json_data['ballsMissedTele'], 
+        json_data['levelClimbed'], json_data['climbSuccessful'], json_data['climbTime'], json_data[
+        'defensiveDefenseLevel'], json_data['offensiveDefenseLevel'], json_data['wasDefendedLevel'], 
+        json_data['shootingLocations'], json_data['collectingLocations'], json_data['goodTeamMateLevel'], 
+        json_data['wasBroken'], json_data['freeText'], json_data['generalImpression'], json_data['robotNoFunction'], 
+        json_data['systemNoFunction'], ) 
+
         insert_record_oneScout(my_db, val)"""
         print('did sql stuff')
         # it would seem we always need to return a something here

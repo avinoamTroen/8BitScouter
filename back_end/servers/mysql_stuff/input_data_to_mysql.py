@@ -1,5 +1,5 @@
 import mysql.connector
-import mysql_stuff.mysql_utils as mysql_utils
+import mysql_utils
 
 my_db = mysql.connector.connect(
     host=mysql_utils.HOST,
@@ -9,11 +9,22 @@ my_db = mysql.connector.connect(
 )
 
 
-def insert_record_oneScout(db, val):
+def insert_record_oneScout(db, vals):
     my_cursor = db.cursor()
-    sql = "INSERT INTO oneScouts (team_number_str, comp_name, round_number_str, points) VALUES (%s, %s, %s, %s)"
+    # cols are the parameters
+    cols = "('compName', 'matchType', 'matchNumber', 'teamNumber', 'scouterName', 'whenCaptured', " \
+           "'scouterTeamNumber', 'driverStation', 'startPlace', 'ballsInUpperAuto', 'ballsInLowerAuto', " \
+           "'ballsMissedAuto', 'passedLine', 'ballsHumanShotAuto', 'ballsHumanScoredAuto', 'whichBallsCollected', " \
+           "'autoMalfunction', 'autoFreeText', 'ballsInUpperTele', 'ballsInLowerTele', 'ballsMissedTele', " \
+           "'levelClimbed', 'climbSuccessful', 'climbTime', 'defensiveDefenseLevel', 'offensiveDefenseLevel', " \
+           "'wasDefendedLevel', 'shootingLocations', 'collectingLocations', 'goodTeamMateLevel', 'wasBroken', " \
+           "'freeText', 'generalImpression', 'robotNoFunction', 'systemNoFunction', ) "
+    # vals are the values of the record we now want to insert
+    # the param vals will be of type tuples and str will make it use able for us
+    vals = str(vals)
+    sql = f"INSERT INTO oneScouts {cols} VALUES {vals}"
 
-    my_cursor.execute(sql, val)
+    my_cursor.execute(sql)
 
     db.commit()
     print(my_cursor.rowcount, "record inserted.")
