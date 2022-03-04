@@ -42,29 +42,31 @@ export const generalImpression_SET = 'generalImpression_set';
 export const robotNoFunction_SET = 'robotNoFunction_set';
 export const systemNoFunction_SET = 'systemNoFunction_set';
 
+// /////////// The strings are all for set... need to fix
+// // ** increment and decrement **
+// // explanation of meaning: inc = increased  (default is 1), dec = decreased (default is 1)
+// // use _INC and _DEC suffixes
 
-// ** increment and decrement **
-// explanation of meaning: inc = increased  (default is 1), dec = decreased (default is 1)
-// use _INC and _DEC suffixes
+// // autonomous
+// export const ballsInUpperAuto_INC = 'ballsInUpperAuto_set';
+// export const ballsInUpperAuto_DEC = 'ballsInUpperAuto_set';
 
-// autonomous
-export const ballsInUpperAuto_INC = 'ballsInUpperAuto_set';
-export const ballsInUpperAuto_DEC = 'ballsInUpperAuto_set';
+// export const ballsInLowerAuto_INC = 'ballsInLowerAuto_set';
+// export const ballsInLowerAuto_DEC = 'ballsInLowerAuto_set';
 
-export const ballsInLowerAuto_INC = 'ballsInLowerAuto_set';
-export const ballsInLowerAuto_DEC = 'ballsInLowerAuto_set';
-
-export const ballsMissedAuto_INC = 'ballsMissedAuto_set';
-export const ballsMissedAuto_DEC = 'ballsMissedAuto_set';
+// export const ballsMissedAuto_INC = 'ballsMissedAuto_set';
+// export const ballsMissedAuto_DEC = 'ballsMissedAuto_set';
 
 
-// teleop
-export const ballsInUpperTele_INC = 'ballsInUpperTele_set';
-export const ballsInUpperTele_DEC = 'ballsInUpperTele_set';
+// // teleop
+// export const ballsInUpperTele_INC = 'ballsInUpperTele_set';
+// export const ballsInUpperTele_DEC = 'ballsInUpperTele_set';
 
-export const ballsInLowerTele_INC = 'ballsInLowerTele_set';
-export const ballsInLowerTele_DEC = 'ballsInLowerTele_set';
+// export const ballsInLowerTele_INC = 'ballsInLowerTele_set';
+// export const ballsInLowerTele_DEC = 'ballsInLowerTele_set';
 
-export const ballsMissedTele_INC = 'ballsMissedTele_set';
-export const ballsMissedTele_DEC = 'ballsMissedTele_set';
+// export const ballsMissedTele_INC = 'ballsMissedTele_set';
+// export const ballsMissedTele_DEC = 'ballsMissedTele_set';
 
+// **clear currentScout**
+export const clearedCurrentScout = 'clearedCurrentScout';

@@ -3,9 +3,14 @@ import React from 'react';
 import { SafeAreaView, View, Text, Button, TouchableOpacity } from 'react-native';
 import store from '../my_redux/store';
 import { Typography, Formats } from '../styles';
+import { clearedCurrentScout } from '../my_redux/currentScouterActions';
 
 export default function Home({ navigation }) {
     const newScout = () => {
+        // clear current scout and init new clear one
+        store.dispatch(clearedCurrentScout())
+
+        // go to beginning of new scout
         navigation.navigate('PreGame');
     }
     const goToNavigator = () => {

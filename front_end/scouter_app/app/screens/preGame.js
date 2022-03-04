@@ -6,6 +6,7 @@ import TitledChoiceList from '../myComponents/ChoiceList';
 import { Formats } from '../styles';
 import TopNav from '../myComponents/TopNav';
 import TitledTextInput from '../myComponents/TitledTextInput';
+import TitledNumInput from '../myComponents/TitledNumInput'
 
 export default function preGame({ navigation }) {
     // navigation 
@@ -142,12 +143,14 @@ export default function preGame({ navigation }) {
             </View>
 
             <View style={styles.EnglishLineContainer}>
-                <TitledChoiceList
-                    title={'I am scouting Team Number'}
-                    array={teamNumbers}
-                    setCurrentChoice={(newChoice) => store.dispatch(setTeamNumber(newChoice))}
-                    getCurrentChoice={() => { return (store.getState().currentScout.teamNumber) }}
-                />
+                <View style={{ height: 150, width: '100%' }}>
+                    <TitledNumInput
+                        setNum={(newNum) => store.dispatch(setTeamNumber(newNum))}
+                        getNum={() => store.getState().currentScout.teamNumber}
+                        placeholder="Enter team number here"
+                        title="I am scouting Team Number"
+                    /></View>
+
             </View>
 
             <TouchableOpacity

@@ -44,8 +44,12 @@ const currentScoutInitialState = {
     robotNoFunction: false,
     systemNoFunction: false,
 }
-// This part of the store handles the queue of ready oneScout to send
-// const scoutSendingQueue = { notEmpty };
+
+
+
+function getCurrentScoutInitialState() {
+    return currentScoutInitialState;
+}
 
 export default function currentScoutReducer(state = currentScoutInitialState, action) {
     switch (action.type) {
@@ -236,77 +240,81 @@ export default function currentScoutReducer(state = currentScoutInitialState, ac
                 return stateCopy;
             });
 
+        // //////////////////// un comment after fix inc/dec actionTypes etc...
+        // // ** increment and de-increment action cases **
 
-        // ** increment and de-increment action cases **
+        // // auto
+        // case actionTypes.ballsInUpperAuto_INC:
+        //     return produce(state, stateCopy => {
+        //         stateCopy.ballsInUpperAuto += action.payload.numToIncrement;
+        //         return stateCopy;
+        //     });
+        // case actionTypes.ballsInUpperAuto_DEC:
+        //     return produce(state, stateCopy => {
+        //         stateCopy.ballsInUpperAuto += action.payload.numToDecrement;
+        //         return stateCopy;
+        //     });
 
-        // auto
-        case actionTypes.ballsInUpperAuto_INC:
-            return produce(state, stateCopy => {
-                stateCopy.ballsInUpperAuto += action.payload.numToIncrement;
-                return stateCopy;
-            });
-        case actionTypes.ballsInUpperAuto_DEC:
-            return produce(state, stateCopy => {
-                stateCopy.ballsInUpperAuto += action.payload.numToDecrement;
-                return stateCopy;
-            });
+        // case actionTypes.ballsInLowerAuto_INC:
+        //     return produce(state, stateCopy => {
+        //         stateCopy.ballsInLowerAuto += action.payload.numToIncrement;
+        //         return stateCopy;
+        //     });
+        // case actionTypes.ballsInLowerAuto_DEC:
+        //     return produce(state, stateCopy => {
+        //         stateCopy.ballsInLowerAuto += action.payload.numToDecrement;
+        //         return stateCopy;
+        //     });
 
-        case actionTypes.ballsInLowerAuto_INC:
-            return produce(state, stateCopy => {
-                stateCopy.ballsInLowerAuto += action.payload.numToIncrement;
-                return stateCopy;
-            });
-        case actionTypes.ballsInLowerAuto_DEC:
-            return produce(state, stateCopy => {
-                stateCopy.ballsInLowerAuto += action.payload.numToDecrement;
-                return stateCopy;
-            });
+        // case actionTypes.ballsMissedAuto_INC:
+        //     return produce(state, stateCopy => {
+        //         stateCopy.ballsMissedAuto += action.payload.numToIncrement;
+        //         return stateCopy;
+        //     });
+        // case actionTypes.ballsMissedAuto_DEC:
+        //     return produce(state, stateCopy => {
+        //         stateCopy.ballsMissedAuto += action.payload.numToDecrement;
+        //         return stateCopy;
+        //     });
 
-        case actionTypes.ballsMissedAuto_INC:
-            return produce(state, stateCopy => {
-                stateCopy.ballsMissedAuto += action.payload.numToIncrement;
-                return stateCopy;
-            });
-        case actionTypes.ballsMissedAuto_DEC:
-            return produce(state, stateCopy => {
-                stateCopy.ballsMissedAuto += action.payload.numToDecrement;
-                return stateCopy;
-            });
+        // // tele-op
+        // case actionTypes.ballsInUpperTele_INC:
+        //     return produce(state, stateCopy => {
+        //         stateCopy.ballsInUpperTele += action.payload.numToIncrement;
+        //         return stateCopy;
+        //     });
+        // case actionTypes.ballsInUpperTele_DEC:
+        //     return produce(state, stateCopy => {
+        //         stateCopy.ballsInUpperTele += action.payload.numToDecrement;
+        //         return stateCopy;
+        //     });
 
-        // tele-op
-        case actionTypes.ballsInUpperTele_INC:
-            return produce(state, stateCopy => {
-                stateCopy.ballsInUpperTele += action.payload.numToIncrement;
-                return stateCopy;
-            });
-        case actionTypes.ballsInUpperTele_DEC:
-            return produce(state, stateCopy => {
-                stateCopy.ballsInUpperTele += action.payload.numToDecrement;
-                return stateCopy;
-            });
+        // case actionTypes.ballsInLowerTele_INC:
+        //     return produce(state, stateCopy => {
+        //         stateCopy.ballsInLowerTele += action.payload.numToIncrement;
+        //         return stateCopy;
+        //     });
+        // case actionTypes.ballsInLowerTele_DEC:
+        //     return produce(state, stateCopy => {
+        //         stateCopy.ballsInLowerTele += action.payload.numToDecrement;
+        //         return stateCopy;
+        //     });
 
-        case actionTypes.ballsInLowerTele_INC:
-            return produce(state, stateCopy => {
-                stateCopy.ballsInLowerTele += action.payload.numToIncrement;
-                return stateCopy;
-            });
-        case actionTypes.ballsInLowerTele_DEC:
-            return produce(state, stateCopy => {
-                stateCopy.ballsInLowerTele += action.payload.numToDecrement;
-                return stateCopy;
-            });
+        // case actionTypes.ballsMissedTele_INC:
+        //     return produce(state, stateCopy => {
+        //         stateCopy.ballsMissedTele += action.payload.numToIncrement;
+        //         return stateCopy;
+        //     });
+        // case actionTypes.ballsMissedTele_DEC:
+        //     return produce(state, stateCopy => {
+        //         stateCopy.ballsMissedTele += action.payload.numToDecrement;
+        //         return stateCopy;
+        //     });
 
-        case actionTypes.ballsMissedTele_INC:
-            return produce(state, stateCopy => {
-                stateCopy.ballsMissedTele += action.payload.numToIncrement;
-                return stateCopy;
-            });
-        case actionTypes.ballsMissedTele_DEC:
-            return produce(state, stateCopy => {
-                stateCopy.ballsMissedTele += action.payload.numToDecrement;
-                return stateCopy;
-            });
 
+        // to clear it after send/create new
+        case actionTypes.clearedCurrentScout:
+            return getCurrentScoutInitialState();
 
         // default returns state - if gets bad action and at the beginning when initialized
         default:

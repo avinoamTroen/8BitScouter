@@ -148,52 +148,62 @@ export function setSystemNoFunction(newSystemNoFunction) {
 }
 
 
-// ** inc and dec actions **
-// autonomous
-export function incBallsInUpperAuto(numToIncrement = 1) {
-    return { type: actionTypes.ballsInUpperAuto_INC, payload: { numToIncrement } };
-}
-export function decBallsInUpperAuto(numToDecrement = 1) {
-    return { type: actionTypes.ballsInUpperAuto_DEC, payload: { numToDecrement } };
+// //////////// un comment after fix actionType strings for inc/dec
+// // ** inc and dec actions **
+// // autonomous
+// export function incBallsInUpperAuto(numToIncrement = 1) {
+//     return { type: actionTypes.ballsInUpperAuto_INC, payload: { numToIncrement } };
+// }
+// export function decBallsInUpperAuto(numToDecrement = 1) {
+//     return { type: actionTypes.ballsInUpperAuto_DEC, payload: { numToDecrement } };
+// }
+
+
+// export function incBallsInLowerAuto(numToIncrement = 1) {
+//     return { type: actionTypes.ballsInLowerAuto_INC, payload: { numToIncrement } };
+// }
+// export function decBallsInLowerAuto(numToDecrement = 1) {
+//     return { type: actionTypes.ballsInLowerAuto_DEC, payload: { numToDecrement } };
+// }
+
+
+// export function incBallsMissedAuto(numToIncrement = 1) {
+//     return { type: actionTypes.ballsMissedAuto_INC, payload: { numToIncrement } };
+// }
+// export function decBallsMissedAuto(numToDecrement = 1) {
+//     return { type: actionTypes.ballsMissedAuto_DEC, payload: { numToDecrement } };
+// }
+
+
+// // tele-op
+// export function incBallsInUpperTele(numToIncrement = 1) {
+//     return { type: actionTypes.ballsInUpperTele_INC, payload: { numToIncrement } };
+// }
+// export function decBallsInUpperTele(numToDecrement = 1) {
+//     return { type: actionTypes.ballsInUpperTele_DEC, payload: { numToDecrement } };
+// }
+
+
+// export function incBallsInLowerTele(numToIncrement = 1) {
+//     return { type: actionTypes.ballsInLowerTele_INC, payload: { numToIncrement } };
+// }
+// export function decBallsInLowerTele(numToDecrement = 1) {
+//     return { type: actionTypes.ballsInLowerTele_DEC, payload: { numToDecrement } };
+// }
+
+
+// export function incBallsMissedTele(numToIncrement = 1) {
+//     return { type: actionTypes.ballsMissedTele_INC, payload: { numToIncrement } };
+// }
+// export function decBallsMissedTele(numToDecrement = 1) {
+//     return { type: actionTypes.ballsMissedTele_DEC, payload: { numToDecrement } };
+// }
+
+
+// clear current scout
+export function clearedCurrentScout() {
+    return { type: actionTypes.clearedCurrentScout, payload: {} };
 }
 
 
-export function incBallsInLowerAuto(numToIncrement = 1) {
-    return { type: actionTypes.ballsInLowerAuto_INC, payload: { numToIncrement } };
-}
-export function decBallsInLowerAuto(numToDecrement = 1) {
-    return { type: actionTypes.ballsInLowerAuto_DEC, payload: { numToDecrement } };
-}
 
-
-export function incBallsMissedAuto(numToIncrement = 1) {
-    return { type: actionTypes.ballsMissedAuto_INC, payload: { numToIncrement } };
-}
-export function decBallsMissedAuto(numToDecrement = 1) {
-    return { type: actionTypes.ballsMissedAuto_DEC, payload: { numToDecrement } };
-}
-
-
-// tele-op
-export function incBallsInUpperTele(numToIncrement = 1) {
-    return { type: actionTypes.ballsInUpperTele_INC, payload: { numToIncrement } };
-}
-export function decBallsInUpperTele(numToDecrement = 1) {
-    return { type: actionTypes.ballsInUpperTele_DEC, payload: { numToDecrement } };
-}
-
-
-export function incBallsInLowerTele(numToIncrement = 1) {
-    return { type: actionTypes.ballsInLowerTele_INC, payload: { numToIncrement } };
-}
-export function decBallsInLowerTele(numToDecrement = 1) {
-    return { type: actionTypes.ballsInLowerTele_DEC, payload: { numToDecrement } };
-}
-
-
-export function incBallsMissedTele(numToIncrement = 1) {
-    return { type: actionTypes.ballsMissedTele_INC, payload: { numToIncrement } };
-}
-export function decBallsMissedTele(numToDecrement = 1) {
-    return { type: actionTypes.ballsMissedTele_DEC, payload: { numToDecrement } };
-}

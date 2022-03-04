@@ -8,9 +8,21 @@ import { setDefensiveDefenseLevel, setOffensiveDefenseLevel, setWasDefendedLevel
 import { setFreeText, setRobotNoFunction, setSystemNoFunction } from '../my_redux/currentScouterActions';
 import TitledTextInput from '../myComponents/TitledTextInput';
 import TitledSwitch from '../myComponents/TitledSwitch';
+import { clearedCurrentScout, setWhenCaptured } from '../my_redux/currentScouterActions'
+import { addQueue } from '../my_redux/sendQueueActions';
+import getCurrentDateTime from '../utils/myDateTime';
+import sendScouts from '../networking/sendScouts';
 
 export default function postGame({ navigation }) {
     const finishOneScout = () => {
+        // add time stamp!!
+        store.dispatch(setWhenCaptured(getCurrentDateTime()))
+        // save one scout to que and init send
+        store.dispatch(addQueue(store.getState().currentScout))
+        sendScouts()
+        // clear current scout
+        store.dispatch(clearedCurrentScout())
+        // go to home screen
         navigation.navigate('Home');
     }
     const goToNavigator = () => {
