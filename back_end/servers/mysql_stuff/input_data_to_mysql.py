@@ -1,5 +1,5 @@
 import mysql.connector
-import mysql_utils
+from servers.mysql_stuff import mysql_utils
 
 my_db = mysql.connector.connect(
     host=mysql_utils.HOST,
@@ -12,19 +12,18 @@ my_db = mysql.connector.connect(
 def insert_record_oneScout(db, vals):
     my_cursor = db.cursor()
     # cols are the parameters
-    cols = "('compName', 'matchType', 'matchNumber', 'teamNumber', 'scouterName', 'whenCaptured', " \
-           "'scouterTeamNumber', 'driverStation', 'startPlace', 'ballsInUpperAuto', 'ballsInLowerAuto', " \
-           "'ballsMissedAuto', 'passedLine', 'ballsHumanShotAuto', 'ballsHumanScoredAuto', 'whichBallsCollected', " \
-           "'autoMalfunction', 'autoFreeText', 'ballsInUpperTele', 'ballsInLowerTele', 'ballsMissedTele', " \
-           "'levelClimbed', 'climbSuccessful', 'climbTime', 'defensiveDefenseLevel', 'offensiveDefenseLevel', " \
-           "'wasDefendedLevel', 'shootingLocations', 'collectingLocations', 'goodTeamMateLevel', 'wasBroken', " \
-           "'freeText', 'generalImpression', 'robotNoFunction', 'systemNoFunction', ) "
-    # vals are the values of the record we now want to insert
-    # the param vals will be of type tuples and str will make it use able for us
-    vals = str(vals)
-    sql = f"INSERT INTO oneScouts {cols} VALUES {vals}"
+    cols = "(compName, matchType, matchNumber, teamNumber, scouterName,whenCaptured,  scouterTeamNumber, " \
+           "ballsInUpperAuto, ballsInLowerAuto, ballsMissedAuto, passedLine, ballsHumanShotAuto, " \
+           "ballsHumanScoredAuto, autoMalfunction, " \
+           "autoFreeText, ballsInUpperTele, ballsInLowerTele, ballsMissedTele, levelClimbed, climbSuccessful, " \
+           "climbTime, defensiveDefenseLevel, offensiveDefenseLevel, wasDefendedLevel, " \
+           "goodTeamMateLevel, wasBroken, freeText, generalImpression, robotNoFunction, systemNoFunction) "
 
-    my_cursor.execute(sql)
+    place_holders = "(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, " \
+                    "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s) "
+    sql = f"INSERT INTO oneScouts {cols} VALUES {place_holders}"
+
+    my_cursor.execute(sql, vals)
 
     db.commit()
     print(my_cursor.rowcount, "record inserted.")

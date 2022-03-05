@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import store from '../my_redux/store';
 import { Formats } from '../styles';
 import TopNav from '../myComponents/TopNav';

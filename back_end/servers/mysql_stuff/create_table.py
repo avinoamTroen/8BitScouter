@@ -19,10 +19,36 @@ def create_tables(db):
     my_cursor = my_db.cursor()
     # query =
     query = """CREATE TABLE oneScouts (id INT AUTO_INCREMENT PRIMARY KEY, 
-             team_number_str VARCHAR(255), 
-             comp_name VARCHAR(255), 
-             round_number_str VARCHAR(255), 
-             points INT)"""
+            compName VARCHAR(100),
+            matchType VARCHAR(50),
+            matchNumber SMALLINT,
+            teamNumber SMALLINT,
+            scouterName VARCHAR(30),
+            whenCaptured DATETIME,
+            scouterTeamNumber SMALLINT,
+            ballsInUpperAuto SMALLINT, 
+            ballsInLowerAuto SMALLINT,
+            ballsMissedAuto SMALLINT,
+            passedLine BOOLEAN,
+            ballsHumanShotAuto BOOLEAN,
+            ballsHumanScoredAuto BOOLEAN,
+            autoMalfunction BOOLEAN,
+            autoFreeText VARCHAR(500),
+            ballsInUpperTele SMALLINT,
+            ballsInLowerTele SMALLINT,
+            ballsMissedTele SMALLINT,
+            levelClimbed SMALLINT,
+            climbSuccessful BOOLEAN,
+            climbTime FLOAT,
+            defensiveDefenseLevel SMALLINT,
+            offensiveDefenseLevel SMALLINT,
+            wasDefendedLevel SMALLINT,
+            goodTeamMateLevel SMALLINT,
+            wasBroken SMALLINT,
+            freeText VARCHAR(500),
+            generalImpression SMALLINT,
+            robotNoFunction BOOLEAN,
+            systemNoFunction BOOLEAN)"""
 
     my_cursor.execute(query)
 

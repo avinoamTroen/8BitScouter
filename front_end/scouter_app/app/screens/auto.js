@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 import React from 'react';
 import CoumterTracker from '../myComponents/CounterTracker';
-import SwipableContainer from '../myComponents/SwipableContainer';
 import { setBallsInUpperAuto, setBallsInLowerAuto, setBallsMissedAuto } from '../my_redux/currentScouterActions';
 import store from '../my_redux/store';
 import { Formats } from '../styles'
