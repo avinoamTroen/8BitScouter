@@ -9,9 +9,12 @@ export default function goHome({ navigation }) {
     }
     const print_get_single_scout = async () => {
         console.log('about to call function')
-        res = await get_single_scout('ISR DISTRICT #2', 'Qualifications', 7, 1690)
-        console.log('called function')
-        console.log(res)
+        res = await get_single_scout('ISR%20DISTRICT%20%232', 'Qualifications', 7, 1690)
+        console.log('called function get_single_scout')
+        console.log(res.canUse)
+        console.log(res.payload)
+        console.log('after print res')
+
     }
 
     const [text, onChangeText] = React.useState("Useless - Text");
