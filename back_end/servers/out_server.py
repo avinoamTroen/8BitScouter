@@ -11,16 +11,18 @@ app = Flask(__name__)
 # the main page
 @app.route(PATH_FOR_SCOUT_OUTPUT, methods=['GET'])
 def input_one_scout():
-    comp = request.args.get('compName')
-    round_number = request.args.get('roundNumberStr')
-    team = request.args.get('teamNumberStr')
+    compName = request.args.get('compName')
+    matchType = request.args.get('matchType')
+    matchNumber = request.args.get('matchNumber')
+    teamNumber = request.args.get('teamNumber')
     # this will get us the first result - as a rule their should not be more than one result but if there is...
-    one_scout_result = get_record(my_db, comp, round_number, team)
+    one_scout_result = get_record(my_db, compName, matchType, matchNumber, teamNumber)
+    print(one_scout_result)
     print('did sql stuff')
     # sql will return None if it doesn't find any records
     if one_scout_result is not None:
         print(one_scout_result)
-        one_scout_result = jsonify({'points': one_scout_result[0]})
+        one_scout_result = jsonify({'testparam': 'testres'})
         print(one_scout_result)
         return one_scout_result
     else:

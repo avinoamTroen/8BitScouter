@@ -1,5 +1,5 @@
 // server info
-export const SERVER_IP_ADDRESS = '10.74.100.47'
+export const SERVER_IP_ADDRESS = '10.74.100.193'
 export const OUTPUT_SERVER_PORT = '3713'
 
 

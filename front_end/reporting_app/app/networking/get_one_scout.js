@@ -1,7 +1,7 @@
 import { OUTPUT_SERVER_IP_AND_PORT, PATH_TO_OUTPUT_GET_ONE_SCOUT_JSON } from '../utils/utils'
 
-export default async function get_single_scout(compName, roundNumberStr, teamNumberStr) {
-    const paramsObj = { compName, roundNumberStr, teamNumberStr };
+export default async function get_single_scout(compName, matchType, matchNumber, teamNumber) {
+    const paramsObj = { compName, matchType, matchNumber, teamNumber };
     console.log(paramsObj)
     const searchParams = new URLSearchParams(paramsObj);
     const url = OUTPUT_SERVER_IP_AND_PORT + PATH_TO_OUTPUT_GET_ONE_SCOUT_JSON + '?' + searchParams.toString()
