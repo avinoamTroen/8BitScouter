@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import TopNav from '../myComponents/TopNav';
 import { Formats } from '../styles';
 import TitledScale from '../myComponents/TitledScale';
@@ -13,20 +13,31 @@ import { addQueue } from '../my_redux/sendQueueActions';
 import getCurrentDateTime from '../utils/myDateTime';
 import sendScouts from '../networking/sendScouts';
 
+function validOneScout(scout) {
+    return (scout.compName != '' && scout.matchType != '' && scout.matchNumber != 0 && scout.teamNumber != 0 && scout.scouterName != '' && scout.scouterTeamNumber != 0);
+}
+
 export default function postGame({ navigation }) {
     const finishOneScout = () => {
-        console.log('starting finishOneScout - post ')
-        // add time stamp!!
-        store.dispatch(setWhenCaptured(getCurrentDateTime()))
-        // save one scout to que and init send
-        store.dispatch(addQueue(store.getState().currentScout))
-        console.log('about to send scouts- post')
-        sendScouts()
-        console.log('done sending scouts -post')
-        // clear current scout
-        store.dispatch(clearedCurrentScout())
-        // go to home screen
-        navigation.navigate('Home');
+        // check validity
+        if (validOneScout(store.getState().currentScout)) {
+            console.log('starting finishOneScout - post ')
+            // add time stamp!!
+            store.dispatch(setWhenCaptured(getCurrentDateTime()))
+            // save one scout to que and init send
+            store.dispatch(addQueue(store.getState().currentScout))
+            console.log('about to send scouts- post')
+            sendScouts()
+            console.log('done sending scouts -post')
+            // clear current scout
+            store.dispatch(clearedCurrentScout())
+            // go to home screen
+            navigation.navigate('Home');
+        }
+        else {
+            // alert that there are missing stuff
+            Alert.alert('fill out all pre-game fields then try sending again!')
+        }
     }
     const goToNavigator = () => {
         navigation.navigate('Navigator');

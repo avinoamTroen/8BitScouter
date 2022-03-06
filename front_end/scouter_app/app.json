@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.at_apps.scouter_app"
     },
     "web": {
       "favicon": "./app/assets/favicon.png"

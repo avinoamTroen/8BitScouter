@@ -7,9 +7,9 @@ export default function goHome({ navigation }) {
     const goHome = () => {
         navigation.navigate('Home');
     }
-    const print_get_single_scout = () => {
+    const print_get_single_scout = async () => {
         console.log('about to call function')
-        get_single_scout('testComp', '12test', '7845t')().then(obj => { if (obj.canUse) { console.log(obj.payload) } else { console.log('there was some kind of error') } });
+        res = await get_single_scout('ISR District #1', 1, 7845)
         console.log('called function')
     }
 
