@@ -1,4 +1,5 @@
-paramNames = """compName
+paramNames = """id
+compName
 matchType
 matchNumber
 teamNumber
@@ -29,8 +30,10 @@ generalImpression
 robotNoFunction
 systemNoFunction
 """.splitlines()
-print('(', end='')
+print('{', end='')
+c = 0
 for n in paramNames:
     if n[0:2] != '//':
-        print(f"json_data['{n}'], ", end="")
-print(')', end='')
+        print(f"'{n}' : my_result[{c}],\n ", end="")
+        c += 1
+print('}', end='')
