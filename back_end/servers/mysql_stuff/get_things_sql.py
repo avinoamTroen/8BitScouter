@@ -88,8 +88,6 @@ def scouts_to_dict(scouts):
     :param scouts: a list of tuples of scouts - what you get from the sql query
     :return: a dictionary containing keys of classic inputs + capital S and pairs of arrays with the relevant values
     """
-    print('scouts_to_dict: scouts')
-    print(scouts)
     # create dict with empty arrays
     my_dict = {'idS': [],
                'compNameS': [],
@@ -126,8 +124,6 @@ def scouts_to_dict(scouts):
     # fill arrays in dict!
     matches_done = set()
     for scout in scouts:
-        print('scouts_to_dict: scout')
-        print(scout)
         # check validity (not having an identical scout in terms of the match) - only add if valid
         this_match = get_match(scout)
         if this_match in matches_done:
@@ -174,8 +170,6 @@ def scouts_to_results(scouts):
     :param scouts: a list of tuples (each tuple a record of a scout)
     :return:
     """
-    print('scouts_to_results: scouts')
-    print(scouts)
     # if no results were found
     if not scouts:  # an empty list is false in python
         return {}, False
@@ -231,8 +225,6 @@ def get_team_records(db, teamNumber, compNameS=None):
         my_cursor.execute(sql, (teamNumber,))
 
         scouts = my_cursor.fetchall()
-        print('getTeam...: scouts')
-        print(scouts)
         return scouts_to_results(scouts)
 
     else:
