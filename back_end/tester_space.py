@@ -4,7 +4,7 @@ matchType
 matchNumber
 teamNumber
 scouterName
-whenCaptured 
+whenCaptured
 scouterTeamNumber
 ballsInUpperAuto
 ballsInLowerAuto
@@ -34,6 +34,6 @@ print('{', end='')
 c = 0
 for n in paramNames:
     if n[0:2] != '//':
-        print(f"'{n}' : my_result[{c}],\n ", end="")
+        print(f"my_dict['{n}S'].append(scout[{c}])\n ", end="")
         c += 1
 print('}', end='')
