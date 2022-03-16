@@ -30,10 +30,8 @@ generalImpression
 robotNoFunction
 systemNoFunction
 """.splitlines()
-print('{', end='')
 c = 0
 for n in paramNames:
     if n[0:2] != '//':
-        print(f"my_dict['{n}S'].append(scout[{c}])\n ", end="")
+        print(f"remove_all_occurrences(data_dict['{n}S'], CHANGE_THIS)", end="\n")
         c += 1
-print('}', end='')
