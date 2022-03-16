@@ -33,5 +33,5 @@ systemNoFunction
 c = 0
 for n in paramNames:
     if n[0:2] != '//':
-        print(f"remove_all_occurrences(data_dict['{n}S'], CHANGE_THIS)", end="\n")
+        print(f"avg_dict['{n}'] = data_dict['{n}S']  # CHANGE_THIS", end="\n")
         c += 1
