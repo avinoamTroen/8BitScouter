@@ -3,7 +3,7 @@
 
 
 # *****************************remove defaults*****************************************
-# remove ""
+# generic helper function to remove all of a value from a list
 def remove_all_occurrences(list_obj, value):
     """
     generic helper function to remove unwanted default values
@@ -13,6 +13,19 @@ def remove_all_occurrences(list_obj, value):
     """
     while value in list_obj:
         list_obj.remove(value)
+
+
+def cut_dict(data_dict, num_of_rounds):
+    """
+    takes a data dict of scouts (each value in dict is a list of values for the particular field) and cuts the
+    dict to have only the latest results (latest num_of_rounds results)
+    :param data_dict: data dict of scouts
+    :param num_of_rounds: int - cuts by this
+    :return: None
+    """
+    for key in data_dict:
+        if len(data_dict[key]) > num_of_rounds:
+            data_dict[key] = data_dict[key][-num_of_rounds:]
 
 
 # remove default unuseful data like -1
@@ -51,11 +64,12 @@ def remove_unused_values(data_dict):
 # return average (of relevant data) of scouts - a json
 def get_avg(data_dict, num_of_rounds):
     # cut data dict by num of rounds (if less than don't touch)
-
+    cut_dict(data_dict, num_of_rounds)
     # remove garbage values
     remove_unused_values(data_dict)
 
     # make calculations and update avg_dict
+
 
 # return min/max - a json
 
