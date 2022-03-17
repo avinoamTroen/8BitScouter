@@ -1,7 +1,6 @@
 # Avinoam Troen
 from utils import *
 from flask import Flask, request
-import json
 from mysql_stuff.input_data_to_mysql import insert_record_oneScout, my_db
 
 # the main page director

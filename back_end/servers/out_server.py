@@ -1,6 +1,6 @@
 # Avinoam Troen
 from utils import *
-from flask import Flask, request, jsonify
+from flask import Flask, request
 from mysql_stuff.get_things_sql import *
 from out_data import *
 
@@ -23,7 +23,7 @@ def output_team_avg():
     scouts = get_team_records(my_db, teamNumber)
 
     # return processed data if valid
-    if scouts: # if not empty
+    if scouts:  # if not empty
         return get_avg(scouts, num_of_rounds)
 
     # return error if invalid
