@@ -1,3 +1,6 @@
+from flask import jsonify
+
+
 # all functions in this module which return data from sql will return a
 # jsonified object which can be sent
 
@@ -120,7 +123,7 @@ def get_avg(data_dict, num_of_rounds):
     avg_dict['generalImpression'] = avg(data_dict['generalImpressionS'])
     avg_dict['robotNoFunction'] = sum(data_dict['robotNoFunctionS'])
     avg_dict['systemNoFunction'] = sum(data_dict['systemNoFunctionS'])
-    return avg_dict
+    return jsonify(avg_dict)
 
 # return min/max - a json
 
