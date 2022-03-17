@@ -10,7 +10,10 @@ app = Flask(__name__)
 
 # the main page
 @app.route(PATH_FOR_SCOUT_OUTPUT, methods=['GET'])
-def input_one_scout():
+def input_one_scout(): # change name of funcrtion PLEASE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    json_data = request.json
+
     compName = request.args.get('compName')
     matchType = request.args.get('matchType')
     matchNumber = request.args.get('matchNumber')
@@ -28,7 +31,7 @@ def input_one_scout():
         print(jsonify({'key1': 'test res1'}), "jsonify({'key1': 'test res1'})")
         print('inserted dummy val in json')
         print(one_scout_result)
-        print('i should have just primted the json')
+        print('i should have just printed the json')
         return one_scout_result
     else:
         return 'Error - oneScout not found', 404
