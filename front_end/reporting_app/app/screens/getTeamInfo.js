@@ -4,7 +4,7 @@ import { View, Text, Button, StyleSheet, SafeAreaView, TouchableOpacity, ScrollV
 import TitledNumInput from '../myComponents/TitledNumInput'
 import store from '../redux/store';
 import { setTeamNumber } from '../redux/actions';
-import get_single_scout from '../networking/get_one_scout'
+import get_team_avgs from '../networking/get_team_avgs';
 
 export default function goHome({ navigation }) {
     const goHome = () => {
@@ -13,6 +13,7 @@ export default function goHome({ navigation }) {
 
     const updateData = () => {
         console.log('pretend update data');
+        get_team_avgs().then(res => { console.log(res.payload) });
     }
 
     // data!!!

@@ -20,11 +20,13 @@ def output_team_avg():
         return 'Did not have necessary params in json', 400
 
     # get data from sql
-    scouts = get_team_records(my_db, teamNumber)
+    scouts, foundRecords = get_team_records(my_db, teamNumber)
 
     # return processed data if valid
-    if scouts:  # if not empty
-        return get_avg(scouts, num_of_rounds)
+    if foundRecords:  # if not empty
+        res = get_avg(scouts, num_of_rounds)
+        print(res)
+        return res
 
     # return error if invalid
     return 'Error - scouts not found', 404
