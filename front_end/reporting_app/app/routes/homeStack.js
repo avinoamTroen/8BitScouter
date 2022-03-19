@@ -3,6 +3,7 @@ import { createAppContainer } from 'react-navigation';
 
 import Home from '../screens/home';
 import GetSingleScout from '../screens/getSingleScout';
+import GetTeamInfo from '../screens/getTeamInfo'
 
 
 // put all screens from homestack here
@@ -10,6 +11,9 @@ import GetSingleScout from '../screens/getSingleScout';
 const screens = {
     Home: {
         screen: Home,
+    },
+    GetTeamInfo: {
+        screen: GetTeamInfo,
     },
     GetSingleScout: {
         screen: GetSingleScout,

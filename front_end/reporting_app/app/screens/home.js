@@ -6,20 +6,15 @@ export default function Home({ navigation }) {
     const goToGetSingleScout = () => {
         navigation.navigate('GetSingleScout');
     }
-
-
-
-    // const runTestConnection1 = () => {
-    //     res = send_things(thing);
-    //     setTitle(res);
-    // }
-
+    const goToGetTeamInfo = () => {
+        navigation.navigate('GetTeamInfo');
+    }
 
 
     return (
         <View >
-            <Text>texttttttttt!</Text>
             <Button title='single scout' onPress={goToGetSingleScout} />
+            <Button title='team info' onPress={goToGetTeamInfo} />
         </View>
     );
 }
