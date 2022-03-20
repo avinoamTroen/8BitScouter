@@ -1,6 +1,6 @@
 DEV = True
 if DEV:
-    IPADDR = "0.0.0.0"
+    IPADDR = "0.0.0.0"  # i think this should work for everything so ill leave dev always true for now
 else:
     IPADDR = "184.72.229.230"
 INPUT_SERVER_PORT = 3173

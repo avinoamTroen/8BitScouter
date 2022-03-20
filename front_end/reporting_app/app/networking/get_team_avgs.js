@@ -28,6 +28,7 @@ export default async function get_team_avgs() {
     }
     catch (error) {
         console.log('get_team_avgs: error??')
+        console.log(error)
         return { canUse: false, payload: error }
     }
 }
