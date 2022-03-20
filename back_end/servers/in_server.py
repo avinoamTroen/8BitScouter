@@ -45,4 +45,4 @@ def input_one_scout():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=INPUT_SERVER_PORT, debug=True)
+    app.run(host=IPADDR, port=INPUT_SERVER_PORT, debug=True)

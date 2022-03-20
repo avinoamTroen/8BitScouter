@@ -1,5 +1,6 @@
 // server info
-export const SERVER_IP_ADDRESS = '192.168.68.53'
+const DEV = true
+export const SERVER_IP_ADDRESS = DEV ? '0.0.0.0' : '192.168.68.53' // sends to elastic ip if dev is false
 export const OUTPUT_SERVER_PORT = '3713'
 
 

@@ -33,4 +33,4 @@ def output_team_avg():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=OUTPUT_SERVER_PORT, debug=True)
+    app.run(host=IPADDR, port=OUTPUT_SERVER_PORT, debug=True)
