@@ -11,13 +11,33 @@ export default function goHome({ navigation }) {
         navigation.navigate('Home');
     }
 
-    const updateData = () => {
+    const updateData = async () => {
         console.log('pretend update data');
-        get_team_avgs().then(res => { console.log(res.payload) });
+        const res = await get_team_avgs();
+        if (res.canUse) {
+            console.log('getTeaminfo: success! here is res')
+            console.log(res)
+            const newData = res.payload;
+            setData(newData); // this updates the data in the local react hooks => in the render of the screen...
+        }
     }
 
     // data!!!
     const [data, setData] = useState({})
+    const avgs = data
+    // calculates the number of climbs = number of matches returned (which is differend then what was asked for if there are few records)
+
+    const timesClimbed = avgs.levelClimbed ? avgs.levelClimbed.reduce(
+        (previousValue, currentValue) => previousValue + currentValue,
+        0
+    ) : 0; // if avgs.climblevel is undefined then will init to 0
+
+    const totalPoints = (avgs && avgs.levelClimbed) ?
+        avgs.ballsInLowerAuto * 2 + avgs.ballsInUpperAuto * 4 + avgs.ballsInLowerTele * 1 + avgs.ballsInUpperTele * 2
+        + (avgs.levelClimbed[1] * 4 + avgs.levelClimbed[2] * 6 + avgs.levelClimbed[3] * 10 + avgs.levelClimbed[4] * 15) / timesClimbed
+        : 0; // will init to 0 if avgs is undefined
+
+    const totalBalls = avgs.ballsInLowerAuto + avgs.ballsInUpperAuto + avgs.ballsInLowerTele + avgs.ballsInUpperTele;
 
 
     return (
@@ -51,16 +71,30 @@ export default function goHome({ navigation }) {
 
 
                 <ScrollView style={{ flex: 1, backgroundColor: 'grey', height: 1000 }}>
-                    <Text>
-                        <Text style={{ color: 'red' }}>short summary</Text>{'\n'}
-                        easy round
+                    <Text style={{ fontSize: 18 }}>
+                        <Text style={{ color: 'red', fontSize: 25 }}>Executive Summary: {avgs.teamNumber}</Text>{'\n'}
+                        <Text style={{ fontWeight: 'bold' }}>Offense</Text>{'\n'}
+                        <Text style={{ color: 'blue' }}>Avg points per game:  </Text><Text style={{ color: 'red', fontWeight: 'bold' }}>{totalPoints}</Text>{'\n'}
+                        <Text style={{ fontWeight: 'bold' }}>RPs (and breakdown)</Text>{'\n'}
+                        <Text style={{ color: 'blue' }}>Climb stats: out of *{timesClimbed}*:  </Text>| [bar 0]=<Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.levelClimbed ? avgs.levelClimbed[0] : 'NA'}</Text> | [bar 1]=<Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.levelClimbed ? avgs.levelClimbed[1] : 'NA'}</Text> |{'\n'}
+                        | [bar 2]=<Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.levelClimbed ? avgs.levelClimbed[2] : 'NA'}</Text> | [bar 3]=<Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.levelClimbed ? avgs.levelClimbed[3] : 'NA'}</Text> | [bar 4]=<Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.levelClimbed ? avgs.levelClimbed[4] : 'NA'}</Text> |{'\n'}
+                        <Text style={{ color: 'blue' }}>Total ball stats:   </Text><Text style={{ color: 'red', fontWeight: 'bold' }}>{totalBalls}</Text> balls per game{'\n'}
+                        <Text style={{ color: 'blue' }}>Auto stats:</Text>avg auto points=<Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.ballsInLowerAuto * 2 + avgs.ballsInUpperAuto * 4}</Text> | avg auto balls=<Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.ballsInLowerAuto + avgs.ballsInUpperAuto}</Text>{'\n'}
+
+                        <Text style={{ fontWeight: 'bold' }}>Defense</Text>{'\n'}
+                        <Text style={{ color: 'blue' }}>Defense stats:   </Text> defensive: <Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.defensiveDefenseLevel}</Text> | offensive: <Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.offensiveDefenseLevel}</Text>{'\n'}
+
+                        <Text style={{ fontWeight: 'bold' }}>Dependability</Text>{'\n'}
+                        <Text style={{ color: 'blue' }}>goodTeamMateLevel:  </Text> <Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.goodTeamMateLevel}</Text>{'\n'}
+                        <Text style={{ color: 'blue' }}>wasBroken:   </Text> <Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.wasBroken}</Text>{'\n'}
+                        <Text style={{ color: 'blue' }}>climb failure percentage:   </Text> <Text style={{ color: 'red', fontWeight: 'bold' }}>{((timesClimbed - avgs.climbSuccessful) / timesClimbed) * 100}</Text>{'\n'}
                     </Text>
                 </ScrollView>
 
 
             </View>
 
-        </View>
+        </View >
     );
 }
 

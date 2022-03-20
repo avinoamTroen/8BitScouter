@@ -23,13 +23,7 @@ export default async function get_team_avgs() {
             },
             body: JSON.stringify(requestParams)
         })
-        console.log('response');
-        console.log(response);
-        console.log('response.ok');
-        console.log(response.ok);
-        console.log('response.json()');
         const data = await response.json();
-        console.log(data)
         return { canUse: response.ok, payload: data }
     }
     catch (error) {
