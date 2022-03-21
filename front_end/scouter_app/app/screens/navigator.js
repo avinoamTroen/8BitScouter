@@ -34,7 +34,8 @@ export default function Navigator({ navigation }) {
     }
 
 
-
+    // can add again later for debugging
+    //             <TouchableOpacity onPress={() => console.log(store.getState())} style={[Formats.NavigationButton, { backgroundColor: 'magenta' }]}><View style={{ flex: 1 }}><Text style={Typography.BigText}>press to print state</Text></View></TouchableOpacity>
     return (
         <SafeAreaView style={{ flex: 1 }} >
             <TouchableOpacity onPress={goToHome} style={[Formats.NavigationButton, { backgroundColor: 'silver' }]}><View style={{ flex: 1 }}><Text style={Typography.BigText}>Home</Text></View></TouchableOpacity>
@@ -47,7 +48,6 @@ export default function Navigator({ navigation }) {
 
 
 
-            <TouchableOpacity onPress={() => console.log(store.getState())} style={[Formats.NavigationButton, { backgroundColor: 'magenta' }]}><View style={{ flex: 1 }}><Text style={Typography.BigText}>press to print state</Text></View></TouchableOpacity>
 
 
         </SafeAreaView >

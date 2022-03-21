@@ -10,10 +10,10 @@ export default function Home({ navigation }) {
         navigation.navigate('GetTeamInfo');
     }
 
-
+    // can add again later
+    //             <Button title='single scout' onPress={goToGetSingleScout} />
     return (
         <View >
-            <Button title='single scout' onPress={goToGetSingleScout} />
             <Button title='team info' onPress={goToGetTeamInfo} />
         </View>
     );
