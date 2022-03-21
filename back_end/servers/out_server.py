@@ -21,6 +21,7 @@ def output_team_avg():
 
     # get data from sql
     scouts, foundRecords = get_team_records(my_db, teamNumber)
+    print(scouts)
 
     # return processed data if valid
     if foundRecords:  # if not empty
