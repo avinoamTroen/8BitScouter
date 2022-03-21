@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { View, Text, Button, StyleSheet, SafeAreaView, TouchableOpacity, ScrollView } from 'react-native';
 import TitledNumInput from '../myComponents/TitledNumInput'
 import store from '../redux/store';
-import { setTeamNumber } from '../redux/actions';
+import { setTeamNumber, setGoBack } from '../redux/actions';
 import get_team_avgs from '../networking/get_team_avgs';
 
 export default function goHome({ navigation }) {
