@@ -25,6 +25,11 @@ export default function goHome({ navigation }) {
     // data!!!
     const [data, setData] = useState({})
     const avgs = data
+    let avgsTxt = ""
+    for (const key in avgs) {
+        avgsTxt += (`${key}: ${avgs[key]}`);
+        avgsTxt += '\n';
+    }
     // calculates the number of climbs = number of matches returned (which is differend then what was asked for if there are few records)
 
     const timesClimbed = avgs.levelClimbed ? avgs.levelClimbed.reduce(
@@ -88,6 +93,10 @@ export default function goHome({ navigation }) {
                         <Text style={{ color: 'blue' }}>goodTeamMateLevel:  </Text> <Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.goodTeamMateLevel}</Text>{'\n'}
                         <Text style={{ color: 'blue' }}>wasBroken:   </Text> <Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.wasBroken}</Text>{'\n'}
                         <Text style={{ color: 'blue' }}>climb failure percentage:   </Text> <Text style={{ color: 'red', fontWeight: 'bold' }}>{((timesClimbed - avgs.climbSuccessful) / timesClimbed) * 100}</Text>{'\n'}
+                    </Text>
+                    <Text>
+                        {'\n\n\n\n'}
+                        {avgsTxt}
                     </Text>
                 </ScrollView>
 

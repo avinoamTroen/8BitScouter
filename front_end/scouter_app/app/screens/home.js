@@ -30,7 +30,7 @@ export default function Home({ navigation }) {
 
 
     return (
-        <SafeAreaView style={Formats.NavigationButton} >
+        <SafeAreaView style={{ ...Formats.NavigationButton, alignItems: 'center' }} >
             <Text style={Typography.BigText}>8Bit Scouting App</Text>
             <Text style={Typography.BigText}>7845</Text>
             <Text style={Typography.BigText}>Version: <Text style={{ color: 'red' }}>0.0.0</Text></Text>

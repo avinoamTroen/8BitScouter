@@ -2,6 +2,9 @@
 from utils import *
 from flask import Flask, request
 from mysql_stuff.input_data_to_mysql import insert_record_oneScout, my_db
+import mysql.connector
+import servers.mysql_stuff.mysql_utils as mysql_utils
+
 
 # the main page director
 app = Flask(__name__)
@@ -10,6 +13,14 @@ app = Flask(__name__)
 # the main page
 @app.route(PATH_FOR_INPUT, methods=['POST'])
 def input_one_scout():
+    # need new connection each time i think?
+    the_db = mysql.connector.connect(
+        host=mysql_utils.HOST,
+        user=mysql_utils.USER,
+        password=mysql_utils.PASSWORD,
+        database=mysql_utils.DB_NAME
+    )
+
     print('\n|starting|')
     json_data = request.json
     print('about to print full json')
@@ -33,7 +44,7 @@ def input_one_scout():
                json_data['systemNoFunction'])
 
         print(val)
-        insert_record_oneScout(my_db, val)
+        insert_record_oneScout(the_db, val)
         print('did sql stuff')
         # it would seem we always need to return a something here
         return ''

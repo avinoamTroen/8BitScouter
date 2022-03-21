@@ -3,6 +3,10 @@ from utils import *
 from flask import Flask, request
 from mysql_stuff.get_things_sql import *
 from out_data import *
+import mysql.connector
+import servers.mysql_stuff.mysql_utils as mysql_utils
+
+
 
 # the main page director
 app = Flask(__name__)
@@ -11,6 +15,14 @@ app = Flask(__name__)
 # the main page
 @app.route(PATH_FOR_SCOUT_TEAM_OUTPUT + AVG, methods=['POST'])
 def output_team_avg():
+    # need new connection each time so get good info
+    the_db = mysql.connector.connect(
+        host=mysql_utils.HOST,
+        user=mysql_utils.USER,
+        password=mysql_utils.PASSWORD,
+        database=mysql_utils.DB_NAME
+    )
+
     # get data from json
     json_data = request.json
     try:
@@ -20,7 +32,7 @@ def output_team_avg():
         return 'Did not have necessary params in json', 400
 
     # get data from sql
-    scouts, foundRecords = get_team_records(my_db, teamNumber)
+    scouts, foundRecords = get_team_records(the_db, teamNumber)
     print(scouts)
 
     # return processed data if valid
