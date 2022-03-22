@@ -68,7 +68,7 @@ def output_team_list():
     for teamNumber in teams:
         scouts, foundRecords = get_team_records(the_db, teamNumber)
         if foundRecords:
-            team_list += get_scores(scouts, num_of_rounds)
+            team_list.append(get_scores(scouts, num_of_rounds))
     # return list if not empty
     if team_list:
         return jsonify({'team_list': team_list})

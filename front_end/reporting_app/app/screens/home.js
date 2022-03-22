@@ -9,12 +9,16 @@ export default function Home({ navigation }) {
     const goToGetTeamInfo = () => {
         navigation.navigate('GetTeamInfo');
     }
+    const goToGetTeamsList = () => {
+        navigation.navigate('GetTeamsList');
+    }
 
     // can add again later
     //             <Button title='single scout' onPress={goToGetSingleScout} />
     return (
         <View >
             <Button title='team info' onPress={goToGetTeamInfo} />
+            <Button title='teams list' onPress={goToGetTeamsList} />
         </View>
     );
 }

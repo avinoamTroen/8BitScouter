@@ -6,7 +6,7 @@ import store from '../redux/store';
 import { setTeamNumber, setGoBack } from '../redux/actions';
 import get_team_avgs from '../networking/get_team_avgs';
 
-export default function goHome({ navigation }) {
+export default function getTeaminfo({ navigation }) {
     const goHome = () => {
         navigation.navigate('Home');
     }

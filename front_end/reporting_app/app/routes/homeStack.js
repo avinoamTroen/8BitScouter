@@ -1,9 +1,11 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 
+
 import Home from '../screens/home';
 import GetSingleScout from '../screens/getSingleScout';
 import GetTeamInfo from '../screens/getTeamInfo'
+import GetTeamsList from '../screens/getTeamsList';
 
 
 // put all screens from homestack here
@@ -18,6 +20,9 @@ const screens = {
     GetSingleScout: {
         screen: GetSingleScout,
     },
+    GetTeamsList: {
+        screen: GetTeamsList
+    }
 
 };
 

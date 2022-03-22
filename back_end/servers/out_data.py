@@ -85,21 +85,31 @@ def get_scores(data_dict, num_of_rounds):
     remove_unused_values(data_dict)
 
     # calculate the stuff
-    climb = data_dict['levelClimbed']
-    taxi_points = (sum(data_dict['passedLines']) * 2) / sum(climb)  # sum climb is the num of games returned
-    auto_points = avg(data_dict['ballsInUpperAutoS']) * 4 + avg(data_dict['ballsInLoweAutoS']) * 4
-    tele_points = avg(data_dict['ballsInUpperTeleS']) * 2 + avg(data_dict['ballsInLoweTeleS'])
-    climb_points = (climb[1] * 4 + climb[2] * 6 + climb[3] * 10 + climb[4] * 15) / sum(climb)
+    climb = data_dict['levelClimbedS']
+    if sum(climb) != 0:
+        taxi_points = (sum(data_dict['passedLineS']) * 2) / sum(climb)  # sum climb is the num of games returned
+    else:
+        taxi_points = 0
+    auto_points = avg(data_dict['ballsInUpperAutoS']) * 4 + avg(data_dict['ballsInLowerAutoS']) * 4
+    tele_points = avg(data_dict['ballsInUpperTeleS']) * 2 + avg(data_dict['ballsInLowerTeleS'])
+    if sum(climb) != 0:
+        climb_points = (climb[1] * 4 + climb[2] * 6 + climb[3] * 10 + climb[4] * 15) / sum(climb)
+    else:
+        climb_points = 0
 
     offensiveScore = taxi_points + auto_points + tele_points + climb_points + 4 * (
             avg(data_dict['offensiveDefenseLevelS']) / 7)
     defensiveScore = taxi_points + min([auto_points, 4]) + climb_points + 10 * (
             avg(data_dict['defensiveDefenseLevelS']) / 7)
     generalScore = offensiveScore + defensiveScore
-    defenseLevel = data_dict['defensiveLevelS']
+    defenseLevel = data_dict['defensiveDefenseLevelS']
 
-    scores_dict = {'teamNumber': data_dict['teamNumberS'][0], 'offensiveScore': offensiveScore,
-                   'defensiveScore': defensiveScore, 'generalScore': generalScore, 'defenseLevel': defenseLevel}
+    try:
+        scores_dict = {'teamNumber': data_dict['teamNumberS'][0], 'offensiveScore': offensiveScore,
+                       'defensiveScore': defensiveScore, 'generalScore': generalScore, 'defenseLevel': defenseLevel}
+    except IndexError:
+        scores_dict = {'teamNumber': 0, 'offensiveScore': offensiveScore,
+                       'defensiveScore': defensiveScore, 'generalScore': generalScore, 'defenseLevel': defenseLevel}
     return scores_dict
 
 
