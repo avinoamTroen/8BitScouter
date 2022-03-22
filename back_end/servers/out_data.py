@@ -63,6 +63,46 @@ def remove_unused_values(data_dict):
     remove_all_occurrences(data_dict['generalImpressionS'], DEF_NUM_CHOICE)
 
 
+# ************************************************************************************************************************ reorder
+def get_scores(data_dict, num_of_rounds):
+    """
+    gets the scores on three metrics:
+    1) offensive score
+    2) defensive score
+    3) general score
+    :param db: the db to use
+    :param data_dict: scouts to run on
+    :param num_of_rounds: num of rounds back to look
+    :return: dict of:
+                offensiveScore
+                defensiveScore
+                generalScore
+                defenseLevel
+    """
+    # cut data dict by num of rounds (if less than don't touch)
+    cut_dict(data_dict, num_of_rounds)
+    # remove garbage values
+    remove_unused_values(data_dict)
+
+    # calculate the stuff
+    climb = data_dict['levelClimbed']
+    taxi_points = (sum(data_dict['passedLines']) * 2) / sum(climb)  # sum climb is the num of games returned
+    auto_points = avg(data_dict['ballsInUpperAutoS']) * 4 + avg(data_dict['ballsInLoweAutoS']) * 4
+    tele_points = avg(data_dict['ballsInUpperTeleS']) * 2 + avg(data_dict['ballsInLoweTeleS'])
+    climb_points = (climb[1] * 4 + climb[2] * 6 + climb[3] * 10 + climb[4] * 15) / sum(climb)
+
+    offensiveScore = taxi_points + auto_points + tele_points + climb_points + 4 * (
+            avg(data_dict['offensiveDefenseLevelS']) / 7)
+    defensiveScore = taxi_points + min([auto_points, 4]) + climb_points + 10 * (
+            avg(data_dict['defensiveDefenseLevelS']) / 7)
+    generalScore = offensiveScore + defensiveScore
+    defenseLevel = data_dict['defensiveLevelS']
+
+    scores_dict = {'teamNumber': data_dict['teamNumberS'][0], 'offensiveScore': offensiveScore,
+                   'defensiveScore': defensiveScore, 'generalScore': generalScore, 'defenseLevel': defenseLevel}
+    return scores_dict
+
+
 # *********************************  "Expected" next round  ****************************************
 def avg(num_list):
     """

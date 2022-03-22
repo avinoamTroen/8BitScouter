@@ -18,6 +18,34 @@ def get_match(scout):
     return scout[1], scout[2], scout[3], scout[4]
 
 
+def get_teams_of_comp(db, compName):
+    """
+    *IMPORTANT* this function always works on the oneScouts table
+    gets all the team numbers of a given comp
+    :param db: the DB to search
+    :param compName: name of the comp to search (str)
+    :return: a set - containing the numbers of all the teams in the comp
+    """
+    my_cursor = db.cursor()
+    table = 'oneScouts'
+    sql = f"SELECT teamNumber FROM {table} WHERE compName = %s"
+
+    my_cursor.execute(sql, (compName, ))
+
+    my_result = my_cursor.fetchall()
+
+    # remove duplicates
+    my_result = set(my_result)
+
+    teams = set()
+
+    # remove tuple "wrapper"
+    for team_tup in my_result:
+        teams.add(team_tup[0])
+
+    return teams
+
+
 def get_single_scout(db, compName, matchType, matchNumber, teamNumber):
     """
     *IMPORTANT* this function always works on the oneScouts table
@@ -238,12 +266,7 @@ def get_team_records(db, teamNumber, compNameS=None):
 
 
 def main():
-    my_result = get_team_records(my_db, 1690)
-    print(my_result)
-    print('-----------------------')
-    for x in my_result[0]:
-        print(x, my_result[0][x])
-    print('>>>>>>>>>>>>>>>>>>>>>>>>')
+    get_teams_of_comp(my_db, 'ISR DISTRICT #2')
 
 
 if __name__ == '__main__':

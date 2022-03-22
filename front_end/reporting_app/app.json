@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.at_apps.reporting_app"
     },
     "web": {
       "favicon": "./assets/favicon.png"

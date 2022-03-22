@@ -10,3 +10,5 @@ PATH_FOR_INPUT = '/input_server/one_scout/json'
 PATH_FOR_SCOUT_OUTPUT = '/output_server/one_scout/json'
 PATH_FOR_SCOUT_TEAM_OUTPUT = '/output_server/scout_team/json'
 AVG = '/avg'
+
+PATH_FOR_TEAM_LIST_OUTPUT = '/output_server/team_list/json'
