@@ -120,7 +120,8 @@ def avg(num_list):
     :return: the average, if the list is empty - will return 0
     """
     if num_list:
-        return sum(num_list) / len(num_list)
+        res = (sum(num_list) / len(num_list))
+        return res
     # returns 0 if list is empty
     return 0
 
@@ -173,7 +174,10 @@ def get_avg(data_dict, num_of_rounds):
     avg_dict['generalImpression'] = avg(data_dict['generalImpressionS'])
     avg_dict['robotNoFunction'] = sum(data_dict['robotNoFunctionS'])
     avg_dict['systemNoFunction'] = sum(data_dict['systemNoFunctionS'])
-    return jsonify(avg_dict)
+
+    scores = get_scores(data_dict, num_of_rounds)
+    results_dict = {'scores': scores, 'avg_dict': avg_dict}
+    return jsonify(results_dict)
 
 # return min/max - a json
 

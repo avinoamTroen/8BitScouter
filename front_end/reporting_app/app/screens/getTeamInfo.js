@@ -5,10 +5,24 @@ import TitledNumInput from '../myComponents/TitledNumInput'
 import store from '../redux/store';
 import { setTeamNumber, setGoBack } from '../redux/actions';
 import get_team_avgs from '../networking/get_team_avgs';
+import { round2 } from '../utils/utils';
 
 export default function getTeaminfo({ navigation }) {
     const goHome = () => {
         navigation.navigate('Home');
+    }
+
+    const TitleAndData = (props) => {
+        return (
+            <View>
+                <Text>
+                    <Text style={styles.fieldName}>{props.title}: </Text>
+                    <Text style={styles.redHighlight}>{props.data}</Text>
+                </Text>
+            </View>
+
+
+        )
     }
 
     const updateData = async () => {
@@ -24,7 +38,8 @@ export default function getTeaminfo({ navigation }) {
 
     // data!!!
     const [data, setData] = useState({})
-    const avgs = data
+    const avgs = data['avg_dict'] ? data['avg_dict'] : {}; // will init to empty obj if undefined
+    const scores = data['scores'] ? data['scores'] : {}; // will init to empty obj if undefined
     let avgsTxt = ""
     for (const key in avgs) {
         avgsTxt += (`${key}: ${avgs[key]}`);
@@ -38,19 +53,23 @@ export default function getTeaminfo({ navigation }) {
     ) : 0; // if avgs.climblevel is undefined then will init to 0
 
     const totalPoints = (avgs && avgs.levelClimbed) ?
-        avgs.ballsInLowerAuto * 2 + avgs.ballsInUpperAuto * 4 + avgs.ballsInLowerTele * 1 + avgs.ballsInUpperTele * 2
-        + (avgs.levelClimbed[1] * 4 + avgs.levelClimbed[2] * 6 + avgs.levelClimbed[3] * 10 + avgs.levelClimbed[4] * 15) / timesClimbed
+        round2(avgs.ballsInLowerAuto * 2 + avgs.ballsInUpperAuto * 4 + avgs.ballsInLowerTele * 1 + avgs.ballsInUpperTele * 2
+            + (avgs.levelClimbed[1] * 4 + avgs.levelClimbed[2] * 6 + avgs.levelClimbed[3] * 10 + avgs.levelClimbed[4] * 15) / timesClimbed)
         : 0; // will init to 0 if avgs is undefined
 
-    const totalBalls = avgs.ballsInLowerAuto + avgs.ballsInUpperAuto + avgs.ballsInLowerTele + avgs.ballsInUpperTele;
+    const totalBalls = round2(avgs.ballsInLowerAuto + avgs.ballsInUpperAuto + avgs.ballsInLowerTele + avgs.ballsInUpperTele);
+
+    const bar0 = avgs['levelClimbed'] && avgs['levelClimbed'][0] ? avgs['levelClimbed'][0] : 0; // init to 0 if undefined
+    const bar1 = avgs['levelClimbed'] && avgs['levelClimbed'][1] ? avgs['levelClimbed'][1] : 0; // init to 0 if undefined
+    const bar2 = avgs['levelClimbed'] && avgs['levelClimbed'][2] ? avgs['levelClimbed'][2] : 0; // init to 0 if undefined
+    const bar3 = avgs['levelClimbed'] && avgs['levelClimbed'][3] ? avgs['levelClimbed'][3] : 0; // init to 0 if undefined
+    const bar4 = avgs['levelClimbed'] && avgs['levelClimbed'][4] ? avgs['levelClimbed'][4] : 0; // init to 0 if undefined
 
 
     return (
         <View style={{ flex: 1 }}>
             <Button title='Home' onPress={goHome} />
-            <View style={{ flex: 1 }}>
-
-
+            <ScrollView style={{ flex: 1 }}>
                 <View style={{ height: 100, width: '100%' }}>
                     <TitledNumInput
                         setNum={(newNum) => store.dispatch(setTeamNumber(newNum))}
@@ -75,35 +94,183 @@ export default function getTeaminfo({ navigation }) {
 
 
 
-                <ScrollView style={{ flex: 1, backgroundColor: 'grey', height: 1000 }}>
+                <View style={{ backgroundColor: 'grey', flex: 1 }}>
                     <View style={{ flex: 1, alignItems: 'center' }}>
-                        <Text style={{ fontSize: 18, alignItems: 'center' }}>
-                            <Text style={{ color: 'red', fontSize: 25 }}>Executive Summary: {avgs.teamNumber}</Text>{'\n'}
-                            <Text style={{ fontWeight: 'bold' }}>Offense</Text>{'\n'}
-                            <Text style={{ color: 'blue' }}>Avg points per game:  </Text><Text style={{ color: 'red', fontWeight: 'bold' }}>{totalPoints}</Text>{'\n'}
-                            <Text style={{ fontWeight: 'bold' }}>RPs (and breakdown)</Text>{'\n'}
-                            <Text style={{ color: 'blue' }}>Climb stats: out of *{timesClimbed}*:  </Text>| [bar 0]=<Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.levelClimbed ? avgs.levelClimbed[0] : 'NA'}</Text> | [bar 1]=<Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.levelClimbed ? avgs.levelClimbed[1] : 'NA'}</Text> |{'\n'}
-                            | [bar 2]=<Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.levelClimbed ? avgs.levelClimbed[2] : 'NA'}</Text> | [bar 3]=<Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.levelClimbed ? avgs.levelClimbed[3] : 'NA'}</Text> | [bar 4]=<Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.levelClimbed ? avgs.levelClimbed[4] : 'NA'}</Text> |{'\n'}
-                            <Text style={{ color: 'blue' }}>Total ball stats:   </Text><Text style={{ color: 'red', fontWeight: 'bold' }}>{totalBalls}</Text> balls per game{'\n'}
-                            <Text style={{ color: 'blue' }}>Auto stats:</Text>avg auto points=<Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.ballsInLowerAuto * 2 + avgs.ballsInUpperAuto * 4}</Text> | avg auto balls=<Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.ballsInLowerAuto + avgs.ballsInUpperAuto}</Text>{'\n'}
+                        <Text style={{ fontSize: 18, textAlign: 'center' }}>
 
-                            <Text style={{ fontWeight: 'bold' }}>Defense</Text>{'\n'}
-                            <Text style={{ color: 'blue' }}>Defense stats:   </Text> defensive: <Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.defensiveDefenseLevel}</Text> | offensive: <Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.offensiveDefenseLevel}</Text>{'\n'}
+                            <Text style={styles.mainTitle}>Team - {avgs.teamNumber}</Text>{'\n\n'}
+                            <Text style={styles.mainSubTitle}>Data on last {timesClimbed} rounds</Text>{'\n\n'}
 
-                            <Text style={{ fontWeight: 'bold' }}>Dependability</Text>{'\n'}
-                            <Text style={{ color: 'blue' }}>goodTeamMateLevel:  </Text> <Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.goodTeamMateLevel}</Text>{'\n'}
-                            <Text style={{ color: 'blue' }}>wasBroken:   </Text> <Text style={{ color: 'red', fontWeight: 'bold' }}>{avgs.wasBroken}</Text>{'\n'}
-                            <Text style={{ color: 'blue' }}>climb failure percentage:   </Text> <Text style={{ color: 'red', fontWeight: 'bold' }}>{((timesClimbed - avgs.climbSuccessful) / timesClimbed) * 100}</Text>{'\n'}
+                            <Text style={styles.secondaryTitle}>Executive Summary:</Text>{'\n'}
+                            <View style={styles.textBoxEnglish}>
+                                <TitleAndData
+                                    title='General Score'
+                                    data={round2(scores['generalScore'])}
+                                />
+                                <TitleAndData
+                                    title='Offensive Score'
+                                    data={round2(scores['offensiveScore'])}
+                                />
+                                <TitleAndData
+                                    title='Defensive Score'
+                                    data={round2(scores['defensiveScore'])}
+                                />
+
+                            </View><Text>{'\n\n'}</Text>
+
+
+                            <Text style={styles.secondaryTitle}>Detailed Review:</Text>{'\n'}
+
+                            <Text style={styles.thirdTitle}>RP potential</Text>{'\n'}
+                            <View style={styles.textBoxEnglish}>
+                                <Text style={styles.fourthTitle}>RP balls</Text>
+                                <TitleAndData
+                                    title='Balls in Auto'
+                                    data={round2(avgs['ballsInUpperAuto'] + avgs['ballsInLowerAuto'])}
+                                />
+                                <TitleAndData
+                                    title='Balls missed Auto'
+                                    data={avgs['ballsMissedAuto']}
+                                />
+                                <TitleAndData
+                                    title='Balls in Total'
+                                    data={totalBalls}
+                                />
+                                <TitleAndData
+                                    title='Balls missed Total'
+                                    data={round2(avgs['ballsMissedAuto'] + avgs['ballsMissedTele'])}
+                                />
+
+                                <Text style={styles.fourthTitle}>RP Climb (out of {timesClimbed})</Text>
+                                <TitleAndData
+                                    title='Bar 0'
+                                    data={bar0}
+                                />
+                                <TitleAndData
+                                    title='Bar 1'
+                                    data={bar1}
+                                />
+                                <TitleAndData
+                                    title='Bar 2'
+                                    data={bar2}
+                                />
+                                <TitleAndData
+                                    title='Bar 3'
+                                    data={bar3}
+                                />
+                                <TitleAndData
+                                    title='Bar 4'
+                                    data={bar4}
+                                />
+                            </View>{'\n'}
+
+                            <Text style={styles.thirdTitle}>Offense</Text>{'\n'}
+                            <View style={styles.textBoxEnglish}>
+                                <Text style={styles.fourthTitle}>Autonomous</Text>
+                                <TitleAndData
+                                    title='Balls in Auto Top'
+                                    data={round2(avgs['ballsInUpperAuto'])}
+                                />
+                                <TitleAndData
+                                    title='Balls in Auto Bottom'
+                                    data={round2(avgs['ballsInLowerAuto'])}
+                                />
+                                <TitleAndData
+                                    title='Balls in Auto Missed'
+                                    data={round2(avgs['ballsMissedAuto'])}
+                                />
+                                <Text style={styles.fourthTitle}>Teleop</Text>
+                                <TitleAndData
+                                    title='Balls in Tele Top'
+                                    data={round2(avgs['ballsInUpperTele'])}
+                                />
+                                <TitleAndData
+                                    title='Balls in Tele Bottom'
+                                    data={round2(avgs['ballsInLowerTele'])}
+                                />
+                                <TitleAndData
+                                    title='Balls in Tele Missed'
+                                    data={round2(avgs['ballsMissedTele'])}
+                                />
+                                <TitleAndData
+                                    title='Was defended (1-7)'
+                                    data={avgs['wasDefendedLevel']}
+                                />
+
+                                <Text style={styles.fourthTitle}>Climb (out of {timesClimbed})</Text>
+                                <TitleAndData
+                                    title='Bar 0'
+                                    data={bar0}
+                                />
+                                <TitleAndData
+                                    title='Bar 1'
+                                    data={bar1}
+                                />
+                                <TitleAndData
+                                    title='Bar 2'
+                                    data={bar2}
+                                />
+                                <TitleAndData
+                                    title='Bar 3'
+                                    data={bar3}
+                                />
+                                <TitleAndData
+                                    title='Bar 4'
+                                    data={bar4}
+                                />
+                            </View>{'\n'}
+
+                            <Text style={styles.thirdTitle}>Defense</Text>{'\n'}
+                            <View style={styles.textBoxEnglish}>
+                                <TitleAndData
+                                    title='Defense as defensive robot (1-7)'
+                                    data={avgs['defensiveDefenseLevel']}
+                                />
+                                <TitleAndData
+                                    title='Defense as offensive robot (1-7)'
+                                    data={avgs['offensiveDefenseLevel']}
+                                />
+                            </View>{'\n'}
+
+                            <Text style={styles.thirdTitle}>Dependability</Text>{'\n'}
+                            <View style={styles.textBoxEnglish}>
+                                <TitleAndData
+                                    title={'Break average (out of ' + timesClimbed + ', scale 1-3)'}
+                                    data={avgs['wasBroken']}
+                                />
+                                <TitleAndData
+                                    title={'Climbs failed (out of' + timesClimbed + ')'}
+                                    data={round2(timesClimbed - avgs['climbSuccessful'])}
+                                />
+                                <TitleAndData
+                                    title={'Robot completely stopped (out of ' + timesClimbed + ')'}
+                                    data={avgs['robotNoFunction']}
+                                />
+                                <TitleAndData
+                                    title={'Robot system stopped (out of ' + timesClimbed + ')'}
+                                    data={avgs['systemNoFunction']}
+                                />
+                                <TitleAndData
+                                    title={'Good Team Mate (1-7)'}
+                                    data={avgs['goodTeamMateLevel']}
+                                />
+                            </View>{'\n'}
                         </Text>
-                        <Text>
-                            {'\n\n\n\n'}
-                            {avgsTxt}
+
+                        <Text style={styles.thirdTitle}>Extra Text{'\n'}</Text>
+                        <Text style={styles.fourthTitle}>Auto Text{'\n'}</Text>
+                        <Text style={{ flexWrap: 'wrap' }}>
+                            {avgs['autoFreeText']}
+                        </Text>
+                        <Text style={styles.fourthTitle}>General Text{'\n'}</Text>
+                        <Text style={{ flexWrap: 'wrap' }}>
+                            {avgs['freeText']}
                         </Text>
                     </View>
-                </ScrollView>
+                </View>
 
 
-            </View>
+            </ScrollView >
 
         </View >
     );
@@ -124,4 +291,38 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 10,
     },
+    mainTitle: {
+        color: 'red',
+        fontSize: 30
+    },
+    mainSubTitle: {
+        color: 'black',
+        fontSize: 20
+    },
+    secondaryTitle: {
+        color: 'blue',
+        fontSize: 25
+    },
+    thirdTitle: {
+        color: 'khaki',
+        fontSize: 21
+    },
+    fourthTitle: {
+        color: 'limegreen',
+        fontSize: 19
+    },
+    fieldName: {
+        color: 'black',
+        fontSize: 18,
+        fontWeight: 'bold'
+    },
+    redHighlight: {
+        color: 'red',
+        fontSize: 18,
+        fontWeight: 'bold'
+    },
+    textBoxEnglish: {
+        alignItems: 'flex-start'
+    }
+
 });
