@@ -84,12 +84,6 @@ export default function postGame({ navigation }) {
                     setCurrentChoice={(newChoice) => store.dispatch(setWasBroken(newChoice))}
                     getCurrentChoice={() => { return (store.getState().currentScout.wasBroken) }}
                 />
-                <TitledScale
-                    title={'General impression'}
-                    max={7}
-                    setCurrentChoice={(newChoice) => store.dispatch(setGeneralImpression(newChoice))}
-                    getCurrentChoice={() => { return (store.getState().currentScout.generalImpression) }}
-                />
                 <View style={Formats.EnglishLineContainer}>
                     <TitledSwitch
                         title={'Robot Did Not Function'}

@@ -1,5 +1,5 @@
 // server info
-const DEV = true
+const DEV = false
 const devServerIp = '192.168.68.62' // change this when developing and ip of local computer changes
 export const SERVER_IP_ADDRESS = DEV ? devServerIp : '184.72.229.230' // sends to elastic ip if dev is false
 export const OUTPUT_SERVER_PORT = '3713'

@@ -30,7 +30,7 @@ export default function AfterAuto({ navigation }) {
                 goToNavigator={goToNavigator}
             />
 
-            <View style={styles.EnglishLineContainer}>
+            <View style={[styles.EnglishLineContainer, { flex: 1, minHeight: 80 }]}>
                 <TitledSwitch
                     title={'Robot Passed Line'}
                     setTruth={(isTrue) => store.dispatch(setPassedLine(isTrue))}
@@ -46,7 +46,7 @@ export default function AfterAuto({ navigation }) {
 
 
 
-            <View style={{ minHeight: 300 }}>
+            <View style={{ minHeight: 300, flex: 5 }}>
                 <TitledTextInput
                     setText={(newText) => store.dispatch(setAutoFreeText(newText))}
                     getText={() => store.getState().currentScout.autoFreeText}
