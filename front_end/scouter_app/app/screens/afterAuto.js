@@ -44,18 +44,7 @@ export default function AfterAuto({ navigation }) {
             </View>
 
 
-            <View style={styles.EnglishLineContainer}>
-                <TitledSwitch
-                    title={'Human Tried To Shoot'}
-                    setTruth={(isTrue) => store.dispatch(setBallsHumanShotAuto(isTrue))}
-                    getTruth={() => store.getState().currentScout.ballsHumanShotAuto}
-                />
-                <TitledSwitch
-                    title={'Human Scored'}
-                    setTruth={(isTrue) => store.dispatch(setBallsHumanScoredAuto(isTrue))}
-                    getTruth={() => store.getState().currentScout.ballsHumanScoredAuto}
-                />
-            </View>
+
 
             <View style={{ minHeight: 300 }}>
                 <TitledTextInput

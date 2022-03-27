@@ -23,6 +23,7 @@ def output_team_avg():
 
     # get data from json
     json_data = request.json
+    print(json_data)
     try:
         num_of_rounds = json_data['num_of_rounds']
         teamNumber = json_data['teamNumber']

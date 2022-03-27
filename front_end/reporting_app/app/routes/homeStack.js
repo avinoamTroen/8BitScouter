@@ -6,6 +6,7 @@ import Home from '../screens/home';
 import GetSingleScout from '../screens/getSingleScout';
 import GetTeamInfo from '../screens/getTeamInfo'
 import GetTeamsList from '../screens/getTeamsList';
+import GetRound from '../screens/getRound';
 
 
 // put all screens from homestack here
@@ -22,6 +23,9 @@ const screens = {
     },
     GetTeamsList: {
         screen: GetTeamsList
+    },
+    GetRound: {
+        screen: GetRound
     }
 
 };

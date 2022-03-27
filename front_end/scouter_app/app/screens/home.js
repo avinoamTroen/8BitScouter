@@ -17,9 +17,7 @@ export default function Home({ navigation }) {
     const goToNavigator = () => {
         navigation.navigate('Navigator');
     }
-    const goToDefaults = () => {
-        // fill in later
-    }
+
 
     const [numOfUnsent, setNumOfUnsent] = useState('?')
 
@@ -43,7 +41,6 @@ export default function Home({ navigation }) {
             </TouchableOpacity>
             <TouchableOpacity onPress={newScout} style={[Formats.NavigationButton, { backgroundColor: 'brown' }]}><View style={Formats.NavigationButton}><Text style={Typography.BigText}>New Scout</Text></View></TouchableOpacity>
             <TouchableOpacity onPress={goToNavigator} style={Formats.NavigationButton}><View style={Formats.NavigationButton}><Text style={Typography.BigText}>Navigation</Text></View></TouchableOpacity>
-            <TouchableOpacity onPress={goToDefaults} style={Formats.NavigationButton}><View style={Formats.NavigationButton}><Text style={Typography.BigText}>Set Up Defaults (currenttly not functional)</Text></View></TouchableOpacity>
 
 
         </SafeAreaView >

@@ -13,6 +13,9 @@ export default function Home({ navigation }) {
     const goToGetTeamsList = () => {
         navigation.navigate('GetTeamsList');
     }
+    const goToGetRound = () => {
+        navigation.navigate('GetRound');
+    }
 
     // can add again later
     //             <Button title='single scout' onPress={goToGetSingleScout} />
@@ -22,6 +25,7 @@ export default function Home({ navigation }) {
             <Text style={Typography.BigText}>7845</Text>
             <Text style={Typography.BigText}>Version: <Text style={{ color: 'red' }}>1.0.0</Text></Text>
             <TouchableOpacity onPress={goToGetTeamInfo} style={[Formats.NavigationButton, { backgroundColor: 'brown' }]}><View style={Formats.NavigationButton}><Text style={Typography.BigText}>Team Info</Text></View></TouchableOpacity>
+            <TouchableOpacity onPress={goToGetRound} style={[Formats.NavigationButton, { backgroundColor: 'brown' }]}><View style={Formats.NavigationButton}><Text style={Typography.BigText}>Scout Round</Text></View></TouchableOpacity>
             <TouchableOpacity onPress={goToGetTeamsList} style={[Formats.NavigationButton, { backgroundColor: 'brown' }]}><View style={Formats.NavigationButton}><Text style={Typography.BigText}>Team List</Text></View></TouchableOpacity>
         </SafeAreaView>
     );

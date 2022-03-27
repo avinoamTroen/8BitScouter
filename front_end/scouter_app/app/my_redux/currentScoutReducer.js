@@ -16,7 +16,7 @@ const currentScoutInitialState = {
     ballsInUpperAuto: 0,
     ballsInLowerAuto: 0,
     ballsMissedAuto: 0,
-    passedLine: false,
+    passedLine: true, // defaults to true since it is usually true
     ballsHumanShotAuto: false,
     ballsHumanScoredAuto: false,
     whichBallsCollected: [],

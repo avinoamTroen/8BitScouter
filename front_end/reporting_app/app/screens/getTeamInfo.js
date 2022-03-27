@@ -218,6 +218,10 @@ export default function getTeaminfo({ navigation }) {
                                     title='Bar 4'
                                     data={bar4}
                                 />
+                                <TitleAndData
+                                    title='Total Climb time'
+                                    data={avgs['climbTime']}
+                                />
                             </View>{'\n'}
 
                             <Text style={styles.thirdTitle}>Defense</Text>{'\n'}
