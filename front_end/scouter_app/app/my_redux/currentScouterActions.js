@@ -200,7 +200,7 @@ export function setSystemNoFunction(newSystemNoFunction) {
 // }
 
 
-// clear current scout
+// clear current scout aside from a few specific fields (pregame fields)
 export function clearedCurrentScout() {
     return { type: actionTypes.clearedCurrentScout, payload: {} };
 }

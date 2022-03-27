@@ -1,8 +1,13 @@
 import getTeamsListFromServer from '../networking/getTeamsListFromServer'
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, TouchableOpacity } from 'react-native';
+import { SafeAreaView, View, FlatList, StyleSheet, ScrollView, Text, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 import { round2 } from '../utils/utils'
+import { setCompName, setGoBack } from '../redux/actions';
+import TitledChoiceList from '../myComponents/ChoiceList';
+import TitledNumInput
+    from '../myComponents/TitledNumInput';
+import store from '../redux/store';
 
 
 export default function getTeamsList({ navigation }) {
@@ -26,18 +31,47 @@ export default function getTeamsList({ navigation }) {
     const [data, setData] = useState({})
     const teamsList = data['team_list']
     try {
-        // teamsList.sort((a, b) => (a.offensiveScore < b.offensiveScore) ? 1 : -1)
-        teamsList.sort((a, b) => (a.defensiveScore < b.defensiveScore) ? 1 : -1)
+        teamsList.sort((a, b) => (a.generalScore < b.generalScore) ? 1 : -1)
     }
     catch {
         console.log('cought')
     }
+    const getCompNames = () => {
+        return [
+            '',
+            'PREGIONAL',
+            'ISR DISTRICT #1',
+            'ISR DISTRICT #2',
+            'ISR DISTRICT #3',
+            'ISR DISTRICT #4',
+            'ISR CHAMPIONSHIP'
+        ]
+    }
+    const compNames = getCompNames()
 
     console.log('teamsList')
     console.log(teamsList)
     return (
-        <View style={{ flex: 1 }}>
-            <TouchableOpacity onPress={updateData} style={{ height: 50, width: '100%', backgroundColor: 'gold', alignItems: 'center' }}>
+
+        <SafeAreaView style={{ flex: 1 }}>
+            <View style={{ height: 80 }}>
+                <TitledChoiceList
+                    title={'Choose Competition'}
+                    array={compNames}
+                    setCurrentChoice={(newChoice) => store.dispatch(setCompName(newChoice))}
+                    getCurrentChoice={() => { return (store.getState().compName) }}
+                />
+            </View>
+            <View style={{ height: 100, width: '100%' }}>
+                <TitledNumInput
+                    setNum={(newNum) => store.dispatch(setGoBack(newNum))}
+                    getNum={() => store.getState().goBack}
+                    placeholder="Enter number"
+                    title="Enter number of matches to go back"
+                />
+            </View>
+
+            <TouchableOpacity onPress={updateData} style={{ height: 40, width: '100%', backgroundColor: 'gold', alignItems: 'center' }}>
                 <Text style={{ fontSize: 35 }}>GO</Text>
             </TouchableOpacity>
             <FlatList
@@ -46,6 +80,6 @@ export default function getTeamsList({ navigation }) {
                 keyExtractor={(item) => item.teamNumber}
             />
 
-        </View>
+        </SafeAreaView>
     )
 }

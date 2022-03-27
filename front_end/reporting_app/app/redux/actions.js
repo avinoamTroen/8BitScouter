@@ -9,3 +9,6 @@ export function setTeamNumber(teamNumber) {
 export function setGoBack(numOfRounds) {
     return { type: actionTypes.setGoBack, payload: { numOfRounds: numOfRounds } };
 }
+export function setCompName(compName) {
+    return { type: actionTypes.setCompName, payload: { compName: compName } };
+}

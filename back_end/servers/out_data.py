@@ -92,7 +92,7 @@ def get_scores(data_dict, num_of_rounds):
         taxi_points = 0
     auto_points = avg(data_dict['ballsInUpperAutoS']) * 4 + avg(data_dict['ballsInLowerAutoS']) * 4
     tele_points = avg(data_dict['ballsInUpperTeleS']) * 2 + avg(data_dict['ballsInLowerTeleS'])
-    if sum(climb) != 0:
+    if len(climb) >= 5:
         climb_points = (climb[1] * 4 + climb[2] * 6 + climb[3] * 10 + climb[4] * 15) / sum(climb)
     else:
         climb_points = 0

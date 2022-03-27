@@ -4,11 +4,12 @@ import { SafeAreaView, View, Text, Button, TouchableOpacity } from 'react-native
 import store from '../my_redux/store';
 import { Typography, Formats } from '../styles';
 import { clearedCurrentScout } from '../my_redux/currentScouterActions';
+import resetScout from '../utils/partiallyResetScout';
 
 export default function Home({ navigation }) {
     const newScout = () => {
-        // clear current scout and init new clear one
-        store.dispatch(clearedCurrentScout())
+        // reset current scout
+        resetScout()
 
         // go to beginning of new scout
         navigation.navigate('PreGame');

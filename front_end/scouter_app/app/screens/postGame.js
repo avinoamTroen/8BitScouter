@@ -12,6 +12,7 @@ import { clearedCurrentScout, setWhenCaptured } from '../my_redux/currentScouter
 import { addQueue } from '../my_redux/sendQueueActions';
 import getCurrentDateTime from '../utils/myDateTime';
 import sendScouts from '../networking/sendScouts';
+import resetScout from '../utils/partiallyResetScout';
 
 function validOneScout(scout) {
     return (scout.compName != '' && scout.matchType != '' && scout.matchNumber != 0 && scout.teamNumber != 0 && scout.scouterName != '' && scout.scouterTeamNumber != 0);
@@ -29,8 +30,8 @@ export default function postGame({ navigation }) {
             console.log('about to send scouts- post')
             sendScouts()
             console.log('done sending scouts -post')
-            // clear current scout
-            store.dispatch(clearedCurrentScout())
+            // reset current scout
+            resetScout()
             // go to home screen
             navigation.navigate('Home');
         }

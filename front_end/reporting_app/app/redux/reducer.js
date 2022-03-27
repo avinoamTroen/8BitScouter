@@ -6,7 +6,10 @@ const defaultState = {
     goBack: 5,
 
     // scouting team
-    teamNumber: 0
+    teamNumber: 0,
+
+    // name of competition - relevant only to certain functions
+    compName: ''
 };
 export default function reducer(state = defaultState, action) {
     switch (action.type) {
@@ -23,6 +26,11 @@ export default function reducer(state = defaultState, action) {
         case actionTypes.setTeam:
             return produce(state, stateCopy => {
                 stateCopy.teamNumber = action.payload.teamNumber
+                return stateCopy;
+            });
+        case actionTypes.setCompName:
+            return produce(state, stateCopy => {
+                stateCopy.compName = action.payload.compName
                 return stateCopy;
             });
 

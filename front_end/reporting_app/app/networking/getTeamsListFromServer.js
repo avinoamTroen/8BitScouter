@@ -1,4 +1,4 @@
-import { OUTPUT_SERVER_IP_AND_PORT, PATH_FOR_TEAM_LIST_OUTPUT } from '../utils/utils'
+import { OUTPUT_SERVER_IP_AND_PORT, PATH_FOR_TEAM_LIST_OUTPUT, SERVER_IP_ADDRESS } from '../utils/utils'
 import store from '../redux/store';
 
 
@@ -8,11 +8,10 @@ export default async function get_team_avgs() {
     // create body - params for server in json format
     const requestParams = {
         num_of_rounds: store.getState().goBack,
-        compName: "ISR DISTRICT #3"
+        compName: store.getState().compName
     }
     // create url path
     const url = OUTPUT_SERVER_IP_AND_PORT + PATH_FOR_TEAM_LIST_OUTPUT
-
     // send request and return result
     try {
         const response = await fetch(url, {
