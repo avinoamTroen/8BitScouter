@@ -15,7 +15,7 @@ export default function getTeamsList({ navigation }) {
     const renderItem = ({ item }) => (
         <View style={{ borderBottomWidth: 2, backgroundColor: 'dodgerblue', alignItems: 'center' }}>
             <Text style={{ fontSize: 20 }}>{item.teamNumber}</Text>
-            <Text>defensiveScore <Text style={{ color: 'red', fontWeight: 'bold' }}>{round2(item.defensiveScore)}</Text> | offensiveScore <Text style={{ color: 'red', fontWeight: 'bold' }}>{round2(item.offensiveScore)}</Text></Text>
+            <Text>defensiveScore <Text style={{ color: 'red', fontWeight: 'bold' }}>{round2(item.defensiveScore)}</Text> | offensiveScore <Text style={{ color: 'green', fontWeight: 'bold' }}>{round2(item.offensiveScore)}</Text></Text>
         </View>
     );
     const updateData = async () => {
@@ -31,7 +31,7 @@ export default function getTeamsList({ navigation }) {
     const [data, setData] = useState({})
     const teamsList = data['team_list']
     try {
-        teamsList.sort((a, b) => (a.generalScore < b.generalScore) ? 1 : -1)
+        teamsList.sort((a, b) => (a.offensiveScore < b.offensiveScore) ? 1 : -1)
     }
     catch {
         console.log('cought')

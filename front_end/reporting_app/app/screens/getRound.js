@@ -86,18 +86,7 @@ export default function getRound({ navigation }) {
         + avgsB2.ballsInLowerAuto + avgsB2.ballsInUpperAuto + avgsB2.ballsInLowerTele + avgsB2.ballsInUpperTele
         + avgsB3.ballsInLowerAuto + avgsB3.ballsInUpperAuto + avgsB3.ballsInLowerTele + avgsB3.ballsInUpperTele);
 
-    let bars = [];
-    for (let i = 0; i < 6; i++) {
-        thisAvg = allAvgs[i]
-        let bar = []
-        bar[0] = allAvgs['levelClimbed'] && allAvgs['levelClimbed'][0] ? allAvgs['levelClimbed'][0] : 0; // init to 0 if undefined
-        bar[1] = allAvgs['levelClimbed'] && allAvgs['levelClimbed'][1] ? allAvgs['levelClimbed'][1] : 0; // init to 0 if undefined
-        bar[2] = allAvgs['levelClimbed'] && allAvgs['levelClimbed'][2] ? allAvgs['levelClimbed'][2] : 0; // init to 0 if undefined
-        bar[3] = allAvgs['levelClimbed'] && allAvgs['levelClimbed'][3] ? allAvgs['levelClimbed'][3] : 0; // init to 0 if undefined
-        bar[4] = allAvgs['levelClimbed'] && allAvgs['levelClimbed'][4] ? allAvgs['levelClimbed'][4] : 0; // init to 0 if undefined
 
-        bars[i] = bar;
-    }
 
     const climbToStr = (bar) => {
         // bar is an array of 0-4 for all the rungs
@@ -202,9 +191,9 @@ export default function getRound({ navigation }) {
                             <Text style={{ color: 'blue' }}>{totalBallsB}{'\n'}</Text>
 
                             <Text style={styles.thirdTitle}>Climb comparison{'\n'}</Text>
-                            <Text style={{ color: 'red' }}>{climbToStr(bars[0])}{'\n'}{climbToStr(bars[1])}{'\n'}{climbToStr(bars[2])}{'\n'}</Text>
+                            <Text style={{ color: 'red' }}>{climbToStr(avgsR1['levelClimbed'])}{'\n'}{climbToStr(avgsR2['levelClimbed'])}{'\n'}{climbToStr(avgsR3['levelClimbed'])}{'\n'}</Text>
                             <Text>   VS   {'\n'}</Text>
-                            <Text style={{ color: 'blue' }}>{climbToStr(bars[3])}{'\n'}{climbToStr(bars[4])}{'\n'}{climbToStr(bars[5])}{'\n'}</Text>
+                            <Text style={{ color: 'blue' }}>{climbToStr(avgsB1['levelClimbed'])}{'\n'}{climbToStr(avgsB2['levelClimbed'])}{'\n'}{climbToStr(avgsB3['levelClimbed'])}{'\n'}</Text>
                         </Text>
                     </View>
                 </View>

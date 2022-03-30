@@ -17,7 +17,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "at.apps.team8bit.scouterApp"
     },
     "android": {
       "adaptiveIcon": {

@@ -79,6 +79,7 @@ export async function getRoundFromServer() {
         return { canUse: true, data: { R1Data: R1Data.payload, R2Data: R2Data.payload, R3Data: R3Data.payload, B1Data: B1Data.payload, B2Data: B2Data.payload, B3Data: B3Data.payload } }
     }
     else {
+        console.log([R1Data, R2Data, R3Data, B1Data, B2Data, B3Data])
         return { canUse: false, data: 'unknown error' }
     }
 }
