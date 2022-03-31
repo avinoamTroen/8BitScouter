@@ -1,7 +1,7 @@
 # Avinoam Troen
 from utils import *
 from flask import Flask, request
-from mysql_stuff.input_data_to_mysql import insert_record_oneScout, my_db
+from mysql_stuff.input_data_to_mysql import insert_record_oneScout
 import mysql.connector
 import servers.mysql_stuff.mysql_utils as mysql_utils
 
