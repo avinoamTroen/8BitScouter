@@ -1,6 +1,5 @@
 import mysql.connector
-import mysql_utils
-
+from servers.mysql_stuff import mysql_utils
 my_db = mysql.connector.connect(
     host=mysql_utils.HOST,
     user=mysql_utils.USER,
