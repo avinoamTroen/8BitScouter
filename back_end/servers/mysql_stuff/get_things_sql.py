@@ -13,7 +13,7 @@ def get_match(scout):
     """
     gets a "match id"
     :param scout: a scout (tuples)
-    :return: a tuples containig (compName, matchType, matchNumber, teamNumber)
+    :return: a tuples containing (compName, matchType, matchNumber, teamNumber)
     """
     return scout[1], scout[2], scout[3], scout[4]
 

@@ -5,7 +5,8 @@ import mysql_utils
 def print_table(db, table):
     """
     prints table
-    :param table: db to create (type is string)
+    :param db: DB to print from
+    :param table: table to print (type is string)
     :return: none
     """
     my_db = mysql.connector.connect(

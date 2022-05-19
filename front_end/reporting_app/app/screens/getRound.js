@@ -63,7 +63,7 @@ export default function getRound({ navigation }) {
 
 
 
-    // calculates the number of climbs = number of matches returned (which is differend then what was asked for if there are few records)
+    // calculates the number of climbs = number of matches returned (which is different then what was asked for if there are few records)
     const allAvgs = [avgsR1, avgsR2, avgsR3, avgsB1, avgsB2, avgsB3]
     let allTimesClimbed = [];
     for (let i = 0; i < 6; i++) {
