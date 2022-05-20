@@ -73,8 +73,6 @@ export async function getRoundFromServer() {
     B1Data = await get_team_avgs_with_params(goBack, store.getState().teamNumberB1)
     B2Data = await get_team_avgs_with_params(goBack, store.getState().teamNumberB2)
     B3Data = await get_team_avgs_with_params(goBack, store.getState().teamNumberB3)
-    console.log('{ R1Data: R1Data, R2Data: R2Data, R3Data: R3Data, B1Data: B1Data, B2Data: B2Data, B3Data: B3Data }')
-    console.log({ R1Data: R1Data.payload, R2Data: R2Data.payload, R3Data: R3Data.payload, B1Data: B1Data.payload, B2Data: B2Data.payload, B3Data: B3Data.payload })
     if (R1Data.canUse && R2Data.canUse && R3Data.canUse && B1Data.canUse && B2Data.canUse && B3Data.canUse) {
         return { canUse: true, data: { R1Data: R1Data.payload, R2Data: R2Data.payload, R3Data: R3Data.payload, B1Data: B1Data.payload, B2Data: B2Data.payload, B3Data: B3Data.payload } }
     }

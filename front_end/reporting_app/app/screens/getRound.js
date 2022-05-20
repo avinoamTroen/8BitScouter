@@ -98,7 +98,8 @@ export default function getRound({ navigation }) {
         }
         let t = "| ";
         for (let i = 0; i < 5; i++) {
-            t += '<' + i + '> - ' + bar[i] + ' | '
+            t += bar[i] + ' | '
+            // '<' + i + '> - ' + 
             console.log(t)
         }
         return t;
@@ -191,6 +192,7 @@ export default function getRound({ navigation }) {
                             <Text style={{ color: 'blue' }}>{totalBallsB}{'\n'}</Text>
 
                             <Text style={styles.thirdTitle}>Climb comparison{'\n'}</Text>
+                            <Text style={{ fontWeight: 'bold' }}>*| 0 | 1 | 2 | 3 | 4 |* </Text>{'\n'}
                             <Text style={{ color: 'red' }}>{climbToStr(avgsR1['levelClimbed'])}{'\n'}{climbToStr(avgsR2['levelClimbed'])}{'\n'}{climbToStr(avgsR3['levelClimbed'])}{'\n'}</Text>
                             <Text>   VS   {'\n'}</Text>
                             <Text style={{ color: 'blue' }}>{climbToStr(avgsB1['levelClimbed'])}{'\n'}{climbToStr(avgsB2['levelClimbed'])}{'\n'}{climbToStr(avgsB3['levelClimbed'])}{'\n'}</Text>
