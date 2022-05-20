@@ -20,15 +20,15 @@ def input_one_scout():
     :return:
     The function returns 200 status code for success and 400 or 500 status code (with a short message) for failure.
     """
-    json_data = request.json
-
-    print('\n|input_one_scout: initiating|\n')
-    print('|input_one_scout: about to print oneScout Json|')
-    for key in json_data:
-        print(key, json_data[key])
-    print('\n|input_one_scout: done|\n')
-
     try:
+        json_data = request.json
+
+        print('\ninput_one_scout: initiating\n')
+        print('input_one_scout: about to print oneScout Json\n')
+        for key in json_data:
+            print(key, json_data[key])
+        print('\ninput_one_scout: done\n')
+
         val = (json_data['compName'], json_data['matchType'], json_data['matchNumber'], json_data['teamNumber'],
                json_data['scouterName'], json_data['whenCaptured'], json_data['scouterTeamNumber'],
                json_data['ballsInUpperAuto'],
