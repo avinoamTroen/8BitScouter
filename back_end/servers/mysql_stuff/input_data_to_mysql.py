@@ -1,15 +1,17 @@
-import mysql.connector
-from servers.mysql_stuff import mysql_utils
-my_db = mysql.connector.connect(
-    host=mysql_utils.HOST,
-    user=mysql_utils.USER,
-    password=mysql_utils.PASSWORD,
-    database=mysql_utils.DB_NAME
-)
+# Avinoam Troen
+# input_data_to_mysql
 
-
-def insert_record_oneScout(db, vals):
+def insert_record_oneScout(db, values):
+    """
+    inserts a single scout into the DB
+    :param db: DB connection to enter data into
+    :param values: values of oneScout (a tuple)
+    :return: none
+    """
+    # get cursor
     my_cursor = db.cursor()
+
+    # prepare sql query
     # cols are the parameters
     cols = "(compName, matchType, matchNumber, teamNumber, scouterName,whenCaptured,  scouterTeamNumber, " \
            "ballsInUpperAuto, ballsInLowerAuto, ballsMissedAuto, passedLine, ballsHumanShotAuto, " \
@@ -22,15 +24,18 @@ def insert_record_oneScout(db, vals):
                     "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s) "
     sql = f"INSERT INTO oneScouts {cols} VALUES {place_holders}"
 
-    my_cursor.execute(sql, vals)
+    # execute sql
+    my_cursor.execute(sql, values)
 
+    # commit changes to DB
     db.commit()
-    print(my_cursor.rowcount, "record inserted.")
+
+    # log insertion after success
+    print('insert_record_oneScout:', my_cursor.rowcount, "record inserted.")
 
 
 def main():
-    val = ('7845t', 'test1', '-1', 15)
-    insert_record_oneScout(my_db, val)
+    pass
 
 
 if __name__ == '__main__':
