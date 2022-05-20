@@ -62,9 +62,13 @@ def input_one_scout():
         return '', 200
     # this is useful in case the request json was missing fields (400, bad request)
     except KeyError:
+        # log error
+        print('input_one_scout: 400')
         return 'KeyError', 400
     # the code shouldn't get here, but if it does at least we'll get back the type of error (500, internal server error)
     except Exception as error:
+        # log error
+        print('input_one_scout: 500')
         return type(error).__name__, 500
 
 

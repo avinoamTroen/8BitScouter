@@ -32,6 +32,8 @@ def output_team_avg():
             teamNumber = json_data['teamNumber']
         # if fails return status code 400 (bad request)
         except KeyError:
+            # log error
+            print('output_team_avg: 400')
             return 'Did not have necessary params in json', 400
 
         # open a connection to the DB
@@ -55,9 +57,13 @@ def output_team_avg():
             return res, 200
 
         # return error if invalid (no scouts were found)
+        # log error
+        print('output_team_avg: 404')
         return 'Error - scouts not found', 404
     # code shouldn't get here but if it does this will catch all errors and return the error type to the client
     except Exception as error:
+        # log error
+        print('output_team_avg: 500')
         return type(error).__name__, 500
 
 
@@ -73,6 +79,8 @@ def output_team_list():
     If the function fails to do this it will return 400, 404 or 500 status code (with a short message).
     """
     try:
+        # log for starting
+        print('output_team_list: starting')
         # pull request params from json
         json_data = request.json
         try:
@@ -80,6 +88,8 @@ def output_team_list():
             compName = json_data['compName']
         # return error if necessary params are missing
         except KeyError:
+            # log error
+            print('output_team_list: 404')
             return 'Did not have necessary params in json', 400
 
         # open a connection to the DB
@@ -99,11 +109,18 @@ def output_team_list():
                 team_list.append(get_scores(scouts, num_of_rounds))
         # return list to client (as a json) if not empty = success
         if team_list:
+            # log success
+            print('output_team_list: success, returning following json')
+            print(jsonify({'team_list': team_list}), 200)
             return jsonify({'team_list': team_list}), 200
         # return error if invalid - no relevant data was found
+        # log error
+        print('output_team_list: 404')
         return 'Error - scouts not found', 404
     # code shouldn't get here but if it does this will catch all errors and return the error type to the client
     except Exception as error:
+        # log error
+        print('output_team_list: 500')
         return type(error).__name__, 500
 
 
