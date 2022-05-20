@@ -2,6 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudio,c++
 *.idea
 *.idea/*
+*./idea/.name
 ### C++ ###
 # Prerequisites
 *.d
