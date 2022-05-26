@@ -131,15 +131,14 @@ def scouts_to_dict(scouts):
 def scouts_to_results(scouts):
     """
     :param scouts: a list of tuples (each tuple a record of a scout)
-    :return:
+    :return: a dictionary containing keys of classic inputs + capital S and pairs of arrays with the relevant values, a
+    bool determining if any scouts were found
     """
     # if no results were found
     if not scouts:  # an empty list is false in python
         return {}, False
     # if got a legit result
     else:
-        # can sort the list now...
-        # ******************************ADD LATER***********************************
         # create dict with empty arrays
         my_dict = scouts_to_dict(scouts)
         # once the values from all the matches are added we can return the dict and true
@@ -201,7 +200,7 @@ def get_team_records(db, teamNumber, compNameS=None):
 
 
 def main():
-    get_teams_of_comp(my_db, 'ISR DISTRICT #2')
+    pass
 
 
 if __name__ == '__main__':
