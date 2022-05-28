@@ -13,27 +13,10 @@ PASSWORD = "sMqYl326337995"
 DB_NAME = "scouting_8bit"
 
 
-# useful general purpose functions
-def exe_query(query):
-    """
-    executes query in main database
-    :param query: SQL query to execute (a string)
-    :return: my_cursor
-    """
-    my_db = mysql.connector.connect(
-        host=HOST,
-        user=USER,
-        password=PASSWORD
-    )
-
-    my_cursor = my_db.cursor()
-
-    my_cursor.execute(query)
-
-    return my_cursor
-
-
 def get_all_databases():
+    """
+    :return: a list of all the databases on the server computer
+    """
     my_db = mysql.connector.connect(
         host=HOST,
         user=USER,
