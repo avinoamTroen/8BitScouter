@@ -63,7 +63,7 @@ def remove_unused_values(data_dict):
     remove_all_occurrences(data_dict['generalImpressionS'], DEF_NUM_CHOICE)
 
 
-# ************************************************************************************************************************ reorder
+# *********************************   get major scores for scouts  ****************************************
 def get_scores(data_dict, num_of_rounds):
     """
     gets the scores on three metrics:
@@ -88,7 +88,6 @@ def get_scores(data_dict, num_of_rounds):
     climbs = data_dict['levelClimbedS']
     climb = [climbs.count(0), climbs.count(1), climbs.count(2), climbs.count(3), climbs.count(4)]
 
-    print(climb)
     if sum(climb) != 0:
         taxi_points = (sum(data_dict['passedLineS']) * 2) / sum(climb)  # sum climb is the num of games returned
     else:
@@ -96,7 +95,6 @@ def get_scores(data_dict, num_of_rounds):
     auto_points = avg(data_dict['ballsInUpperAutoS']) * 4 + avg(data_dict['ballsInLowerAutoS']) * 4
     tele_points = avg(data_dict['ballsInUpperTeleS']) * 2 + avg(data_dict['ballsInLowerTeleS'])
     if len(climb) >= 5 and sum(climb) != 0:
-        print('climb true..')
         climb_points = (climb[1] * 4 + climb[2] * 6 + climb[3] * 10 + climb[4] * 15) / sum(climb)
     else:
         climb_points = 0
@@ -182,16 +180,3 @@ def get_avg(data_dict, num_of_rounds):
     scores = get_scores(data_dict, num_of_rounds)
     results_dict = {'scores': scores, 'avg_dict': avg_dict}
     return jsonify(results_dict)
-
-# return min/max - a json
-
-
-# return time past adjusted score - a json
-
-# **********************************  Match expectation  *************************************
-# return
-
-
-# *************************************  Ranked Top Teams  ***************************************************
-
-# ********************************* Comp expectation ***************************************
