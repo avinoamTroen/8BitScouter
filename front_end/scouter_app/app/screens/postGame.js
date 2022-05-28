@@ -4,11 +4,11 @@ import TopNav from '../myComponents/TopNav';
 import { Formats } from '../styles';
 import TitledScale from '../myComponents/TitledScale';
 import store from '../my_redux/store';
-import { setDefensiveDefenseLevel, setOffensiveDefenseLevel, setWasDefendedLevel, setGoodTeamMateLevel, setWasBroken, setGeneralImpression } from '../my_redux/currentScouterActions';
+import { setDefensiveDefenseLevel, setOffensiveDefenseLevel, setWasDefendedLevel, setGoodTeamMateLevel, setWasBroken } from '../my_redux/currentScouterActions';
 import { setFreeText, setRobotNoFunction, setSystemNoFunction } from '../my_redux/currentScouterActions';
 import TitledTextInput from '../myComponents/TitledTextInput';
 import TitledSwitch from '../myComponents/TitledSwitch';
-import { clearedCurrentScout, setWhenCaptured } from '../my_redux/currentScouterActions'
+import { setWhenCaptured } from '../my_redux/currentScouterActions'
 import { addQueue } from '../my_redux/sendQueueActions';
 import getCurrentDateTime from '../utils/myDateTime';
 import sendScouts from '../networking/sendScouts';

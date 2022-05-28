@@ -1,6 +1,6 @@
 import sendOneScout from '../networking/send_things';
 import React from 'react';
-import { SafeAreaView, View, Text, Button, TouchableOpacity } from 'react-native';
+import { SafeAreaView, View, Text, TouchableOpacity } from 'react-native';
 import store from '../my_redux/store';
 import { Typography, Formats } from '../styles';
 

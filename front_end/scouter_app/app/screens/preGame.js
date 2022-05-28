@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import store from '../my_redux/store';
 import { setScouterTeamNumber, setScouterName, setCompName, setMatchType, setMatchNumber, setTeamNumber } from '../my_redux/currentScouterActions'
 import TitledChoiceList from '../myComponents/ChoiceList';
@@ -26,6 +26,7 @@ export default function preGame({ navigation }) {
 
     // Set up data - 'arrays'
     const getScouterTeams = () => {
+        // these are the only teams using the project
         return [
             0,
             7845,
@@ -34,21 +35,14 @@ export default function preGame({ navigation }) {
             6230
         ]
     }
-    const getScouterNames = () => {
-        return [
-            '',
-            'avinoam',
-            'yair',
-            'sela'
-        ]
-    }
+
     const scouterTeams = getScouterTeams()
-    const scouterNames = getScouterNames()
 
     // ***Middle Row***
 
     // Set up data - 'arrays'
     const getCompNames = () => {
+        // these are the only comps in the season
         return [
             '',
             'PREGIONAL',
@@ -60,6 +54,7 @@ export default function preGame({ navigation }) {
         ]
     }
     const getMatchTypes = () => {
+        // these are the only types of matches
         return [
             '',
             'Test/Practice',
@@ -70,25 +65,11 @@ export default function preGame({ navigation }) {
         ]
     }
     const getMatchNumbers = () => {
-        return [...Array(100).keys()]
+        return [...Array(100).keys()] // 100 is a large number and greater than the max number of matches in a comp (about 60-70)
     }
     const compNames = getCompNames()
     const matchTypes = getMatchTypes()
     const matchNumbers = getMatchNumbers()
-
-    // ***Bottom row***
-
-    // Set up data - 'arrays'
-    const getTeamNumbers = () => {
-        return [
-            0,
-            7845,
-            7067,
-            3083,
-            6230
-        ]
-    }
-    const teamNumbers = getTeamNumbers()
 
     return (
         <View style={{ flex: 1 }}>

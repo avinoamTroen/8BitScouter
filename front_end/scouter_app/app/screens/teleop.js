@@ -1,14 +1,11 @@
-import { useState } from 'react';
 import {
     StyleSheet,
     Text,
-    View,
     SafeAreaView,
     TouchableOpacity
 } from 'react-native';
 import React from 'react';
 import CoumterTracker from '../myComponents/CounterTracker';
-import SwipableContainer from '../myComponents/SwipableContainer';
 import { setBallsInUpperTele, setBallsInLowerTele, setBallsMissedTele } from '../my_redux/currentScouterActions';
 import store from '../my_redux/store';
 import { Formats } from '../styles'

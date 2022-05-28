@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import store from '../my_redux/store';
 import { Formats } from '../styles';
 import TopNav from '../myComponents/TopNav';
 import TitledSwitch from '../myComponents/TitledSwitch';
 import TitledTextInput from '../myComponents/TitledTextInput';
-import { setAutoMalfunction, setPassedLine, setBallsHumanShotAuto, setBallsHumanScoredAuto, setAutoFreeText } from '../my_redux/currentScouterActions'
+import { setAutoMalfunction, setPassedLine, setAutoFreeText } from '../my_redux/currentScouterActions'
 
 export default function AfterAuto({ navigation }) {
     // navigation 

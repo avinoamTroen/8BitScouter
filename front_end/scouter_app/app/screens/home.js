@@ -1,9 +1,7 @@
-import sendOneScout from '../networking/send_things';
 import React, { useState } from 'react';
-import { SafeAreaView, View, Text, Button, TouchableOpacity } from 'react-native';
+import { SafeAreaView, View, Text, TouchableOpacity } from 'react-native';
 import store from '../my_redux/store';
 import { Typography, Formats } from '../styles';
-import { clearedCurrentScout } from '../my_redux/currentScouterActions';
 import resetScout from '../utils/partiallyResetScout';
 
 export default function Home({ navigation }) {
@@ -20,12 +18,6 @@ export default function Home({ navigation }) {
 
 
     const [numOfUnsent, setNumOfUnsent] = useState('?')
-
-
-
-    const runTestConnection2 = async () => {
-        res = await sendOneScout(store.getState());
-    }
 
 
 
