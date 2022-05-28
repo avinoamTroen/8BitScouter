@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native';
 import { Typography, Formats } from '../styles';
 

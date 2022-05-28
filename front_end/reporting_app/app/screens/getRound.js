@@ -1,10 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
-import { View, Text, Button, StyleSheet, SafeAreaView, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, Button, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import TitledNumInput from '../myComponents/TitledNumInput'
 import store from '../redux/store';
-import { setTeamNumber, setGoBack, setTeamNumberB1, setTeamNumberB2, setTeamNumberB3, setTeamNumberR1, setTeamNumberR2, setTeamNumberR3 } from '../redux/actions';
-import get_team_avgs from '../networking/get_team_avgs';
+import { setGoBack, setTeamNumberB1, setTeamNumberB2, setTeamNumberB3, setTeamNumberR1, setTeamNumberR2, setTeamNumberR3 } from '../redux/actions';
 import { round2 } from '../utils/utils';
 import { getRoundFromServer } from '../networking/get_team_avgs';
 

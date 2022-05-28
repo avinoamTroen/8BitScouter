@@ -1,6 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
-import { View, Text, Button, StyleSheet, SafeAreaView, TextInput } from 'react-native';
+import { View, Button, StyleSheet, SafeAreaView, TextInput } from 'react-native';
 import get_single_scout from '../networking/get_one_scout'
 
 export default function goHome({ navigation }) {

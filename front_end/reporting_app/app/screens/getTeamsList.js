@@ -1,6 +1,6 @@
 import getTeamsListFromServer from '../networking/getTeamsListFromServer'
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, ScrollView, Text, TouchableOpacity } from 'react-native';
+import { SafeAreaView, View, FlatList, Text, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 import { round2 } from '../utils/utils'
 import { setCompName, setGoBack } from '../redux/actions';
