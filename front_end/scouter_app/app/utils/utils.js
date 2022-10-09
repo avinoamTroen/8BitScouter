@@ -1,7 +1,7 @@
 // info to help conncect to the right server
-const DEV = false
-const devServerIp = '10.74.100.24'
-const elasticIp = '184.72.229.230'
+const DEV = true
+const devServerIp = '192.168.68.67'
+const elasticIp = '34.199.69.108'
 export const SERVER_IP_ADDRESS = DEV ? devServerIp : elasticIp // sends to elastic ip if dev is false
 export const INPUT_SERVER_PORT = '3173'
 

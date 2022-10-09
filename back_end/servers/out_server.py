@@ -5,7 +5,7 @@ from flask import Flask, request
 from mysql_stuff.get_things_sql import *
 from out_data import *
 import mysql.connector
-import servers.mysql_stuff.mysql_utils as mysql_utils
+import mysql_stuff.mysql_utils as mysql_utils
 
 # page director - gets the correct function based on url and is in charge of threading and directing everything
 app = Flask(__name__)

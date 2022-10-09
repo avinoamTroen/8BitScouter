@@ -2,9 +2,9 @@
 # in_server
 from utils import *
 from flask import Flask, request
-from mysql_stuff.input_data_to_mysql import insert_record_oneScout
 import mysql.connector
-import servers.mysql_stuff.mysql_utils as mysql_utils
+from mysql_stuff.input_data_to_mysql import insert_record_oneScout
+import mysql_stuff.mysql_utils as mysql_utils
 
 
 # page director - gets the correct function based on url and is in charge of threading and directing everything
