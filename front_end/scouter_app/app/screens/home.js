@@ -25,7 +25,7 @@ export default function Home({ navigation }) {
         <SafeAreaView style={{ ...Formats.NavigationButton, alignItems: 'center' }} >
             <Text style={Typography.BigText}>8Bit Scouting App</Text>
             <Text style={Typography.BigText}>7845</Text>
-            <Text style={Typography.BigText}>Version: <Text style={{ color: 'red' }}>2.0.1</Text></Text>
+            <Text style={Typography.BigText}>Version: <Text style={{ color: 'red' }}>2.0.2</Text></Text>
             <TouchableOpacity onPress={() => setNumOfUnsent(store.getState().scoutSendingQueue.length)} style={[Formats.NavigationButton, { backgroundColor: 'brown' }]}>
                 <View style={Formats.NavigationButton}>
                     <Text style={Typography.BigText}>Number of unsent scouts is <Text style={{ color: 'red' }}>{numOfUnsent}</Text>{'\n'} (press to update)</Text>

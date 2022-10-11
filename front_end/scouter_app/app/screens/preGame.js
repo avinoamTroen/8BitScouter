@@ -51,8 +51,7 @@ export default function preGame({ navigation }) {
             'ISR DISTRICT #3',
             'ISR DISTRICT #4',
             'ISR CHAMPIONSHIP',
-            'ISR OFF SEASON #1',
-
+            'ISR OFF SEASON #1'
         ]
     }
     const getMatchTypes = () => {
